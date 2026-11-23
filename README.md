@@ -19,34 +19,34 @@ Deployed live on Linux (Ubuntu 24.04 / Linode) with automated zero-downtime depl
 
 ```mermaid
 flowchart TD
-    subgraph Client Layer [Frontend Client — React 18 / TypeScript / Vite]
-        UI[Platform Command Center / Dashboards]
-        Gantt[Interactive Gantt Dispatch Scheduler]
-        Maps[Google Maps / Leaflet Traffic Visualizer]
-        Actions[Action Execution Queue & Modals]
+    subgraph ClientLayer ["Frontend Client — React 18 / TypeScript / Vite"]
+        UI["Platform Command Center / Dashboards"]
+        Gantt["Interactive Gantt Dispatch Scheduler"]
+        Maps["Google Maps / Leaflet Traffic Visualizer"]
+        Actions["Action Execution Queue & Modals"]
     end
 
-    subgraph Reverse Proxy & Security [Nginx 1.24+ / SSL / HTTP Caching]
-        Nginx[Nginx Reverse Proxy]
-        Auth[Argon2id Password Hashing & JWT Dual-Token Engine]
+    subgraph SecurityLayer ["Reverse Proxy & Security — Nginx 1.24+ / SSL / HTTP Caching"]
+        Nginx["Nginx Reverse Proxy"]
+        Auth["Argon2id Password Hashing & JWT Dual-Token Engine"]
     end
 
-    subgraph Application Service Layer [FastAPI Asynchronous Engine — Python 3.12]
-        Ingest[ERP Streaming Ingestion & Deduplication Worker]
-        Solver[Combinatorial Dispatch Solver & Pareto Engine]
-        RouteEngine[2D Route Analysis & In-Transit TM Incident Solver]
-        ActionEngine[Idempotent Action State Machine & Financial Lineage]
-        MLService[Supervised ML Registry & Safety Promotion Gates]
+    subgraph ServiceLayer ["FastAPI Asynchronous Engine — Python 3.12"]
+        Ingest["ERP Streaming Ingestion & Deduplication Worker"]
+        Solver["Combinatorial Dispatch Solver & Pareto Engine"]
+        RouteEngine["2D Route Analysis & In-Transit TM Incident Solver"]
+        ActionEngine["Idempotent Action State Machine & Financial Lineage"]
+        MLService["Supervised ML Registry & Safety Promotion Gates"]
     end
 
-    subgraph External & Streaming Integrations
-        GMaps[Google Routes API v2\nCircuit Breaker & Speed Intervals]
-        SSE[Server-Sent Events\nLive Telemetry Streaming]
+    subgraph IntegrationsLayer ["External & Streaming Integrations"]
+        GMaps["Google Routes API v2<br/>Circuit Breaker & Speed Intervals"]
+        SSE["Server-Sent Events<br/>Live Telemetry Streaming"]
     end
 
-    subgraph Persistence & Caching Layer
-        PG[(PostgreSQL 16\nRelational Master & Audit Logs)]
-        Redis[(Redis 7\nMulti-Tier Route Cache & Pub/Sub)]
+    subgraph PersistenceLayer ["Persistence & Caching Layer"]
+        PG[("PostgreSQL 16<br/>Relational Master & Audit Logs")]
+        Redis[("Redis 7<br/>Multi-Tier Route Cache & Pub/Sub")]
     end
 
     UI --> Nginx
@@ -55,7 +55,11 @@ flowchart TD
     Actions --> Nginx
 
     Nginx --> Auth
-    Auth --> Application Service Layer
+    Auth --> Ingest
+    Auth --> Solver
+    Auth --> RouteEngine
+    Auth --> ActionEngine
+    Auth --> MLService
 
     Ingest --> PG
     Solver --> PG
@@ -65,8 +69,9 @@ flowchart TD
     RouteEngine --> PG
     ActionEngine --> PG
     MLService --> PG
-    Application Service Layer --> SSE
-    SSE --> UI
+    RouteEngine -.-> SSE
+    ActionEngine -.-> SSE
+    SSE -.-> UI
 ```
 
 ---
@@ -77,16 +82,17 @@ flowchart TD
 * **Multi-Format Workbook Processing:** Ingests complex commercial ERP workbooks (`.xlsx`, `.xlsm`, `.xls`, `.csv`) through chunked asynchronous stream readers via `openpyxl` and streaming CSV decoders.
 * **Cryptographic Deduplication:** Calculates real-time streaming SHA-256 checksums to enforce strict data provenance and prevent duplicate dispatch processing across multi-plant batches.
 * **Canonical Relational Modeling:** Normalizes raw dispatches into a 5-stage temporal delivery lifecycle:
-  * $T_1$: Outbound transit duration (Plant $\rightarrow$ Jobsite)
-  * $T_{2a}$: Site gate queue holding delay (Baseline SLA: $\le 20\text{ min}$)
-  * $T_{2b}$: Concrete discharge & pour duration (Baseline SLA: $\le 60\text{ min}$)
-  * $T_{2c}$: Plant departure detention delay (Baseline SLA: $\le 10\text{ min}$)
-  * $T_3$: Empty vehicle return transit (Jobsite $\rightarrow$ Plant)
+  * **T₁:** Outbound transit duration (Plant &rarr; Jobsite)
+  * **T₂ₐ:** Site gate queue holding delay (Baseline SLA: &le; 20 min)
+  * **T₂ᵦ:** Concrete discharge & pour duration (Baseline SLA: &le; 60 min)
+  * **T₂꜀:** Plant departure detention delay (Baseline SLA: &le; 10 min)
+  * **T₃:** Empty vehicle return transit (Jobsite &rarr; Plant)
 
 ### 2. Combinatorial Dispatch Schedule Optimization (Pareto Solver)
 * **Mathematical Solver Engine (`solver_engine.py`):** Evaluates multi-plant dispatch sequences and simulates departure pacing adjustments without requiring fleet expansion.
 * **Pareto Non-Domination Ranking (`pareto_engine.py`):** Simultaneously optimizes conflicting operational criteria:
-  $$\text{Vector } A \text{ dominates } B \iff \forall i \, (A_i \ge B_i) \land \exists i \, (A_i > B_i)$$
+  > **Pareto Dominance Criterion:** Candidate schedule **A** dominates **B** ($A \succ B$) if and only if for all objectives $i$, $(A_i \ge B_i)$ and for at least one objective $i$, $(A_i > B_i)$.
+  
   Evaluates 3 deterministic candidate policies: `BALANCED_OPERATIONS`, `MINIMIZE_DELAY`, and `MAXIMIZE_SLA`.
 * **Multi-Plant Boundary Isolation:** Strictly isolates operational truck fleets per plant origin (e.g., `ACC_VASCO`, `ACC_KUNDAIM`, `ACC_DHARGA`, `ACC_NESSAI`), enforcing zero illegal cross-plant vehicle transfers.
 * **Interactive Dispatch Gantt Scheduling:** Renders fine-grained **+5-minute staggered departure shifts** (`+5m shift`) in an interactive React timeline with explicit algorithmic rationale ("Why?" triggers).
@@ -124,12 +130,12 @@ sequenceDiagram
 
 ### 5. Closed-Loop Action Workflow & Governed Financial Lineage
 * **State Machine Lifecycle (`action_execution_service.py`):** Governs dispatcher directives through an auditable progression:
-  $$\text{PENDING} \longrightarrow \text{ACCEPTED} \longrightarrow \text{IN\_PROGRESS} \longrightarrow \text{EXECUTED} \; (\text{or } \text{REJECTED} / \text{DEFERRED})$$
+  > `PENDING` &rarr; `ACCEPTED` &rarr; `IN_PROGRESS` &rarr; `EXECUTED` *(or `REJECTED` / `DEFERRED`)*
 * **Idempotency & Concurrency:** Protected by unique UUID idempotency keys, version-locking (`version_lock`), and explicit role-based authorization (Dispatcher, Supervisor, Admin).
 * **Governed Financial Formulas:**
-  $$\text{Delay Loss Exposure (₹)} = \text{Excess Delay (mins)} \times \text{₹}25.00/\text{min}$$
-  $$\text{Turnaround Exposure (₹)} = \text{Excess Turnaround (mins)} \times \text{₹}30.00/\text{min}$$
-  $$\text{Idle Diesel Loss (₹)} = \text{Excess Holding (mins)} \times 0.05\text{ L/min} \times \text{₹}95.94/\text{L}$$
+  * **Delay Loss Exposure:** `Excess Delay (mins) × ₹25.00/min`
+  * **Turnaround Exposure:** `Excess Turnaround (mins) × ₹30.00/min`
+  * **Idle Diesel Loss:** `Excess Holding (mins) × 0.05 L/min × ₹95.94/L`
 * **Qualitative Safety Controls (`SLA Buffer`):** When dispatches represent non-monetary operational directives (e.g., priority elevation) or lack complete ERP rate tables, the UI displays `SLA Buffer` rather than inventing unverified financial loss.
 
 ### 6. Supervised ML Training Pipelines & Enterprise Safety Gates
