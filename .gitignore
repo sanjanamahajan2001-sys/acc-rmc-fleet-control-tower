@@ -1,6 +1,4 @@
-# ==========================================
 # Environment variables and secrets
-# ==========================================
 .env
 .env.*
 !.env.example
@@ -11,9 +9,7 @@
 *.p12
 *.pfx
 
-# ==========================================
 # Python
-# ==========================================
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -25,41 +21,37 @@ htmlcov/
 venv/
 ENV/
 
-# ==========================================
-# Frontend / Node.js
-# ==========================================
+# Node.js
 node_modules/
 dist/
 build/
 .vite/
 .npm/
 
-# ==========================================
+# Excel and spreadsheet data
+*.xlsx
+*.xls
+*.xlsm
+*.xlsb
+
 # Local databases
-# ==========================================
 *.db
 *.sqlite
 *.sqlite3
 
-# ==========================================
 # Logs and runtime files
-# ==========================================
 *.log
 logs/
 tmp/
 temp/
 
-# ==========================================
-# IDE and operating system
-# ==========================================
+# IDE and OS
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
 
-# ==========================================
-# Test and generated artifacts
-# ==========================================
+# Test artifacts
 coverage/
 playwright-report/
 test-results/
