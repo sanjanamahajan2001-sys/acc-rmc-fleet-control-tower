@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "execution_id": "REPLOG-41be93016909",
+    "report_id": "dispatch_optimization",
+    "report_name": "Dispatch Optimization Report",
+    "generated_at": "2026-08-20T09:36:58.863767+00:00",
+    "requested_by": "SYSTEM"
+  },
+  "requested_scope": {
+    "plant_id": "ACC_DHARGA",
+    "customer_id": "CUST_AARA_HOTELS",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL"
+  },
+  "effective_scope": {
+    "plant_id": "ACC_DHARGA",
+    "customer_id": "CUST_AARA_HOTELS",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL",
+    "resolved_dataset_id": "DS-20260805-ACC_DHARGA",
+    "record_count": 0,
+    "scope_fingerprint": "74282356bba75c088ab85e12ac2acb1b4d6e55a3f8ca3bd2b1ce0042e6173002"
+  },
+  "scope_fingerprint": "74282356bba75c088ab85e12ac2acb1b4d6e55a3f8ca3bd2b1ce0042e6173002",
+  "status": "COMPLETED",
+  "record_count": 10,
+  "optimization_run_id": "RUN-9BF868AB",
+  "snapshot_hash": "91a09ef1203f2705f91d640c4a4dfd011d547c6d8230953c62bbc67ce5017b84",
+  "recommended_scenario_id": "SCENARIO-RUN-9BF868AB-BALANCED",
+  "kpis": {
+    "total_dispatches": 10,
+    "baseline_sla_pct": 55.0,
+    "optimized_sla_pct": 79.2,
+    "baseline_delay_hours": 18.7,
+    "optimized_delay_hours": 13.5,
+    "total_delay_hours_saved": 5.2,
+    "pareto_score": 94.2
+  },
+  "impact_deltas": [
+    {
+      "metric_name": "SLA Compliance Rate",
+      "observed_baseline": 55.0,
+      "optimized_value": 79.2,
+      "net_delta": 24.2,
+      "percentage_change": 44.0,
+      "unit": "%"
+    },
+    {
+      "metric_name": "Dispatch Accuracy Score (DAS)",
+      "observed_baseline": 61.0,
+      "optimized_value": 78.2,
+      "net_delta": 17.2,
+      "percentage_change": 28.2,
+      "unit": "%"
+    },
+    {
+      "metric_name": "Total Operational Delay",
+      "observed_baseline": 18.7,
+      "optimized_value": 13.5,
+      "net_delta": -5.2,
+      "percentage_change": -27.8,
+      "unit": "hrs"
+    },
+    {
+      "metric_name": "Plant Holding Delay (T2a)",
+      "observed_baseline": 6.6,
+      "optimized_value": 2.6,
+      "net_delta": -4.0,
+      "percentage_change": -61.0,
+      "unit": "hrs"
+    },
+    {
+      "metric_name": "Customer Retention Delay (T2c)",
+      "observed_baseline": 2.2,
+      "optimized_value": 1.3,
+      "net_delta": -0.9,
+      "percentage_change": -42.0,
+      "unit": "hrs"
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario_id": "SCENARIO-RUN-9BF868AB-BALANCED",
+      "scenario_name": "Balanced Operational Cadence Plan",
+      "objective_type": "BALANCED_OPERATIONS",
+      "pareto_score": 94.2,
+      "is_recommended": true,
+      "constraint_violations_count": 0,
+      "sla_gain_pct": 24.2,
+      "delay_reduction_hrs": 5.2
+    },
+    {
+      "scenario_id": "SCENARIO-RUN-9BF868AB-MAX-SLA",
+      "scenario_name": "Customer SLA Delivery Maximization",
+      "objective_type": "MAXIMIZE_SLA",
+      "pareto_score": 91.8,
+      "is_recommended": false,
+      "constraint_violations_count": 0,
+      "sla_gain_pct": 31.0,
+      "delay_reduction_hrs": 4.1
+    },
+    {
+      "scenario_id": "SCENARIO-RUN-9BF868AB-MIN-DELAY",
+      "scenario_name": "Aggressive Queue Delay Minimization",
+      "objective_type": "MINIMIZE_DELAY",
+      "pareto_score": 89.6,
+      "is_recommended": false,
+      "constraint_violations_count": 0,
+      "sla_gain_pct": 18.5,
+      "delay_reduction_hrs": 7.1
+    }
+  ],
+  "records": [
+    {
+      "dispatch_id": "386c6971-1454-470e-b028-db84bef80e9b",
+      "dispatch_number": "SYNTH-TCK-TRIP-2207",
+      "vehicle_id": "GA11T0840",
+      "plant_id": "ACC_DHARGA",
+      "customer_id": "CUST_AARA_HOTELS",
+      "baseline_time_out": "2025-06-20T07:50:15Z",
+      "recommended_time_out": "2025-06-20T07:55:15Z",
+      "time_shift_mins": 5.0,
+      "recommendation_reason": "Pacing departure by +5m clears plant queue bottleneck (holding 28.0m)."
+    },
+    {
+      "dispatch_id": "b0f1453c-5015-4c4d-a619-ceaec590a98a",
+      "dispatch_number": "SYNTH-TCK-TRIP-2208",
+      "vehicle_id": "GA11T0840",
+      "plant_id": "ACC_DHARGA",
+      "customer_id": "CUST_AARA_HOTELS",
+      "baseline_time_out": "2025-06-20T13:27:06Z",
+      "recommended_time_out": "2025-06-20T13:32:06Z",
+      "time_shift_mins": 5.0,
+      "recommendation_reason": "Adjusted departure by +5m to satisfy min spacing gap >= 12.0m."
+    },
+    {
+      "dispatch_id": "d7eb3986-3537-48c2-a427-f56958fb9466",
+      "dispatch_number": "SYNTH-TCK-TRIP-2351",
+      "vehicle_id": "GA11T0842",
+      "plant_id": "ACC_DHARGA",
+      "customer_id": "CUST_AARA_HOTELS",
+      "baseline_time_out": "2025-06-20T15:08:34Z",
+      "recommended_time_out": "2025-06-20T15:13:34Z",
+      "time_shift_mins": 5.0,
+      "recommendation_reason": "Pacing departure by +5m clears plant queue bottleneck (holding 29.0m)."
+    },
+    {
+      "dispatch_id": "028dfda7-ffdb-434e-99c9-7c4b84104048",
+      "dispatch_number": "SYNTH-TCK-TRIP-2011",
+      "vehicle_id": "GA11T0839",
+      "plant_id": "ACC_DHARGA",
+      "customer_id": "CUST_AARA_HOTELS",
+      "baseline_time_out": "2025-06-20T17:59:18Z",
+      "recommended_time_out": "2025-06-20T18:04:18Z",
+      "time_shift_mins": 5.0,
+      "recommendation_reason": "Pacing departure by +5m clears plant queue bottleneck (holding 30.0m)."
+    },
+    {
+      "dispatch_id": "021cf2c4-2a3d-48bd-831f-83df13d50320",
+      "dispatch_number": "SYNTH-TCK-TRIP-2356",
+      "vehicle_id": "GA11T0842",
+      "plant_id": "ACC_DHARGA",
+      "customer_id": "CUST_AARA_HOTELS",
+      "baseline_time_out": "2025-06-23T12:31:59Z",
+      "recommended_time_out": "2025-06-23T12:31:59Z",
+      "time_shift_mins": 0.0,
+      "recommendation_reason": "Baseline departure satisfies all candidate operational constraints."
+    },
+    {
+      "dispatch_id": "5899fe11-ee09-46a1-a8d4-5177cb2d5f40",
+      "dispatch_number": "SYNTH-TCK-TRIP-2391",
+      "vehicle_id": "GA11T0842",
+      "plant_id": "ACC_DHARGA",
+      "customer_id": "CUST_AARA_HOTELS",
+      "baseline_time_out": "2025-07-11T14:16:29Z",
+      "recommended_time_out": "2025-07-11T14:21:29Z",
+      "time_shift_mins": 5.0,
+      "recommendation_reason": "Pacing departure by +5m clears plant queue bottleneck (holding 58.0m)."
+    },
+    {
+      "dispatch_id": "1e0004ab-0073-485c-8bfb-c9b986f1bfb9",
+      "dispatch_number": "SYNTH-TCK-TRIP-1815",
+      "vehicle_id": "GA11T0835",
+      "plant_id": "ACC_DHARGA",
+      "customer_id": "CUST_AARA_HOTELS",
+      "baseline_time_out": "2025-07-13T09:36:23Z",
+      "recommended_time_out": "2025-07-13T09:36:23Z",
+      "time_shift_mins": 0.0,
+      "recommendation_reason": "Baseline departure satisfies all candidate operational constraints."
+    },
+    {
+      "dispatch_id": "a42158cc-9225-468b-b5da-94358e83e1f8",
+      "dispatch_number": "SYNTH-TCK-TRIP-2257",
+      "vehicle_id": "GA11T0840",
+      "plant_id": "ACC_DHARGA",
+      "customer_id": "CUST_AARA_HOTELS",
+      "baseline_time_out": "2025-07-15T13:01:45Z",
+      "recommended_time_out": "2025-07-15T13:06:45Z",
+      "time_shift_mins": 5.0,
+      "recommendation_reason": "Pacing departure by +5m clears plant queue bottleneck (holding 32.0m)."
+    },
+    {
+      "dispatch_id": "cbc1d632-b68a-4b2a-bc39-885c5b018872",
+      "dispatch_number": "SYNTH-TCK-TRIP-2405",
+      "vehicle_id": "GA11T0842",
+      "plant_id": "ACC_DHARGA",
+      "customer_id": "CUST_AARA_HOTELS",
+      "baseline_time_out": "2025-07-19T13:00:51Z",
+      "recommended_time_out": "2025-07-19T13:20:51Z",
+      "time_shift_mins": 20.0,
+      "recommendation_reason": "Pacing departure by +20m clears plant queue bottleneck (holding 76.0m)."
+    },
+    {
+      "dispatch_id": "e11e0a33-cda8-440e-a162-1cfbca485f50",
+      "dispatch_number": "SYNTH-TCK-TRIP-1745",
+      "vehicle_id": "GA11T0830",
+      "plant_id": "ACC_DHARGA",
+      "customer_id": "CUST_AARA_HOTELS",
+      "baseline_time_out": "2025-08-10T14:25:24Z",
+      "recommended_time_out": "2025-08-10T14:30:24Z",
+      "time_shift_mins": 5.0,
+      "recommendation_reason": "Pacing departure by +5m clears plant queue bottleneck (holding 118.0m)."
+    }
+  ],
+  "exceptions": []
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "execution_id": "REPLOG-ab0a575400b9",
+    "report_id": "site_comparison",
+    "report_name": "Site Comparison Report",
+    "generated_at": "2026-08-20T09:11:26.616315+00:00",
+    "requested_by": "SYSTEM"
+  },
+  "requested_scope": {
+    "plant_id": "ALL",
+    "customer_id": "ALL",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL"
+  },
+  "effective_scope": {
+    "plant_id": "ALL",
+    "customer_id": "ALL",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL",
+    "resolved_dataset_id": "DS-20260805-ALL",
+    "record_count": 3532,
+    "scope_fingerprint": "8dd3cba9040d31a770baaf26ff65afab2ebcb0ceaf7075bd32aee72e983e419a"
+  },
+  "scope_fingerprint": "8dd3cba9040d31a770baaf26ff65afab2ebcb0ceaf7075bd32aee72e983e419a",
+  "status": "COMPLETED",
+  "record_count": 4,
+  "kpis": {
+    "total_sites_evaluated": 4,
+    "total_dispatches": 3532,
+    "total_volume_cum": 165006.0,
+    "avg_holding_mins": 25.4,
+    "avg_retention_mins": 9.5,
+    "avg_dispatch_accuracy": 60.5,
+    "optimal_sites_count": 0
+  },
+  "records": [
+    {
+      "rank": 1,
+      "site_code": "ACC_VASCO",
+      "site_name": "ACC VASCO",
+      "dispatches": 1174,
+      "volume_cum": 38755.0,
+      "avg_holding_mins": 18.5,
+      "avg_retention_mins": 7.5,
+      "max_queue_tms": 8,
+      "dispatch_accuracy": 70.0,
+      "status": "Good"
+    },
+    {
+      "rank": 2,
+      "site_code": "ACC_KUNDAIM",
+      "site_name": "ACC KUNDAIM",
+      "dispatches": 1065,
+      "volume_cum": 57222.0,
+      "avg_holding_mins": 22.8,
+      "avg_retention_mins": 7.8,
+      "max_queue_tms": 9,
+      "dispatch_accuracy": 65.2,
+      "status": "Warning"
+    },
+    {
+      "rank": 3,
+      "site_code": "ACC_DHARGA",
+      "site_name": "ACC DHARGA",
+      "dispatches": 978,
+      "volume_cum": 48693.0,
+      "avg_holding_mins": 26.2,
+      "avg_retention_mins": 11.9,
+      "max_queue_tms": 7,
+      "dispatch_accuracy": 57.4,
+      "status": "Warning"
+    },
+    {
+      "rank": 4,
+      "site_code": "ACC_NESSAI",
+      "site_name": "ACC NESSAI",
+      "dispatches": 315,
+      "volume_cum": 20336.0,
+      "avg_holding_mins": 34.3,
+      "avg_retention_mins": 10.8,
+      "max_queue_tms": 4,
+      "dispatch_accuracy": 49.2,
+      "status": "Critical"
+    }
+  ],
+  "exceptions": []
+}

@@ -1,0 +1,3891 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "execution_id": "REPLOG-f6a64c87cf97",
+    "report_id": "operational_intelligence",
+    "report_name": "Operational Intelligence Report",
+    "generated_at": "2026-08-21T05:07:24.044629+00:00",
+    "requested_by": "SYSTEM"
+  },
+  "requested_scope": {
+    "plant_id": "ALL",
+    "customer_id": "ALL",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL"
+  },
+  "effective_scope": {
+    "plant_id": "ALL",
+    "customer_id": "ALL",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL",
+    "resolved_dataset_id": "DS-20260805-ALL",
+    "record_count": 3532,
+    "scope_fingerprint": "8dd3cba9040d31a770baaf26ff65afab2ebcb0ceaf7075bd32aee72e983e419a"
+  },
+  "scope_fingerprint": "8dd3cba9040d31a770baaf26ff65afab2ebcb0ceaf7075bd32aee72e983e419a",
+  "status": "COMPLETED",
+  "record_count": 10,
+  "kpis": {
+    "total_sites_evaluated": 10,
+    "total_trips": 19,
+    "avg_sri_score": 2.4,
+    "avg_swi_site": 2.3,
+    "avg_dpi_site": 0.0,
+    "avg_fui_site": 5.8,
+    "grade_a_sites_count": 0
+  },
+  "health": {
+    "overall_health_score": 63.2,
+    "health_status": "CRITICAL",
+    "freshness": {
+      "dataset_id": "DS-20260805-001",
+      "operational_date": "2026-08-05",
+      "import_timestamp": "2026-08-21T05:07:24.062710+00:00",
+      "dataset_status": "ACTIVE_PRODUCTION",
+      "total_dispatches": 3532,
+      "total_trips": 3532
+    },
+    "metrics": [
+      {
+        "key": "dispatch_accuracy",
+        "label": "Dispatch Accuracy Score (DAS)",
+        "current_value": 63.2,
+        "unit": "%",
+        "status": "CRITICAL",
+        "target": 90.0,
+        "threshold": null,
+        "variance": -26.8,
+        "provenance_table": "dispatches",
+        "provenance_formula": "count(on_time_dispatches) / count(total_dispatches) * 100"
+      },
+      {
+        "key": "site_waiting_index",
+        "label": "Site Waiting Index (SWI)",
+        "current_value": 46.6,
+        "unit": "hrs",
+        "status": "CRITICAL",
+        "target": 75.0,
+        "threshold": null,
+        "variance": -28.4,
+        "provenance_table": "dispatches",
+        "provenance_formula": "sum(holding_time > 20min) / count(dispatches)"
+      },
+      {
+        "key": "delay_penalty_index",
+        "label": "Delay Penalty Index (DPI)",
+        "current_value": 8.2,
+        "unit": "hrs",
+        "status": "CRITICAL",
+        "target": 85.0,
+        "threshold": null,
+        "variance": -76.8,
+        "provenance_table": "dispatches",
+        "provenance_formula": "sum(retention_time > 10min) / count(dispatches)"
+      },
+      {
+        "key": "fleet_utilization_index",
+        "label": "Fleet Utilization Index (FUI)",
+        "current_value": 100.0,
+        "unit": "%",
+        "status": "OPTIMAL",
+        "target": 70.0,
+        "threshold": null,
+        "variance": 30.0,
+        "provenance_table": "trips / vehicles",
+        "provenance_formula": "count(active_vehicles_with_trips) / count(total_fleet) * 100"
+      },
+      {
+        "key": "active_critical_alerts",
+        "label": "Active Critical Alerts",
+        "current_value": 1300.0,
+        "unit": "alerts",
+        "status": "CRITICAL",
+        "target": null,
+        "threshold": 0.0,
+        "variance": null,
+        "provenance_table": "operational_alerts",
+        "provenance_formula": "count(id) where status='OPEN' and severity='CRITICAL'"
+      }
+    ],
+    "calculation_status": "SUCCESS",
+    "calculation_notes": "Authoritative PostgreSQL calculation successful across 3532 dispatches."
+  },
+  "alerts": {
+    "summary": {
+      "total_active": 2688,
+      "open_count": 2685,
+      "acknowledged_count": 3,
+      "critical_count": 1300,
+      "warning_count": 1388,
+      "info_count": 0
+    },
+    "severity_distribution": [
+      {
+        "severity": "CRITICAL",
+        "count": 1300,
+        "percentage": 48.4
+      },
+      {
+        "severity": "WARNING",
+        "count": 1388,
+        "percentage": 51.6
+      },
+      {
+        "severity": "INFO",
+        "count": 0,
+        "percentage": 0.0
+      }
+    ],
+    "top_categories": [
+      {
+        "alert_type": "PLANT_HOLDING_BOTTLENECK",
+        "label": "Plant Holding Bottleneck",
+        "severity": "CRITICAL",
+        "count": 1300,
+        "percentage": 48.4
+      },
+      {
+        "alert_type": "TRANSIT_DELAY_EXCESSIVE",
+        "label": "Transit Delay Excessive",
+        "severity": "WARNING",
+        "count": 1002,
+        "percentage": 37.3
+      },
+      {
+        "alert_type": "SITE_RETENTION_EXCESSIVE",
+        "label": "Site Retention Excessive",
+        "severity": "WARNING",
+        "count": 386,
+        "percentage": 14.4
+      }
+    ],
+    "plant_concentration": [
+      {
+        "group_type": "PLANT",
+        "group_code": "ACC_DHARGA",
+        "group_name": "ACC_DHARGA",
+        "critical_count": 417,
+        "warning_count": 437,
+        "total_count": 854
+      },
+      {
+        "group_type": "PLANT",
+        "group_code": "ACC_KUNDAIM",
+        "group_name": "ACC_KUNDAIM",
+        "critical_count": 371,
+        "warning_count": 481,
+        "total_count": 852
+      },
+      {
+        "group_type": "PLANT",
+        "group_code": "ACC_VASCO",
+        "group_name": "ACC_VASCO",
+        "critical_count": 352,
+        "warning_count": 260,
+        "total_count": 612
+      },
+      {
+        "group_type": "PLANT",
+        "group_code": "ACC_NESSAI",
+        "group_name": "ACC_NESSAI",
+        "critical_count": 160,
+        "warning_count": 210,
+        "total_count": 370
+      }
+    ],
+    "customer_concentration": [
+      {
+        "group_type": "CUSTOMER",
+        "group_code": "DEFAULT_CUSTOMER",
+        "group_name": "DEFAULT_CUSTOMER",
+        "critical_count": 618,
+        "warning_count": 685,
+        "total_count": 1303
+      },
+      {
+        "group_type": "CUSTOMER",
+        "group_code": "CUST_NORBET_FERNANDES_MORJIM",
+        "group_name": "CUST_NORBET_FERNANDES_MORJIM",
+        "critical_count": 27,
+        "warning_count": 64,
+        "total_count": 91
+      },
+      {
+        "group_type": "CUSTOMER",
+        "group_code": "CUST_RAJ_CHOPRA_N_COMPANY",
+        "group_name": "CUST_RAJ_CHOPRA_N_COMPANY",
+        "critical_count": 38,
+        "warning_count": 31,
+        "total_count": 69
+      },
+      {
+        "group_type": "CUSTOMER",
+        "group_code": "CUST_QUBIK_INFRA",
+        "group_name": "CUST_QUBIK_INFRA",
+        "critical_count": 26,
+        "warning_count": 34,
+        "total_count": 60
+      },
+      {
+        "group_type": "CUSTOMER",
+        "group_code": "CUST_JPM_DEVELOPER",
+        "group_name": "CUST_JPM_DEVELOPER",
+        "critical_count": 24,
+        "warning_count": 26,
+        "total_count": 50
+      }
+    ],
+    "priority_alerts": [
+      {
+        "id": "0002f048-b223-4b85-ae7d-03a831cf259a",
+        "alert_type": "PLANT_HOLDING_BOTTLENECK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "plant_id": "ACC_KUNDAIM",
+        "customer_id": "CUST_KAJI_REAL_ESTAE_PVT_LTD",
+        "metric_name": "t2a_holding_mins",
+        "actual_value": 34.0,
+        "threshold_value": 20.0,
+        "unit": "mins",
+        "business_impact": "Plant departure queue bottleneck",
+        "detected_at": "2026-08-14T05:02:14.067138+00:00"
+      },
+      {
+        "id": "005456c1-c7a9-4f82-87f6-1c3003d532a6",
+        "alert_type": "PLANT_HOLDING_BOTTLENECK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "plant_id": "ACC_DHARGA",
+        "customer_id": "CUST_COLLIN_FERNENDES",
+        "metric_name": "t2a_holding_mins",
+        "actual_value": 47.0,
+        "threshold_value": 20.0,
+        "unit": "mins",
+        "business_impact": "Plant departure queue bottleneck",
+        "detected_at": "2026-08-14T05:02:14.067138+00:00"
+      },
+      {
+        "id": "008e523c-596e-4f9a-b39c-b70ad8f172cd",
+        "alert_type": "PLANT_HOLDING_BOTTLENECK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "plant_id": "ACC_KUNDAIM",
+        "customer_id": "DEFAULT_CUSTOMER",
+        "metric_name": "t2a_holding_mins",
+        "actual_value": 31.0,
+        "threshold_value": 20.0,
+        "unit": "mins",
+        "business_impact": "Plant departure queue bottleneck",
+        "detected_at": "2026-08-14T05:02:14.067138+00:00"
+      },
+      {
+        "id": "00ae3a19-7ae3-4f1f-8b6f-71330f8447c6",
+        "alert_type": "PLANT_HOLDING_BOTTLENECK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "plant_id": "ACC_KUNDAIM",
+        "customer_id": "DEFAULT_CUSTOMER",
+        "metric_name": "t2a_holding_mins",
+        "actual_value": 21.0,
+        "threshold_value": 20.0,
+        "unit": "mins",
+        "business_impact": "Plant departure queue bottleneck",
+        "detected_at": "2026-08-14T05:02:14.067138+00:00"
+      },
+      {
+        "id": "017fab20-9dcc-4d50-84dd-06c769431373",
+        "alert_type": "PLANT_HOLDING_BOTTLENECK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "plant_id": "ACC_KUNDAIM",
+        "customer_id": "CUST_K_R_CONST_ANJUNA",
+        "metric_name": "t2a_holding_mins",
+        "actual_value": 25.0,
+        "threshold_value": 20.0,
+        "unit": "mins",
+        "business_impact": "Plant departure queue bottleneck",
+        "detected_at": "2026-08-14T05:02:14.067138+00:00"
+      }
+    ],
+    "calculation_status": "SUCCESS",
+    "calculation_notes": "Authoritative WS-07 alert intelligence calculation successful across 2688 active alerts (Plant: ALL, Customer: ALL, Dataset: DS-20260805-001)."
+  },
+  "recommendations": {
+    "summary": {
+      "active_recommendations": 4,
+      "high_priority_issues": 2190,
+      "estimated_delay_reduction_mins": 12369.1,
+      "estimated_sla_recovery_pct": 45.0,
+      "fleet_efficiency_opportunity_pct": 35.0
+    },
+    "recommendations": [
+      {
+        "recommendation_id": "REC-CRIT-01",
+        "priority": "CRITICAL",
+        "recommendation_text": "Re-route 2 idle mixer trucks to METROPOLITAN for peak unloading",
+        "underlying_reason": "Severe queue spillover (1300 holding SLA breaches detected)",
+        "affected_plant": "METROPOLITAN",
+        "affected_vehicle": "GA11T0832",
+        "expected_impact": "Queue -35%",
+        "confidence_pct": 94.3,
+        "status": "Pending"
+      },
+      {
+        "recommendation_id": "REC-HIGH-01",
+        "priority": "HIGH",
+        "recommendation_text": "Increase dispatch spacing between 10:00–12:00 by 8 mins for METROPOLITAN",
+        "underlying_reason": "Current site unloading capacity exceeded (avg holding 23.3m)",
+        "affected_plant": "METROPOLITAN",
+        "affected_vehicle": "GA07F7624",
+        "expected_impact": "Holding -18%",
+        "confidence_pct": 91.7,
+        "status": "Pending"
+      },
+      {
+        "recommendation_id": "REC-MED-01",
+        "priority": "MEDIUM",
+        "recommendation_text": "Prioritize unloading bay 2 for high-slump mix dispatches at METROPOLITAN",
+        "underlying_reason": "Unloader bottleneck causing site retention delay (890 breaches)",
+        "affected_plant": "METROPOLITAN",
+        "affected_vehicle": "GA07F7632",
+        "expected_impact": "Retention -12%",
+        "confidence_pct": 80.5,
+        "status": "Pending"
+      },
+      {
+        "recommendation_id": "REC-LOW-01",
+        "priority": "LOW",
+        "recommendation_text": "Stagger afternoon dispatch departures starting 14:00 at METROPOLITAN",
+        "underlying_reason": "Overlapping customer site delivery windows across plant cluster",
+        "affected_plant": "METROPOLITAN",
+        "affected_vehicle": "GA07F7626",
+        "expected_impact": "Overlap -22%",
+        "confidence_pct": 92.0,
+        "status": "Pending"
+      }
+    ],
+    "insights": [
+      {
+        "title": "Queue Bottleneck Spillover Prevention",
+        "category": "Queue Management",
+        "action_type": "Immediate Dispatch Spacing",
+        "description": "Active holding queue spillover at METROPOLITAN. Re-route TMs immediately.",
+        "urgency": "Immediate"
+      },
+      {
+        "title": "Fleet Asset Capacity Rebalancing",
+        "category": "Vehicle Redistribution",
+        "action_type": "Asset Re-allocation",
+        "description": "Move idle mixer trucks to METROPOLITAN to absorb peak customer unloading rates.",
+        "urgency": "Proactive"
+      }
+    ],
+    "calculation_status": "SUCCESS",
+    "calculation_notes": "Authoritative RecommendationEngine calculation successful across 4 active recommendations (Plant: ALL, Customer: ALL, Dataset: DS-20260805-001)."
+  },
+  "financial_exposure": {
+    "summary": {
+      "total_financial_exposure_inr": 2192830.0,
+      "holding_delay_cost_inr": 1053550.0,
+      "retention_sla_penalty_inr": 507150.0,
+      "idle_fuel_waste_inr": 632130.0,
+      "total_penalty_mins": 56632.0
+    },
+    "breakdown": [
+      {
+        "category": "PLANT_HOLDING",
+        "label": "Plant Holding Queue Financial Loss",
+        "penalty_mins": 42142.0,
+        "cost_rate_per_min": 25.0,
+        "total_cost_inr": 1053550.0,
+        "percentage": 48.0
+      },
+      {
+        "category": "CUSTOMER_RETENTION",
+        "label": "Customer Site SLA Penalty Exposure",
+        "penalty_mins": 14490.0,
+        "cost_rate_per_min": 35.0,
+        "total_cost_inr": 507150.0,
+        "percentage": 23.1
+      },
+      {
+        "category": "IDLE_FUEL",
+        "label": "Idle Fuel Waste Exposure",
+        "penalty_mins": 42142.0,
+        "cost_rate_per_min": 15.0,
+        "total_cost_inr": 632130.0,
+        "percentage": 28.8
+      }
+    ],
+    "top_plant_risk": [
+      {
+        "entity_type": "PLANT",
+        "entity_code": "ACC_DHARGA",
+        "entity_name": "ACC_DHARGA",
+        "penalty_mins": 19530.0,
+        "financial_exposure_inr": 751560.0
+      },
+      {
+        "entity_type": "PLANT",
+        "entity_code": "ACC_KUNDAIM",
+        "entity_name": "ACC_KUNDAIM",
+        "penalty_mins": 15484.0,
+        "financial_exposure_inr": 602555.0
+      },
+      {
+        "entity_type": "PLANT",
+        "entity_code": "ACC_VASCO",
+        "entity_name": "ACC_VASCO",
+        "penalty_mins": 13740.0,
+        "financial_exposure_inr": 532005.0
+      },
+      {
+        "entity_type": "PLANT",
+        "entity_code": "ACC_NESSAI",
+        "entity_name": "ACC_NESSAI",
+        "penalty_mins": 7878.0,
+        "financial_exposure_inr": 306710.0
+      }
+    ],
+    "top_customer_risk": [
+      {
+        "entity_type": "CUSTOMER",
+        "entity_code": "DEFAULT_CUSTOMER",
+        "entity_name": "DEFAULT_CUSTOMER",
+        "penalty_mins": 26949.0,
+        "financial_exposure_inr": 1047970.0
+      },
+      {
+        "entity_type": "CUSTOMER",
+        "entity_code": "CUST_RAJ_CHOPRA_N_COMPANY",
+        "entity_name": "CUST_RAJ_CHOPRA_N_COMPANY",
+        "penalty_mins": 1672.0,
+        "financial_exposure_inr": 65865.0
+      },
+      {
+        "entity_type": "CUSTOMER",
+        "entity_code": "CUST_QUBIK_INFRA",
+        "entity_name": "CUST_QUBIK_INFRA",
+        "penalty_mins": 1115.0,
+        "financial_exposure_inr": 43280.0
+      },
+      {
+        "entity_type": "CUSTOMER",
+        "entity_code": "CUST_RUBY_REALTORS_MORJIM",
+        "entity_name": "CUST_RUBY_REALTORS_MORJIM",
+        "penalty_mins": 903.0,
+        "financial_exposure_inr": 34720.0
+      },
+      {
+        "entity_type": "CUSTOMER",
+        "entity_code": "CUST_DAFTARY_DESCON_ENGG_PVT_LTD_DECCAN",
+        "entity_name": "CUST_DAFTARY_DESCON_ENGG_PVT_LTD_DECCAN",
+        "penalty_mins": 867.0,
+        "financial_exposure_inr": 34640.0
+      }
+    ],
+    "calculation_status": "SUCCESS",
+    "calculation_notes": "Authoritative financial exposure calculation successful across ₹2,192,830.00 total risk (Plant: ALL, Customer: ALL, Dataset: DS-20260805-001)."
+  },
+  "efficiency": {
+    "summary": {
+      "overall_efficiency_index": 42.7,
+      "fleet_utilization_pct": 100.0,
+      "avg_turnaround_time_mins": 158.2,
+      "avg_holding_time_mins": 23.3,
+      "avg_retention_time_mins": 9.1,
+      "turnaround_efficiency_pct": 0.0,
+      "site_unloading_efficiency_pct": 9.1
+    },
+    "plant_efficiency": [
+      {
+        "plant_code": "ACC_NESSAI",
+        "plant_name": "ACC NESSAI",
+        "active_vehicles": 2,
+        "total_dispatches": 315,
+        "avg_holding_mins": 34.3,
+        "turnaround_efficiency_pct": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "plant_code": "ACC_DHARGA",
+        "plant_name": "ACC DHARGA",
+        "active_vehicles": 7,
+        "total_dispatches": 978,
+        "avg_holding_mins": 26.2,
+        "turnaround_efficiency_pct": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "plant_code": "ACC_KUNDAIM",
+        "plant_name": "ACC KUNDAIM",
+        "active_vehicles": 8,
+        "total_dispatches": 1065,
+        "avg_holding_mins": 22.8,
+        "turnaround_efficiency_pct": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "plant_code": "ACC_VASCO",
+        "plant_name": "ACC VASCO",
+        "active_vehicles": 7,
+        "total_dispatches": 1174,
+        "avg_holding_mins": 18.5,
+        "turnaround_efficiency_pct": 7.3,
+        "efficiency_grade": "Critical"
+      }
+    ],
+    "customer_efficiency": [
+      {
+        "customer_code": "CUST_DAFTARY_DESCON_ENGG_PVT_LTD_DECCAN",
+        "customer_name": "DAFTARY DESCON ENGG PVT LTD DECCAN",
+        "total_trips": 23,
+        "avg_retention_mins": 0.3,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_PRISTINE_REALITY",
+        "customer_name": "PRISTINE REALITY",
+        "total_trips": 16,
+        "avg_retention_mins": 6.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_KENKRE_ELECTRICAL",
+        "customer_name": "KENKRE ELECTRICAL",
+        "total_trips": 15,
+        "avg_retention_mins": 8.9,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_VISHWA_SAMUDRA",
+        "customer_name": "VISHWA SAMUDRA",
+        "total_trips": 15,
+        "avg_retention_mins": 2.4,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_GEO_MILLER",
+        "customer_name": "GEO MILLER",
+        "total_trips": 14,
+        "avg_retention_mins": 19.1,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_KESHVA_KIYAAN",
+        "customer_name": "KESHVA KIYAAN",
+        "total_trips": 11,
+        "avg_retention_mins": 4.9,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_SALIZ_N_COMPANY_PANIJM",
+        "customer_name": "SALIZ N COMPANY PANIJM",
+        "total_trips": 11,
+        "avg_retention_mins": 8.7,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_SYNAPTIC_INTERGRATED",
+        "customer_name": "SYNAPTIC INTERGRATED",
+        "total_trips": 10,
+        "avg_retention_mins": 20.7,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_COSME_COSTA",
+        "customer_name": "COSME COSTA",
+        "total_trips": 9,
+        "avg_retention_mins": 3.7,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_SUN_PARK_HOTEL",
+        "customer_name": "SUN PARK HOTEL",
+        "total_trips": 9,
+        "avg_retention_mins": 17.3,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_S_M_REALTORS_SUCCURRO",
+        "customer_name": "S M REALTORS SUCCURRO",
+        "total_trips": 9,
+        "avg_retention_mins": 3.3,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_COLLIN_FERNENDES",
+        "customer_name": "COLLIN FERNENDES",
+        "total_trips": 8,
+        "avg_retention_mins": 7.9,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_RAJDEEP_BUILDER",
+        "customer_name": "RAJDEEP BUILDER",
+        "total_trips": 8,
+        "avg_retention_mins": 2.5,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_REIS_EUROPA_DEVELOPERS_VEREM",
+        "customer_name": "REIS EUROPA DEVELOPERS VEREM",
+        "total_trips": 8,
+        "avg_retention_mins": 7.2,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_KAJI_REAL_ESTAE_PVT_LTD",
+        "customer_name": "KAJI REAL ESTAE PVT LTD",
+        "total_trips": 6,
+        "avg_retention_mins": 10.7,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_PRASHANT_G_KHARAPURKAR",
+        "customer_name": "PRASHANT G KHARAPURKAR",
+        "total_trips": 6,
+        "avg_retention_mins": 8.2,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_PRIORITY_CONST",
+        "customer_name": "PRIORITY CONST",
+        "total_trips": 6,
+        "avg_retention_mins": 1.5,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_PRUDENT_ENTERPRISES",
+        "customer_name": "PRUDENT ENTERPRISES",
+        "total_trips": 6,
+        "avg_retention_mins": 13.5,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_H_CANOLKAR_PATRADEVI",
+        "customer_name": "H CANOLKAR PATRADEVI",
+        "total_trips": 5,
+        "avg_retention_mins": 5.4,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_JFK_MPT",
+        "customer_name": "JFK MPT",
+        "total_trips": 5,
+        "avg_retention_mins": 0.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_A_K_MEHTA",
+        "customer_name": "A K MEHTA",
+        "total_trips": 4,
+        "avg_retention_mins": 8.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_KAMAT_REAL_ESTATE_METROPOLICE",
+        "customer_name": "KAMAT REAL ESTATE METROPOLICE",
+        "total_trips": 4,
+        "avg_retention_mins": 18.5,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_PRESCON_HOMES_PVT_LTD",
+        "customer_name": "PRESCON HOMES PVT LTD",
+        "total_trips": 4,
+        "avg_retention_mins": 0.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_SOOD_ASSOCIATES",
+        "customer_name": "SOOD ASSOCIATES",
+        "total_trips": 4,
+        "avg_retention_mins": 32.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_SRE_ESTATE_N_DEVLOPMENT_NAVELIM",
+        "customer_name": "SRE ESTATE N DEVLOPMENT NAVELIM",
+        "total_trips": 4,
+        "avg_retention_mins": 0.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_ERACH_VENTURES",
+        "customer_name": "ERACH VENTURES",
+        "total_trips": 3,
+        "avg_retention_mins": 2.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_SALKAR_CONSTUCTION",
+        "customer_name": "SALKAR CONSTUCTION",
+        "total_trips": 3,
+        "avg_retention_mins": 19.7,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_RAJDEEP_BUIDEER",
+        "customer_name": "RAJDEEP BUIDEER",
+        "total_trips": 2,
+        "avg_retention_mins": 5.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_RAJESH_CONSTRUCTION_BAINA_",
+        "customer_name": "RAJESH CONSTRUCTION(BAINA)",
+        "total_trips": 2,
+        "avg_retention_mins": 26.5,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_RISHABH_INFRA_PROJEATS_SANQUALIM",
+        "customer_name": "RISHABH INFRA PROJEATS SANQUALIM",
+        "total_trips": 2,
+        "avg_retention_mins": 29.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_SMC_INFRA",
+        "customer_name": "SMC INFRA",
+        "total_trips": 2,
+        "avg_retention_mins": 0.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_VISION_DEMPO",
+        "customer_name": "VISION DEMPO",
+        "total_trips": 2,
+        "avg_retention_mins": 18.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_COUTINHO_N_ASSOCIATES",
+        "customer_name": "COUTINHO N ASSOCIATES",
+        "total_trips": 1,
+        "avg_retention_mins": 2.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_GAUTAM_AGENCIES_PARRA",
+        "customer_name": "GAUTAM AGENCIES PARRA",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_KESHVA_KIYAAN_MOIRA",
+        "customer_name": "KESHVA KIYAAN MOIRA",
+        "total_trips": 1,
+        "avg_retention_mins": 28.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_MARCON",
+        "customer_name": "MARCON",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_MVR",
+        "customer_name": "MVR",
+        "total_trips": 1,
+        "avg_retention_mins": 40.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_MVR_ASNORA",
+        "customer_name": "MVR ASNORA",
+        "total_trips": 1,
+        "avg_retention_mins": 17.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_NEW_ERA_ANJUNA",
+        "customer_name": "NEW ERA ANJUNA",
+        "total_trips": 1,
+        "avg_retention_mins": 69.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_PREMIER_BULIDER",
+        "customer_name": "PREMIER BULIDER",
+        "total_trips": 1,
+        "avg_retention_mins": 24.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_RAJDEEP_INT_VRINDAVAN_TALEIGAO",
+        "customer_name": "RAJDEEP INT VRINDAVAN TALEIGAO",
+        "total_trips": 1,
+        "avg_retention_mins": 41.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_RAJESH_CONST",
+        "customer_name": "RAJESH CONST",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_RAJ_CONST_TALIGAO",
+        "customer_name": "RAJ CONST TALIGAO",
+        "total_trips": 1,
+        "avg_retention_mins": 1.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_RAMA_CIVIL",
+        "customer_name": "RAMA CIVIL",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_RISHABH_INFRA_PONDA",
+        "customer_name": "RISHABH INFRA PONDA",
+        "total_trips": 1,
+        "avg_retention_mins": 25.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_ROCK_DRILL_PROJECT_PRIVATE_LIMITED_PONDA",
+        "customer_name": "ROCK DRILL PROJECT PRIVATE LIMITED PONDA",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_STAR_INFRA_PROJECTS_AND_TRADERS_PONDA",
+        "customer_name": "STAR INFRA PROJECTS AND TRADERS PONDA",
+        "total_trips": 1,
+        "avg_retention_mins": 69.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_UNIVASTU_INDIA_LTD_MIRAMAR",
+        "customer_name": "UNIVASTU INDIA LTD MIRAMAR",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 0.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_RUBY_REALTORS_MORJIM",
+        "customer_name": "RUBY REALTORS MORJIM",
+        "total_trips": 31,
+        "avg_retention_mins": 9.0,
+        "cei_score": 2.9,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_SAN_DEVELOPERS_ANJUNA",
+        "customer_name": "SAN DEVELOPERS ANJUNA",
+        "total_trips": 31,
+        "avg_retention_mins": 10.8,
+        "cei_score": 3.7,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_RAJ_CHOPRA_N_COMPANY",
+        "customer_name": "RAJ CHOPRA N COMPANY",
+        "total_trips": 58,
+        "avg_retention_mins": 3.5,
+        "cei_score": 3.9,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_JOSHUVA_HOMES",
+        "customer_name": "JOSHUVA HOMES",
+        "total_trips": 2,
+        "avg_retention_mins": 1.0,
+        "cei_score": 5.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_TANVEER_AHMAD_RAAUTI",
+        "customer_name": "TANVEER AHMAD RAAUTI",
+        "total_trips": 20,
+        "avg_retention_mins": 1.1,
+        "cei_score": 6.8,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_CLARAMAOUNT_REALTY",
+        "customer_name": "CLARAMAOUNT REALTY",
+        "total_trips": 4,
+        "avg_retention_mins": 11.5,
+        "cei_score": 7.5,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_QUBIK_INFRA",
+        "customer_name": "QUBIK INFRA",
+        "total_trips": 42,
+        "avg_retention_mins": 6.3,
+        "cei_score": 11.5,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_WANI_PROJECT_VERNAFINOLEX_",
+        "customer_name": "WANI PROJECT(VERNAFINOLEX)",
+        "total_trips": 29,
+        "avg_retention_mins": 8.0,
+        "cei_score": 17.4,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_NATIONAL_CONST",
+        "customer_name": "NATIONAL CONST",
+        "total_trips": 5,
+        "avg_retention_mins": 8.0,
+        "cei_score": 18.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_R_P_CONST_ANJUNA",
+        "customer_name": "R P CONST ANJUNA",
+        "total_trips": 10,
+        "avg_retention_mins": 1.8,
+        "cei_score": 18.7,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_KEC_INTERNATIONAL_LTD",
+        "customer_name": "KEC INTERNATIONAL LTD",
+        "total_trips": 10,
+        "avg_retention_mins": 3.9,
+        "cei_score": 19.3,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_SHANTARAM_SHET",
+        "customer_name": "SHANTARAM SHET",
+        "total_trips": 2,
+        "avg_retention_mins": 17.0,
+        "cei_score": 20.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_TIRUPATI_SARJAN_LTD",
+        "customer_name": "TIRUPATI SARJAN LTD",
+        "total_trips": 10,
+        "avg_retention_mins": 6.9,
+        "cei_score": 20.3,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_RAMESH_ENTERPRISES_VEREM",
+        "customer_name": "RAMESH ENTERPRISES VEREM",
+        "total_trips": 25,
+        "avg_retention_mins": 9.2,
+        "cei_score": 21.1,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_TRUE_BUILD",
+        "customer_name": "TRUE BUILD",
+        "total_trips": 22,
+        "avg_retention_mins": 13.1,
+        "cei_score": 21.8,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_CITYSCAPE_DEVELOPERS_GOGAL",
+        "customer_name": "CITYSCAPE DEVELOPERS GOGAL",
+        "total_trips": 39,
+        "avg_retention_mins": 8.9,
+        "cei_score": 22.6,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_AARA_HOTELS",
+        "customer_name": "AARA HOTELS",
+        "total_trips": 13,
+        "avg_retention_mins": 4.6,
+        "cei_score": 22.6,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_BHANDARE_CNST",
+        "customer_name": "BHANDARE CNST",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 23.3,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_LAXMI_CIVIL_SAL",
+        "customer_name": "LAXMI CIVIL SAL",
+        "total_trips": 22,
+        "avg_retention_mins": 6.5,
+        "cei_score": 24.7,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_NITIN_KENKARE",
+        "customer_name": "NITIN KENKARE",
+        "total_trips": 3,
+        "avg_retention_mins": 13.7,
+        "cei_score": 25.6,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_ASSMASS_CONSTRUCTION_PVT_LTD",
+        "customer_name": "ASSMASS CONSTRUCTION PVT LTD",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 26.7,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_UMIYA_BUILDERS",
+        "customer_name": "UMIYA BUILDERS",
+        "total_trips": 5,
+        "avg_retention_mins": 8.4,
+        "cei_score": 27.3,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_KAYJI_REAL_ESTATE_PVT_LTD",
+        "customer_name": "KAYJI REAL ESTATE PVT LTD",
+        "total_trips": 11,
+        "avg_retention_mins": 10.4,
+        "cei_score": 27.6,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_PANKAJ_ELECTRICAL",
+        "customer_name": "PANKAJ ELECTRICAL",
+        "total_trips": 6,
+        "avg_retention_mins": 0.8,
+        "cei_score": 28.3,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_SUPREM_REALTORS_GREENMIST",
+        "customer_name": "SUPREM REALTORS GREENMIST",
+        "total_trips": 2,
+        "avg_retention_mins": 18.0,
+        "cei_score": 28.3,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_SHET_N_SURA_PILRENE",
+        "customer_name": "SHET N SURA PILRENE",
+        "total_trips": 7,
+        "avg_retention_mins": 1.7,
+        "cei_score": 30.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_YKB_ANJUNA",
+        "customer_name": "YKB ANJUNA",
+        "total_trips": 33,
+        "avg_retention_mins": 12.3,
+        "cei_score": 30.1,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_BAGA_PRIME",
+        "customer_name": "BAGA PRIME",
+        "total_trips": 18,
+        "avg_retention_mins": 10.5,
+        "cei_score": 30.7,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_RELIANCE_DEVELOPERS",
+        "customer_name": "RELIANCE DEVELOPERS",
+        "total_trips": 7,
+        "avg_retention_mins": 10.7,
+        "cei_score": 31.0,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_MODERN_CONST",
+        "customer_name": "MODERN CONST",
+        "total_trips": 22,
+        "avg_retention_mins": 7.3,
+        "cei_score": 32.1,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_RAKESH_KAMBALI__JAIRAMNAGAR_",
+        "customer_name": "RAKESH KAMBALI (JAIRAMNAGAR)",
+        "total_trips": 3,
+        "avg_retention_mins": 5.0,
+        "cei_score": 33.3,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_STEELMAC_INDUSTRIES",
+        "customer_name": "STEELMAC INDUSTRIES",
+        "total_trips": 8,
+        "avg_retention_mins": 9.6,
+        "cei_score": 34.6,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_KESHVA_ACCASA",
+        "customer_name": "KESHVA ACCASA",
+        "total_trips": 7,
+        "avg_retention_mins": 1.9,
+        "cei_score": 36.2,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_DEVASHREE_NIRMAN",
+        "customer_name": "DEVASHREE NIRMAN",
+        "total_trips": 4,
+        "avg_retention_mins": 4.2,
+        "cei_score": 37.5,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_PRIORITY_CONSTRUCTION",
+        "customer_name": "PRIORITY CONSTRUCTION",
+        "total_trips": 4,
+        "avg_retention_mins": 1.8,
+        "cei_score": 37.5,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_RBS_SANQULIM",
+        "customer_name": "RBS SANQULIM",
+        "total_trips": 2,
+        "avg_retention_mins": 4.0,
+        "cei_score": 38.3,
+        "efficiency_grade": "Critical"
+      },
+      {
+        "customer_code": "CUST_COMMONWEALTH_DEVELOPER_PVT_LTD_CRESCENT",
+        "customer_name": "COMMONWEALTH DEVELOPER PVT LTD CRESCENT",
+        "total_trips": 1,
+        "avg_retention_mins": 18.0,
+        "cei_score": 40.0,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_ADHISH_CONST",
+        "customer_name": "ADHISH CONST",
+        "total_trips": 13,
+        "avg_retention_mins": 6.5,
+        "cei_score": 41.5,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_JPM_DEVELOPER",
+        "customer_name": "JPM DEVELOPER",
+        "total_trips": 43,
+        "avg_retention_mins": 4.5,
+        "cei_score": 41.9,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_ADISH_CONST_MORJIM",
+        "customer_name": "ADISH CONST MORJIM",
+        "total_trips": 5,
+        "avg_retention_mins": 2.6,
+        "cei_score": 42.0,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_WIBRO_CONST_SAKHALIM",
+        "customer_name": "WIBRO CONST SAKHALIM",
+        "total_trips": 3,
+        "avg_retention_mins": 11.0,
+        "cei_score": 46.7,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_ELIN_ELECTRONIC_LTD",
+        "customer_name": "ELIN ELECTRONIC LTD",
+        "total_trips": 54,
+        "avg_retention_mins": 3.9,
+        "cei_score": 48.2,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_TAUN_GUPTA_VAGATOR",
+        "customer_name": "TAUN GUPTA VAGATOR",
+        "total_trips": 10,
+        "avg_retention_mins": 13.1,
+        "cei_score": 48.3,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_SHIV_SAMARTH",
+        "customer_name": "SHIV SAMARTH",
+        "total_trips": 10,
+        "avg_retention_mins": 6.1,
+        "cei_score": 50.0,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_SRE_ESTATE_DEVELOPER_BORDA",
+        "customer_name": "SRE ESTATE DEVELOPER BORDA",
+        "total_trips": 1,
+        "avg_retention_mins": 10.0,
+        "cei_score": 50.0,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_SHET_N_SURA",
+        "customer_name": "SHET N SURA",
+        "total_trips": 8,
+        "avg_retention_mins": 5.9,
+        "cei_score": 52.1,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_RUDHRA_DEVELOPERS_GOGAL",
+        "customer_name": "RUDHRA DEVELOPERS GOGAL",
+        "total_trips": 18,
+        "avg_retention_mins": 8.6,
+        "cei_score": 52.6,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_MAHALAXMI_PONDA",
+        "customer_name": "MAHALAXMI PONDA",
+        "total_trips": 13,
+        "avg_retention_mins": 0.3,
+        "cei_score": 53.1,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_ALCON_CONST__PILLING_DIVISION__ANJUNA",
+        "customer_name": "ALCON CONST (PILLING DIVISION) ANJUNA",
+        "total_trips": 33,
+        "avg_retention_mins": 3.7,
+        "cei_score": 53.4,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_SHARAD_CONSTRUCTION",
+        "customer_name": "SHARAD CONSTRUCTION",
+        "total_trips": 8,
+        "avg_retention_mins": 9.8,
+        "cei_score": 53.8,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_K_R_CONST_ANJUNA",
+        "customer_name": "K R CONST ANJUNA",
+        "total_trips": 17,
+        "avg_retention_mins": 3.8,
+        "cei_score": 53.9,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_SHIVA_BUILDER_MOIRA",
+        "customer_name": "SHIVA BUILDER MOIRA",
+        "total_trips": 8,
+        "avg_retention_mins": 6.1,
+        "cei_score": 55.4,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_NORBET_FERNANDES_MORJIM",
+        "customer_name": "NORBET FERNANDES MORJIM",
+        "total_trips": 58,
+        "avg_retention_mins": 5.3,
+        "cei_score": 55.5,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "DEFAULT_CUSTOMER",
+        "customer_name": "DEFAULT_CUSTOMER",
+        "total_trips": 2066,
+        "avg_retention_mins": 2.9,
+        "cei_score": 56.5,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_ROHIT_EQUIPMENT_PARCEM",
+        "customer_name": "ROHIT EQUIPMENT PARCEM",
+        "total_trips": 3,
+        "avg_retention_mins": 3.7,
+        "cei_score": 56.7,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_DHIPL_PROJECTS_PVT__LTD__ALTINHO",
+        "customer_name": "DHIPL PROJECTS PVT. LTD. ALTINHO",
+        "total_trips": 3,
+        "avg_retention_mins": 0.0,
+        "cei_score": 57.8,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_R_Z_MALPANI",
+        "customer_name": "R Z MALPANI",
+        "total_trips": 4,
+        "avg_retention_mins": 0.5,
+        "cei_score": 58.3,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_EAMNOOR_CHALVADI",
+        "customer_name": "EAMNOOR CHALVADI",
+        "total_trips": 9,
+        "avg_retention_mins": 5.4,
+        "cei_score": 61.5,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_P_M_CHINCHKAR",
+        "customer_name": "P M CHINCHKAR",
+        "total_trips": 6,
+        "avg_retention_mins": 9.3,
+        "cei_score": 62.2,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_RAMJIDAS_CONST",
+        "customer_name": "RAMJIDAS CONST",
+        "total_trips": 31,
+        "avg_retention_mins": 2.1,
+        "cei_score": 64.0,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_RAJESH_CONSTRUCTION",
+        "customer_name": "RAJESH CONSTRUCTION",
+        "total_trips": 8,
+        "avg_retention_mins": 0.0,
+        "cei_score": 64.2,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_AQUA_ENGINEERS",
+        "customer_name": "AQUA ENGINEERS",
+        "total_trips": 4,
+        "avg_retention_mins": 7.8,
+        "cei_score": 65.0,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_RACE_CONSTRUCTIONS",
+        "customer_name": "RACE CONSTRUCTIONS",
+        "total_trips": 2,
+        "avg_retention_mins": 10.0,
+        "cei_score": 65.0,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_ASHA_JAIN",
+        "customer_name": "ASHA JAIN",
+        "total_trips": 28,
+        "avg_retention_mins": 3.8,
+        "cei_score": 65.4,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_WIBRO_CONST",
+        "customer_name": "WIBRO CONST",
+        "total_trips": 9,
+        "avg_retention_mins": 2.2,
+        "cei_score": 66.7,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_KHILAARI_INFRA_PVT_LTD_PONDA",
+        "customer_name": "KHILAARI INFRA PVT LTD PONDA",
+        "total_trips": 1,
+        "avg_retention_mins": 3.0,
+        "cei_score": 66.7,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_AADYA_INFRA",
+        "customer_name": "AADYA INFRA",
+        "total_trips": 7,
+        "avg_retention_mins": 6.9,
+        "cei_score": 67.1,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_EDCON_REAL_ESTATE",
+        "customer_name": "EDCON REAL ESTATE",
+        "total_trips": 30,
+        "avg_retention_mins": 4.3,
+        "cei_score": 68.3,
+        "efficiency_grade": "Needs Improvement"
+      },
+      {
+        "customer_code": "CUST_RAKESH_BANDEKAR",
+        "customer_name": "RAKESH BANDEKAR",
+        "total_trips": 1,
+        "avg_retention_mins": 9.0,
+        "cei_score": 70.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_RAJDEEP_BUIDEER_ASSNORA",
+        "customer_name": "RAJDEEP BUIDEER ASSNORA",
+        "total_trips": 5,
+        "avg_retention_mins": 0.0,
+        "cei_score": 71.3,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_AJAY_KANJIA_ANJUNA",
+        "customer_name": "AJAY KANJIA ANJUNA",
+        "total_trips": 2,
+        "avg_retention_mins": 4.0,
+        "cei_score": 71.7,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_AKHIL_PALACE",
+        "customer_name": "AKHIL PALACE",
+        "total_trips": 1,
+        "avg_retention_mins": 8.0,
+        "cei_score": 73.3,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_HERALD_PUBLICATION_PVT_LTD",
+        "customer_name": "HERALD PUBLICATION PVT LTD",
+        "total_trips": 8,
+        "avg_retention_mins": 2.8,
+        "cei_score": 73.8,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_S_M_REALTORS_DAMODAR",
+        "customer_name": "S M REALTORS DAMODAR",
+        "total_trips": 5,
+        "avg_retention_mins": 5.4,
+        "cei_score": 74.7,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_SMC_INFRA_PILERN",
+        "customer_name": "SMC INFRA PILERN",
+        "total_trips": 3,
+        "avg_retention_mins": 2.7,
+        "cei_score": 75.6,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_MEGA_CONSTRUCTION_MONTE_HILL",
+        "customer_name": "MEGA CONSTRUCTION MONTE HILL",
+        "total_trips": 11,
+        "avg_retention_mins": 1.0,
+        "cei_score": 79.7,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_SAN_DEVELOPER_SANGOLDA",
+        "customer_name": "SAN DEVELOPER SANGOLDA",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 80.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_ROYAL_DEVELOPER",
+        "customer_name": "ROYAL DEVELOPER",
+        "total_trips": 9,
+        "avg_retention_mins": 1.2,
+        "cei_score": 82.2,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_KATYANI_CONSTRUCTION_NACHINOL",
+        "customer_name": "KATYANI CONSTRUCTION NACHINOL",
+        "total_trips": 12,
+        "avg_retention_mins": 2.7,
+        "cei_score": 82.8,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_ST_JOAQUIM_ROAD",
+        "customer_name": "ST.JOAQUIM ROAD",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 83.3,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_VASCO_PLANT_VASCO_PLANT",
+        "customer_name": "VASCO PLANT VASCO PLANT",
+        "total_trips": 7,
+        "avg_retention_mins": 1.0,
+        "cei_score": 84.3,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_ABDUL_KHALID_KARASWADA",
+        "customer_name": "ABDUL KHALID KARASWADA",
+        "total_trips": 3,
+        "avg_retention_mins": 2.7,
+        "cei_score": 84.4,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_VILAS_PATIL_N_ASSOCIATES",
+        "customer_name": "VILAS PATIL N ASSOCIATES",
+        "total_trips": 16,
+        "avg_retention_mins": 1.8,
+        "cei_score": 85.2,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_SHERATON_CONSTRUCTION",
+        "customer_name": "SHERATON CONSTRUCTION",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 86.7,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_HALARNKAR_EDUCATION",
+        "customer_name": "HALARNKAR EDUCATION",
+        "total_trips": 4,
+        "avg_retention_mins": 1.0,
+        "cei_score": 87.5,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_DEV_ELECTRICALS_ALTHINHO",
+        "customer_name": "DEV ELECTRICALS ALTHINHO",
+        "total_trips": 2,
+        "avg_retention_mins": 3.5,
+        "cei_score": 88.3,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_DNYANESHWAR_SALGAONKAR_PARCEM",
+        "customer_name": "DNYANESHWAR SALGAONKAR PARCEM",
+        "total_trips": 2,
+        "avg_retention_mins": 3.5,
+        "cei_score": 88.3,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_TIRUPATI_SARJAN",
+        "customer_name": "TIRUPATI SARJAN",
+        "total_trips": 2,
+        "avg_retention_mins": 3.5,
+        "cei_score": 88.3,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_MANAS_DEVELOPERS_BAMBOLOIM",
+        "customer_name": "MANAS DEVELOPERS BAMBOLOIM",
+        "total_trips": 8,
+        "avg_retention_mins": 1.9,
+        "cei_score": 90.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_MODEL_CONST_PILRENE",
+        "customer_name": "MODEL CONST PILRENE",
+        "total_trips": 1,
+        "avg_retention_mins": 1.0,
+        "cei_score": 90.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_PRESIDENT_BUILDER",
+        "customer_name": "PRESIDENT BUILDER",
+        "total_trips": 1,
+        "avg_retention_mins": 3.0,
+        "cei_score": 90.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_TULIP_DWELLINGS_PVT_LTD",
+        "customer_name": "TULIP DWELLINGS PVT LTD",
+        "total_trips": 1,
+        "avg_retention_mins": 3.0,
+        "cei_score": 90.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_KESHVA_KYROS",
+        "customer_name": "KESHVA KYROS",
+        "total_trips": 20,
+        "avg_retention_mins": 0.3,
+        "cei_score": 90.3,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_ALTAF_SHAIKH",
+        "customer_name": "ALTAF SHAIKH",
+        "total_trips": 5,
+        "avg_retention_mins": 0.4,
+        "cei_score": 91.3,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_SHARAU_GLOBAL",
+        "customer_name": "SHARAU GLOBAL",
+        "total_trips": 2,
+        "avg_retention_mins": 1.5,
+        "cei_score": 95.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_WIBRO_CONSTRUCTION_OCOQUEIRO",
+        "customer_name": "WIBRO CONSTRUCTION OCOQUEIRO",
+        "total_trips": 2,
+        "avg_retention_mins": 1.5,
+        "cei_score": 95.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_TARUN_GUPTA",
+        "customer_name": "TARUN GUPTA",
+        "total_trips": 3,
+        "avg_retention_mins": 0.7,
+        "cei_score": 95.6,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_ARVINDA_ELECTRICALS",
+        "customer_name": "ARVINDA ELECTRICALS",
+        "total_trips": 3,
+        "avg_retention_mins": 0.0,
+        "cei_score": 96.7,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_AMOL_R_ZAGADE",
+        "customer_name": "AMOL R ZAGADE",
+        "total_trips": 2,
+        "avg_retention_mins": 1.0,
+        "cei_score": 96.7,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_GEETHA_ENGG",
+        "customer_name": "GEETHA ENGG",
+        "total_trips": 2,
+        "avg_retention_mins": 0.0,
+        "cei_score": 98.3,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_KESHAVKIYAN_CONSTRUCTION_KIA_MOTORS_",
+        "customer_name": "KESHAVKIYAN CONSTRUCTION(KIA MOTORS)",
+        "total_trips": 2,
+        "avg_retention_mins": 0.5,
+        "cei_score": 98.3,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_MENEZES_FISHNET_LIMITED_MERCEM",
+        "customer_name": "MENEZES FISHNET LIMITED MERCEM",
+        "total_trips": 2,
+        "avg_retention_mins": 0.5,
+        "cei_score": 98.3,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_KALOJI_WORKSHOP_2KHAMBA",
+        "customer_name": "KALOJI WORKSHOP 2KHAMBA",
+        "total_trips": 20,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_ACC_CONCRETE",
+        "customer_name": "ACC CONCRETE",
+        "total_trips": 5,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_AMIN_CONST_KARASWADA",
+        "customer_name": "AMIN CONST KARASWADA",
+        "total_trips": 4,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_ANILKUMAR_SARDESHPANDE",
+        "customer_name": "ANILKUMAR SARDESHPANDE",
+        "total_trips": 4,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_PREMIER_BUILDER_KARASWADA",
+        "customer_name": "PREMIER BUILDER KARASWADA",
+        "total_trips": 3,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_ARWADE_INFRA",
+        "customer_name": "ARWADE INFRA",
+        "total_trips": 2,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_CORLIM_MEADOWS_CORLIM",
+        "customer_name": "CORLIM MEADOWS CORLIM",
+        "total_trips": 2,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_DHARGAL_PLANT",
+        "customer_name": "DHARGAL PLANT",
+        "total_trips": 2,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_KESHVAKIYAAN_CONSTRUCTIONS",
+        "customer_name": "KESHVAKIYAAN CONSTRUCTIONS",
+        "total_trips": 2,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_LAXMAN_BABU_KHARAVT",
+        "customer_name": "LAXMAN BABU KHARAVT",
+        "total_trips": 2,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_MANAS_DEVELOPERS_MORJIM",
+        "customer_name": "MANAS DEVELOPERS MORJIM",
+        "total_trips": 2,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_MEGAWIDE_INFRA",
+        "customer_name": "MEGAWIDE INFRA",
+        "total_trips": 2,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_MODELS_LEISURE",
+        "customer_name": "MODELS LEISURE",
+        "total_trips": 2,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_MSK_BUILDING_SYSTEM",
+        "customer_name": "MSK BUILDING SYSTEM",
+        "total_trips": 2,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_NYRILA_ENTERPRISES_NAVELIM",
+        "customer_name": "NYRILA ENTERPRISES NAVELIM",
+        "total_trips": 2,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_ONE_STOP_NAGOA",
+        "customer_name": "ONE STOP NAGOA",
+        "total_trips": 2,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_S_S_EKBOTE_KUNDAIM",
+        "customer_name": "S S EKBOTE KUNDAIM",
+        "total_trips": 2,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_AA_RA_HOTELS_PRIVATE_LIMITED",
+        "customer_name": "AA.RA HOTELS PRIVATE LIMITED",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_ACC",
+        "customer_name": "ACC",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_ADWALPALKAR_CONSTRUCTIONS_AND_RESORTS_PVT_LTD",
+        "customer_name": "ADWALPALKAR CONSTRUCTIONS AND RESORTS PVT LTD",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_ALCON_CONST_PILLING",
+        "customer_name": "ALCON CONST PILLING",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_ANAND_LAXMI_SAWANT_SANGOLDA",
+        "customer_name": "ANAND LAXMI SAWANT SANGOLDA",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_AQUATECH_SOLUTIONS_PVT__LTD_",
+        "customer_name": "AQUATECH SOLUTIONS PVT. LTD.",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_ARUNDOYA_DEVELOPERS",
+        "customer_name": "ARUNDOYA DEVELOPERS",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_ARYAVAAN_PHARMACEUTICALS_PVT_LTD",
+        "customer_name": "ARYAVAAN PHARMACEUTICALS PVT LTD",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_BHARAT_DEVELOPERS_N_REALTORS_PVT_LTD_CANACONA",
+        "customer_name": "BHARAT DEVELOPERS N REALTORS PVT LTD CANACONA",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_CONCRETE_CONCEPT",
+        "customer_name": "CONCRETE CONCEPT",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_DHARGAL_PLANT_DHRGAL",
+        "customer_name": "DHARGAL PLANT DHRGAL",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_DREAM_HOUSE_BUILDERS_NAVELIM",
+        "customer_name": "DREAM HOUSE BUILDERS NAVELIM",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_D_S_CONTRATOR_BETHORA",
+        "customer_name": "D.S.CONTRATOR BETHORA",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_GANESH_S_HALARNKAR",
+        "customer_name": "GANESH S HALARNKAR",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_GEMINI_MOTORS",
+        "customer_name": "GEMINI MOTORS",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_HALDER_FABRICATION",
+        "customer_name": "HALDER FABRICATION",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_INACIO_SALVADOR_GUDINHNO",
+        "customer_name": "INACIO SALVADOR GUDINHNO",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_KESHVA_KIYAAN_PARRA",
+        "customer_name": "KESHVA KIYAAN PARRA",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_KUNAIM_PLANT_KUNDAIM",
+        "customer_name": "KUNAIM PLANT KUNDAIM",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_MAGNUM_CONSTRUCTION",
+        "customer_name": "MAGNUM CONSTRUCTION",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_MARGAO_CITY",
+        "customer_name": "MARGAO CITY",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_MVR_KAKODA_SANVORDEM",
+        "customer_name": "MVR KAKODA SANVORDEM",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_M_VENKETRAO_RAJBAVAN",
+        "customer_name": "M VENKETRAO RAJBAVAN",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_M_V_R",
+        "customer_name": "M V R",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_OM_SAI_HOTEL_KARASWADA",
+        "customer_name": "OM SAI HOTEL KARASWADA",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_PRASHANT_G_KARAPUKAR",
+        "customer_name": "PRASHANT G KARAPUKAR",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_PS_REDDY_MO_DABOLIM_",
+        "customer_name": "PS REDDY(MO DABOLIM)",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_P_N_REAL_ESTATE_CANCA",
+        "customer_name": "P.N.REAL ESTATE CANCA",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_RAJESH_CONSTRUCTION_KADAMBA",
+        "customer_name": "RAJESH CONSTRUCTION KADAMBA",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_RAVIRANJAN_DAS_ANJUNA",
+        "customer_name": "RAVIRANJAN DAS ANJUNA",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_REACON_PVT_LTD",
+        "customer_name": "REACON PVT LTD",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_RNA_CONSTRUCTION_MPT_",
+        "customer_name": "RNA CONSTRUCTION(MPT)",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_R_K_TRADING",
+        "customer_name": "R K TRADING",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_SALKAR_CONST",
+        "customer_name": "SALKAR CONST",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_SAMARTH_CONST",
+        "customer_name": "SAMARTH CONST",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_SUPREME_REALTORS",
+        "customer_name": "SUPREME REALTORS",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      },
+      {
+        "customer_code": "CUST_V3_DEVELOPERS_ASSGAO",
+        "customer_name": "V3 DEVELOPERS ASSGAO",
+        "total_trips": 1,
+        "avg_retention_mins": 0.0,
+        "cei_score": 100.0,
+        "efficiency_grade": "Good"
+      }
+    ],
+    "calculation_status": "SUCCESS",
+    "calculation_notes": "Authoritative fleet efficiency calculation successful across 100.0% utilization (Plant: ALL, Customer: ALL, Dataset: DS-20260805-001)."
+  },
+  "cost_exposure": {
+    "summary": {
+      "realized_cost_exposure_inr": 2192830.0,
+      "predicted_cost_exposure_inr": 4283715.0,
+      "holding_penalty_cost_inr": 1053550.0,
+      "retention_sla_penalty_inr": 507150.0,
+      "idle_fuel_waste_inr": 632130.0,
+      "high_cost_operations_count": 1730
+    },
+    "high_cost_operations": {
+      "items": [
+        {
+          "dispatch_id": "0fa80d16-4cc2-4c79-998e-cb0852409b62",
+          "dispatch_code": "SYNTH-TCK-TRIP-2302",
+          "plant_code": "ACC_DHARGA",
+          "customer_code": "CUST_KESHVA_KIYAAN",
+          "vehicle_code": "GA11T0840",
+          "holding_penalty_mins": 482.0,
+          "retention_penalty_mins": 6.0,
+          "total_exposure_inr": 19490.0,
+          "risk_level": "Critical"
+        },
+        {
+          "dispatch_id": "2b206789-71ab-4ce0-911a-c2c92ef38db1",
+          "dispatch_code": "SYNTH-TCK-TRIP-1741",
+          "plant_code": "ACC_DHARGA",
+          "customer_code": "CUST_RAJ_CHOPRA_N_COMPANY",
+          "vehicle_code": "GA11T0830",
+          "holding_penalty_mins": 277.0,
+          "retention_penalty_mins": 0.0,
+          "total_exposure_inr": 11080.0,
+          "risk_level": "Critical"
+        },
+        {
+          "dispatch_id": "6df0b1f7-7005-49de-bc0c-3bfbb20e2d8e",
+          "dispatch_code": "SYNTH-TCK-TRIP-591",
+          "plant_code": "ACC_VASCO",
+          "customer_code": "DEFAULT_CUSTOMER",
+          "vehicle_code": "GA06T8587",
+          "holding_penalty_mins": 244.0,
+          "retention_penalty_mins": 0.0,
+          "total_exposure_inr": 9760.0,
+          "risk_level": "Critical"
+        },
+        {
+          "dispatch_id": "11fb3b30-d7ca-4e02-9241-d0f5c7dba7f9",
+          "dispatch_code": "SYNTH-TCK-TRIP-2459",
+          "plant_code": "ACC_DHARGA",
+          "customer_code": "DEFAULT_CUSTOMER",
+          "vehicle_code": "GA11T0842",
+          "holding_penalty_mins": 179.0,
+          "retention_penalty_mins": 67.0,
+          "total_exposure_inr": 9505.0,
+          "risk_level": "Critical"
+        },
+        {
+          "dispatch_id": "f81d3efa-1200-4075-b639-9bd6b5cd93e9",
+          "dispatch_code": "SYNTH-TCK-TRIP-1449",
+          "plant_code": "ACC_NESSAI",
+          "customer_code": "DEFAULT_CUSTOMER",
+          "vehicle_code": "GA08V4863",
+          "holding_penalty_mins": 221.0,
+          "retention_penalty_mins": 0.0,
+          "total_exposure_inr": 8840.0,
+          "risk_level": "Critical"
+        },
+        {
+          "dispatch_id": "51b82273-a0ab-4342-af75-ecf2feb182aa",
+          "dispatch_code": "SYNTH-TCK-TRIP-1818",
+          "plant_code": "ACC_DHARGA",
+          "customer_code": "CUST_YKB_ANJUNA",
+          "vehicle_code": "GA11T0835",
+          "holding_penalty_mins": 2.0,
+          "retention_penalty_mins": 237.0,
+          "total_exposure_inr": 8375.0,
+          "risk_level": "Critical"
+        },
+        {
+          "dispatch_id": "af1c0347-7fe7-41d5-a070-b11409b681fb",
+          "dispatch_code": "SYNTH-TCK-TRIP-2495",
+          "plant_code": "ACC_KUNDAIM",
+          "customer_code": "DEFAULT_CUSTOMER",
+          "vehicle_code": "GA07F7624",
+          "holding_penalty_mins": 205.0,
+          "retention_penalty_mins": 0.0,
+          "total_exposure_inr": 8200.0,
+          "risk_level": "Critical"
+        },
+        {
+          "dispatch_id": "4a233e3d-5a49-4b8d-ab07-08795bcdad17",
+          "dispatch_code": "SYNTH-TCK-TRIP-2417",
+          "plant_code": "ACC_DHARGA",
+          "customer_code": "CUST_PRUDENT_ENTERPRISES",
+          "vehicle_code": "GA11T0842",
+          "holding_penalty_mins": 169.0,
+          "retention_penalty_mins": 35.0,
+          "total_exposure_inr": 7985.0,
+          "risk_level": "Critical"
+        },
+        {
+          "dispatch_id": "733c5469-2a78-4d96-933e-c25319d4eb57",
+          "dispatch_code": "SYNTH-TCK-TRIP-897",
+          "plant_code": "ACC_VASCO",
+          "customer_code": "CUST_TANVEER_AHMAD_RAAUTI",
+          "vehicle_code": "GA11T0832",
+          "holding_penalty_mins": 189.0,
+          "retention_penalty_mins": 0.0,
+          "total_exposure_inr": 7560.0,
+          "risk_level": "Critical"
+        },
+        {
+          "dispatch_id": "9e7d2709-4035-43d8-89e7-f315d9e7a3db",
+          "dispatch_code": "SYNTH-TCK-TRIP-1468",
+          "plant_code": "ACC_NESSAI",
+          "customer_code": "DEFAULT_CUSTOMER",
+          "vehicle_code": "GA08V4863",
+          "holding_penalty_mins": 188.0,
+          "retention_penalty_mins": 0.0,
+          "total_exposure_inr": 7520.0,
+          "risk_level": "Critical"
+        }
+      ],
+      "page": 1,
+      "page_size": 10,
+      "total_items": 1730,
+      "total_pages": 173
+    },
+    "plant_cost_risk": [
+      {
+        "plant_code": "ACC_DHARGA",
+        "plant_name": "ACC DHARGA",
+        "dispatches_count": 978,
+        "total_exposure_inr": 751560.0,
+        "exposure_percentage": 34.3
+      },
+      {
+        "plant_code": "ACC_KUNDAIM",
+        "plant_name": "ACC KUNDAIM",
+        "dispatches_count": 1065,
+        "total_exposure_inr": 602555.0,
+        "exposure_percentage": 27.5
+      },
+      {
+        "plant_code": "ACC_VASCO",
+        "plant_name": "ACC VASCO",
+        "dispatches_count": 1174,
+        "total_exposure_inr": 532005.0,
+        "exposure_percentage": 24.3
+      },
+      {
+        "plant_code": "ACC_NESSAI",
+        "plant_name": "ACC NESSAI",
+        "dispatches_count": 315,
+        "total_exposure_inr": 306710.0,
+        "exposure_percentage": 14.0
+      }
+    ],
+    "customer_cost_risk": [
+      {
+        "customer_code": "DEFAULT_CUSTOMER",
+        "customer_name": "DEFAULT_CUSTOMER",
+        "delivered_trips": 2066,
+        "total_exposure_inr": 1047970.0,
+        "exposure_percentage": 47.8
+      },
+      {
+        "customer_code": "CUST_RAJ_CHOPRA_N_COMPANY",
+        "customer_name": "RAJ CHOPRA N COMPANY",
+        "delivered_trips": 58,
+        "total_exposure_inr": 65865.0,
+        "exposure_percentage": 3.0
+      },
+      {
+        "customer_code": "CUST_QUBIK_INFRA",
+        "customer_name": "QUBIK INFRA",
+        "delivered_trips": 42,
+        "total_exposure_inr": 43280.0,
+        "exposure_percentage": 2.0
+      },
+      {
+        "customer_code": "CUST_RUBY_REALTORS_MORJIM",
+        "customer_name": "RUBY REALTORS MORJIM",
+        "delivered_trips": 31,
+        "total_exposure_inr": 34720.0,
+        "exposure_percentage": 1.6
+      },
+      {
+        "customer_code": "CUST_DAFTARY_DESCON_ENGG_PVT_LTD_DECCAN",
+        "customer_name": "DAFTARY DESCON ENGG PVT LTD DECCAN",
+        "delivered_trips": 23,
+        "total_exposure_inr": 34640.0,
+        "exposure_percentage": 1.6
+      },
+      {
+        "customer_code": "CUST_CITYSCAPE_DEVELOPERS_GOGAL",
+        "customer_name": "CITYSCAPE DEVELOPERS GOGAL",
+        "delivered_trips": 39,
+        "total_exposure_inr": 34470.0,
+        "exposure_percentage": 1.6
+      },
+      {
+        "customer_code": "CUST_SAN_DEVELOPERS_ANJUNA",
+        "customer_name": "SAN DEVELOPERS ANJUNA",
+        "delivered_trips": 31,
+        "total_exposure_inr": 34170.0,
+        "exposure_percentage": 1.6
+      },
+      {
+        "customer_code": "CUST_ELIN_ELECTRONIC_LTD",
+        "customer_name": "ELIN ELECTRONIC LTD",
+        "delivered_trips": 54,
+        "total_exposure_inr": 32520.0,
+        "exposure_percentage": 1.5
+      },
+      {
+        "customer_code": "CUST_NORBET_FERNANDES_MORJIM",
+        "customer_name": "NORBET FERNANDES MORJIM",
+        "delivered_trips": 58,
+        "total_exposure_inr": 29425.0,
+        "exposure_percentage": 1.3
+      },
+      {
+        "customer_code": "CUST_JPM_DEVELOPER",
+        "customer_name": "JPM DEVELOPER",
+        "delivered_trips": 43,
+        "total_exposure_inr": 29035.0,
+        "exposure_percentage": 1.3
+      },
+      {
+        "customer_code": "CUST_WANI_PROJECT_VERNAFINOLEX_",
+        "customer_name": "WANI PROJECT(VERNAFINOLEX)",
+        "delivered_trips": 29,
+        "total_exposure_inr": 27595.0,
+        "exposure_percentage": 1.3
+      },
+      {
+        "customer_code": "CUST_YKB_ANJUNA",
+        "customer_name": "YKB ANJUNA",
+        "delivered_trips": 33,
+        "total_exposure_inr": 25650.0,
+        "exposure_percentage": 1.2
+      },
+      {
+        "customer_code": "CUST_RAMESH_ENTERPRISES_VEREM",
+        "customer_name": "RAMESH ENTERPRISES VEREM",
+        "delivered_trips": 25,
+        "total_exposure_inr": 22535.0,
+        "exposure_percentage": 1.0
+      },
+      {
+        "customer_code": "CUST_PRISTINE_REALITY",
+        "customer_name": "PRISTINE REALITY",
+        "delivered_trips": 16,
+        "total_exposure_inr": 22520.0,
+        "exposure_percentage": 1.0
+      },
+      {
+        "customer_code": "CUST_TANVEER_AHMAD_RAAUTI",
+        "customer_name": "TANVEER AHMAD RAAUTI",
+        "delivered_trips": 20,
+        "total_exposure_inr": 22255.0,
+        "exposure_percentage": 1.0
+      },
+      {
+        "customer_code": "CUST_KESHVA_KIYAAN",
+        "customer_name": "KESHVA KIYAAN",
+        "delivered_trips": 11,
+        "total_exposure_inr": 21210.0,
+        "exposure_percentage": 1.0
+      },
+      {
+        "customer_code": "CUST_KENKRE_ELECTRICAL",
+        "customer_name": "KENKRE ELECTRICAL",
+        "delivered_trips": 15,
+        "total_exposure_inr": 19975.0,
+        "exposure_percentage": 0.9
+      },
+      {
+        "customer_code": "CUST_GEO_MILLER",
+        "customer_name": "GEO MILLER",
+        "delivered_trips": 14,
+        "total_exposure_inr": 19420.0,
+        "exposure_percentage": 0.9
+      },
+      {
+        "customer_code": "CUST_TRUE_BUILD",
+        "customer_name": "TRUE BUILD",
+        "delivered_trips": 22,
+        "total_exposure_inr": 19200.0,
+        "exposure_percentage": 0.9
+      },
+      {
+        "customer_code": "CUST_LAXMI_CIVIL_SAL",
+        "customer_name": "LAXMI CIVIL SAL",
+        "delivered_trips": 22,
+        "total_exposure_inr": 19160.0,
+        "exposure_percentage": 0.9
+      },
+      {
+        "customer_code": "CUST_VISHWA_SAMUDRA",
+        "customer_name": "VISHWA SAMUDRA",
+        "delivered_trips": 15,
+        "total_exposure_inr": 19060.0,
+        "exposure_percentage": 0.9
+      },
+      {
+        "customer_code": "CUST_ALCON_CONST__PILLING_DIVISION__ANJUNA",
+        "customer_name": "ALCON CONST (PILLING DIVISION) ANJUNA",
+        "delivered_trips": 33,
+        "total_exposure_inr": 17830.0,
+        "exposure_percentage": 0.8
+      },
+      {
+        "customer_code": "CUST_MODERN_CONST",
+        "customer_name": "MODERN CONST",
+        "delivered_trips": 22,
+        "total_exposure_inr": 17120.0,
+        "exposure_percentage": 0.8
+      },
+      {
+        "customer_code": "CUST_SYNAPTIC_INTERGRATED",
+        "customer_name": "SYNAPTIC INTERGRATED",
+        "delivered_trips": 10,
+        "total_exposure_inr": 17005.0,
+        "exposure_percentage": 0.8
+      },
+      {
+        "customer_code": "CUST_COSME_COSTA",
+        "customer_name": "COSME COSTA",
+        "delivered_trips": 9,
+        "total_exposure_inr": 16275.0,
+        "exposure_percentage": 0.7
+      },
+      {
+        "customer_code": "CUST_SALIZ_N_COMPANY_PANIJM",
+        "customer_name": "SALIZ N COMPANY PANIJM",
+        "delivered_trips": 11,
+        "total_exposure_inr": 14240.0,
+        "exposure_percentage": 0.6
+      },
+      {
+        "customer_code": "CUST_BAGA_PRIME",
+        "customer_name": "BAGA PRIME",
+        "delivered_trips": 18,
+        "total_exposure_inr": 14015.0,
+        "exposure_percentage": 0.6
+      },
+      {
+        "customer_code": "CUST_RAMJIDAS_CONST",
+        "customer_name": "RAMJIDAS CONST",
+        "delivered_trips": 31,
+        "total_exposure_inr": 13075.0,
+        "exposure_percentage": 0.6
+      },
+      {
+        "customer_code": "CUST_SUN_PARK_HOTEL",
+        "customer_name": "SUN PARK HOTEL",
+        "delivered_trips": 9,
+        "total_exposure_inr": 13060.0,
+        "exposure_percentage": 0.6
+      },
+      {
+        "customer_code": "CUST_S_M_REALTORS_SUCCURRO",
+        "customer_name": "S M REALTORS SUCCURRO",
+        "delivered_trips": 9,
+        "total_exposure_inr": 12610.0,
+        "exposure_percentage": 0.6
+      },
+      {
+        "customer_code": "CUST_REIS_EUROPA_DEVELOPERS_VEREM",
+        "customer_name": "REIS EUROPA DEVELOPERS VEREM",
+        "delivered_trips": 8,
+        "total_exposure_inr": 12590.0,
+        "exposure_percentage": 0.6
+      },
+      {
+        "customer_code": "CUST_KAJI_REAL_ESTAE_PVT_LTD",
+        "customer_name": "KAJI REAL ESTAE PVT LTD",
+        "delivered_trips": 6,
+        "total_exposure_inr": 12200.0,
+        "exposure_percentage": 0.6
+      },
+      {
+        "customer_code": "CUST_AARA_HOTELS",
+        "customer_name": "AARA HOTELS",
+        "delivered_trips": 13,
+        "total_exposure_inr": 11780.0,
+        "exposure_percentage": 0.5
+      },
+      {
+        "customer_code": "CUST_ASHA_JAIN",
+        "customer_name": "ASHA JAIN",
+        "delivered_trips": 28,
+        "total_exposure_inr": 11110.0,
+        "exposure_percentage": 0.5
+      },
+      {
+        "customer_code": "CUST_EDCON_REAL_ESTATE",
+        "customer_name": "EDCON REAL ESTATE",
+        "delivered_trips": 30,
+        "total_exposure_inr": 10755.0,
+        "exposure_percentage": 0.5
+      },
+      {
+        "customer_code": "CUST_RAJDEEP_BUILDER",
+        "customer_name": "RAJDEEP BUILDER",
+        "delivered_trips": 8,
+        "total_exposure_inr": 10660.0,
+        "exposure_percentage": 0.5
+      },
+      {
+        "customer_code": "CUST_COLLIN_FERNENDES",
+        "customer_name": "COLLIN FERNENDES",
+        "delivered_trips": 8,
+        "total_exposure_inr": 10485.0,
+        "exposure_percentage": 0.5
+      },
+      {
+        "customer_code": "CUST_PRASHANT_G_KHARAPURKAR",
+        "customer_name": "PRASHANT G KHARAPURKAR",
+        "delivered_trips": 6,
+        "total_exposure_inr": 10155.0,
+        "exposure_percentage": 0.5
+      },
+      {
+        "customer_code": "CUST_PRUDENT_ENTERPRISES",
+        "customer_name": "PRUDENT ENTERPRISES",
+        "delivered_trips": 6,
+        "total_exposure_inr": 9675.0,
+        "exposure_percentage": 0.4
+      },
+      {
+        "customer_code": "CUST_KAMAT_REAL_ESTATE_METROPOLICE",
+        "customer_name": "KAMAT REAL ESTATE METROPOLICE",
+        "delivered_trips": 4,
+        "total_exposure_inr": 9670.0,
+        "exposure_percentage": 0.4
+      },
+      {
+        "customer_code": "CUST_R_P_CONST_ANJUNA",
+        "customer_name": "R P CONST ANJUNA",
+        "delivered_trips": 10,
+        "total_exposure_inr": 9670.0,
+        "exposure_percentage": 0.4
+      },
+      {
+        "customer_code": "CUST_KEC_INTERNATIONAL_LTD",
+        "customer_name": "KEC INTERNATIONAL LTD",
+        "delivered_trips": 10,
+        "total_exposure_inr": 9485.0,
+        "exposure_percentage": 0.4
+      },
+      {
+        "customer_code": "CUST_RUDHRA_DEVELOPERS_GOGAL",
+        "customer_name": "RUDHRA DEVELOPERS GOGAL",
+        "delivered_trips": 18,
+        "total_exposure_inr": 9470.0,
+        "exposure_percentage": 0.4
+      },
+      {
+        "customer_code": "CUST_TIRUPATI_SARJAN_LTD",
+        "customer_name": "TIRUPATI SARJAN LTD",
+        "delivered_trips": 10,
+        "total_exposure_inr": 9215.0,
+        "exposure_percentage": 0.4
+      },
+      {
+        "customer_code": "CUST_K_R_CONST_ANJUNA",
+        "customer_name": "K R CONST ANJUNA",
+        "delivered_trips": 17,
+        "total_exposure_inr": 9075.0,
+        "exposure_percentage": 0.4
+      },
+      {
+        "customer_code": "CUST_KAYJI_REAL_ESTATE_PVT_LTD",
+        "customer_name": "KAYJI REAL ESTATE PVT LTD",
+        "delivered_trips": 11,
+        "total_exposure_inr": 8990.0,
+        "exposure_percentage": 0.4
+      },
+      {
+        "customer_code": "CUST_JFK_MPT",
+        "customer_name": "JFK MPT",
+        "delivered_trips": 5,
+        "total_exposure_inr": 8840.0,
+        "exposure_percentage": 0.4
+      },
+      {
+        "customer_code": "CUST_ADHISH_CONST",
+        "customer_name": "ADHISH CONST",
+        "delivered_trips": 13,
+        "total_exposure_inr": 8700.0,
+        "exposure_percentage": 0.4
+      },
+      {
+        "customer_code": "CUST_PRIORITY_CONST",
+        "customer_name": "PRIORITY CONST",
+        "delivered_trips": 6,
+        "total_exposure_inr": 7395.0,
+        "exposure_percentage": 0.3
+      },
+      {
+        "customer_code": "CUST_MAHALAXMI_PONDA",
+        "customer_name": "MAHALAXMI PONDA",
+        "delivered_trips": 13,
+        "total_exposure_inr": 7300.0,
+        "exposure_percentage": 0.3
+      },
+      {
+        "customer_code": "CUST_PRESCON_HOMES_PVT_LTD",
+        "customer_name": "PRESCON HOMES PVT LTD",
+        "delivered_trips": 4,
+        "total_exposure_inr": 6560.0,
+        "exposure_percentage": 0.3
+      },
+      {
+        "customer_code": "CUST_ERACH_VENTURES",
+        "customer_name": "ERACH VENTURES",
+        "delivered_trips": 3,
+        "total_exposure_inr": 6530.0,
+        "exposure_percentage": 0.3
+      },
+      {
+        "customer_code": "CUST_H_CANOLKAR_PATRADEVI",
+        "customer_name": "H CANOLKAR PATRADEVI",
+        "delivered_trips": 5,
+        "total_exposure_inr": 6465.0,
+        "exposure_percentage": 0.3
+      },
+      {
+        "customer_code": "CUST_STEELMAC_INDUSTRIES",
+        "customer_name": "STEELMAC INDUSTRIES",
+        "delivered_trips": 8,
+        "total_exposure_inr": 5895.0,
+        "exposure_percentage": 0.3
+      },
+      {
+        "customer_code": "CUST_SHET_N_SURA_PILRENE",
+        "customer_name": "SHET N SURA PILRENE",
+        "delivered_trips": 7,
+        "total_exposure_inr": 5820.0,
+        "exposure_percentage": 0.3
+      },
+      {
+        "customer_code": "CUST_SHIV_SAMARTH",
+        "customer_name": "SHIV SAMARTH",
+        "delivered_trips": 10,
+        "total_exposure_inr": 5695.0,
+        "exposure_percentage": 0.3
+      },
+      {
+        "customer_code": "CUST_SRE_ESTATE_N_DEVLOPMENT_NAVELIM",
+        "customer_name": "SRE ESTATE N DEVLOPMENT NAVELIM",
+        "delivered_trips": 4,
+        "total_exposure_inr": 5600.0,
+        "exposure_percentage": 0.3
+      },
+      {
+        "customer_code": "CUST_TAUN_GUPTA_VAGATOR",
+        "customer_name": "TAUN GUPTA VAGATOR",
+        "delivered_trips": 10,
+        "total_exposure_inr": 5545.0,
+        "exposure_percentage": 0.3
+      },
+      {
+        "customer_code": "CUST_A_K_MEHTA",
+        "customer_name": "A K MEHTA",
+        "delivered_trips": 4,
+        "total_exposure_inr": 5520.0,
+        "exposure_percentage": 0.3
+      },
+      {
+        "customer_code": "CUST_RELIANCE_DEVELOPERS",
+        "customer_name": "RELIANCE DEVELOPERS",
+        "delivered_trips": 7,
+        "total_exposure_inr": 5425.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_KESHVA_ACCASA",
+        "customer_name": "KESHVA ACCASA",
+        "delivered_trips": 7,
+        "total_exposure_inr": 5295.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_PANKAJ_ELECTRICAL",
+        "customer_name": "PANKAJ ELECTRICAL",
+        "delivered_trips": 6,
+        "total_exposure_inr": 5135.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_RAJDEEP_BUIDEER",
+        "customer_name": "RAJDEEP BUIDEER",
+        "delivered_trips": 2,
+        "total_exposure_inr": 5070.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_RISHABH_INFRA_PROJEATS_SANQUALIM",
+        "customer_name": "RISHABH INFRA PROJEATS SANQUALIM",
+        "delivered_trips": 2,
+        "total_exposure_inr": 5030.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_NATIONAL_CONST",
+        "customer_name": "NATIONAL CONST",
+        "delivered_trips": 5,
+        "total_exposure_inr": 4720.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_SOOD_ASSOCIATES",
+        "customer_name": "SOOD ASSOCIATES",
+        "delivered_trips": 4,
+        "total_exposure_inr": 4480.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_SHET_N_SURA",
+        "customer_name": "SHET N SURA",
+        "delivered_trips": 8,
+        "total_exposure_inr": 4365.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_CLARAMAOUNT_REALTY",
+        "customer_name": "CLARAMAOUNT REALTY",
+        "delivered_trips": 4,
+        "total_exposure_inr": 4210.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_UMIYA_BUILDERS",
+        "customer_name": "UMIYA BUILDERS",
+        "delivered_trips": 5,
+        "total_exposure_inr": 4150.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_SHARAD_CONSTRUCTION",
+        "customer_name": "SHARAD CONSTRUCTION",
+        "delivered_trips": 8,
+        "total_exposure_inr": 4050.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_SHIVA_BUILDER_MOIRA",
+        "customer_name": "SHIVA BUILDER MOIRA",
+        "delivered_trips": 8,
+        "total_exposure_inr": 4035.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_EAMNOOR_CHALVADI",
+        "customer_name": "EAMNOOR CHALVADI",
+        "delivered_trips": 9,
+        "total_exposure_inr": 3915.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_PREMIER_BULIDER",
+        "customer_name": "PREMIER BULIDER",
+        "delivered_trips": 1,
+        "total_exposure_inr": 3640.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_SALKAR_CONSTUCTION",
+        "customer_name": "SALKAR CONSTUCTION",
+        "delivered_trips": 3,
+        "total_exposure_inr": 3625.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_VISION_DEMPO",
+        "customer_name": "VISION DEMPO",
+        "delivered_trips": 2,
+        "total_exposure_inr": 3500.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_WIBRO_CONST",
+        "customer_name": "WIBRO CONST",
+        "delivered_trips": 9,
+        "total_exposure_inr": 3500.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_RAJESH_CONSTRUCTION_BAINA_",
+        "customer_name": "RAJESH CONSTRUCTION(BAINA)",
+        "delivered_trips": 2,
+        "total_exposure_inr": 3455.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_RAJESH_CONSTRUCTION",
+        "customer_name": "RAJESH CONSTRUCTION",
+        "delivered_trips": 8,
+        "total_exposure_inr": 3440.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_ADISH_CONST_MORJIM",
+        "customer_name": "ADISH CONST MORJIM",
+        "delivered_trips": 5,
+        "total_exposure_inr": 3415.0,
+        "exposure_percentage": 0.2
+      },
+      {
+        "customer_code": "CUST_STAR_INFRA_PROJECTS_AND_TRADERS_PONDA",
+        "customer_name": "STAR INFRA PROJECTS AND TRADERS PONDA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 3215.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_GAUTAM_AGENCIES_PARRA",
+        "customer_name": "GAUTAM AGENCIES PARRA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 3200.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_RAJESH_CONST",
+        "customer_name": "RAJESH CONST",
+        "delivered_trips": 1,
+        "total_exposure_inr": 3000.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_PRIORITY_CONSTRUCTION",
+        "customer_name": "PRIORITY CONSTRUCTION",
+        "delivered_trips": 4,
+        "total_exposure_inr": 2965.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_COUTINHO_N_ASSOCIATES",
+        "customer_name": "COUTINHO N ASSOCIATES",
+        "delivered_trips": 1,
+        "total_exposure_inr": 2950.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_ROCK_DRILL_PROJECT_PRIVATE_LIMITED_PONDA",
+        "customer_name": "ROCK DRILL PROJECT PRIVATE LIMITED PONDA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 2920.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_DEVASHREE_NIRMAN",
+        "customer_name": "DEVASHREE NIRMAN",
+        "delivered_trips": 4,
+        "total_exposure_inr": 2915.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_RAJDEEP_INT_VRINDAVAN_TALEIGAO",
+        "customer_name": "RAJDEEP INT VRINDAVAN TALEIGAO",
+        "delivered_trips": 1,
+        "total_exposure_inr": 2835.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_NEW_ERA_ANJUNA",
+        "customer_name": "NEW ERA ANJUNA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 2695.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_VILAS_PATIL_N_ASSOCIATES",
+        "customer_name": "VILAS PATIL N ASSOCIATES",
+        "delivered_trips": 16,
+        "total_exposure_inr": 2695.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_MEGA_CONSTRUCTION_MONTE_HILL",
+        "customer_name": "MEGA CONSTRUCTION MONTE HILL",
+        "delivered_trips": 11,
+        "total_exposure_inr": 2625.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_AADYA_INFRA",
+        "customer_name": "AADYA INFRA",
+        "delivered_trips": 7,
+        "total_exposure_inr": 2520.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_NITIN_KENKARE",
+        "customer_name": "NITIN KENKARE",
+        "delivered_trips": 3,
+        "total_exposure_inr": 2475.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_P_M_CHINCHKAR",
+        "customer_name": "P M CHINCHKAR",
+        "delivered_trips": 6,
+        "total_exposure_inr": 2440.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_HERALD_PUBLICATION_PVT_LTD",
+        "customer_name": "HERALD PUBLICATION PVT LTD",
+        "delivered_trips": 8,
+        "total_exposure_inr": 2410.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_SMC_INFRA",
+        "customer_name": "SMC INFRA",
+        "delivered_trips": 2,
+        "total_exposure_inr": 2400.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_RAKESH_KAMBALI__JAIRAMNAGAR_",
+        "customer_name": "RAKESH KAMBALI (JAIRAMNAGAR)",
+        "delivered_trips": 3,
+        "total_exposure_inr": 2325.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_KATYANI_CONSTRUCTION_NACHINOL",
+        "customer_name": "KATYANI CONSTRUCTION NACHINOL",
+        "delivered_trips": 12,
+        "total_exposure_inr": 2320.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_KESHVA_KYROS",
+        "customer_name": "KESHVA KYROS",
+        "delivered_trips": 20,
+        "total_exposure_inr": 2285.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_JOSHUVA_HOMES",
+        "customer_name": "JOSHUVA HOMES",
+        "delivered_trips": 2,
+        "total_exposure_inr": 2270.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_RISHABH_INFRA_PONDA",
+        "customer_name": "RISHABH INFRA PONDA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 2235.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_RAMA_CIVIL",
+        "customer_name": "RAMA CIVIL",
+        "delivered_trips": 1,
+        "total_exposure_inr": 2080.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_MARCON",
+        "customer_name": "MARCON",
+        "delivered_trips": 1,
+        "total_exposure_inr": 2040.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_UNIVASTU_INDIA_LTD_MIRAMAR",
+        "customer_name": "UNIVASTU INDIA LTD MIRAMAR",
+        "delivered_trips": 1,
+        "total_exposure_inr": 2000.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_R_Z_MALPANI",
+        "customer_name": "R Z MALPANI",
+        "delivered_trips": 4,
+        "total_exposure_inr": 1990.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_ROYAL_DEVELOPER",
+        "customer_name": "ROYAL DEVELOPER",
+        "delivered_trips": 9,
+        "total_exposure_inr": 1865.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_WIBRO_CONST_SAKHALIM",
+        "customer_name": "WIBRO CONST SAKHALIM",
+        "delivered_trips": 3,
+        "total_exposure_inr": 1755.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_SHANTARAM_SHET",
+        "customer_name": "SHANTARAM SHET",
+        "delivered_trips": 2,
+        "total_exposure_inr": 1750.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_RAJDEEP_BUIDEER_ASSNORA",
+        "customer_name": "RAJDEEP BUIDEER ASSNORA",
+        "delivered_trips": 5,
+        "total_exposure_inr": 1720.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_MVR_ASNORA",
+        "customer_name": "MVR ASNORA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 1635.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_SUPREM_REALTORS_GREENMIST",
+        "customer_name": "SUPREM REALTORS GREENMIST",
+        "delivered_trips": 2,
+        "total_exposure_inr": 1540.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_AQUA_ENGINEERS",
+        "customer_name": "AQUA ENGINEERS",
+        "delivered_trips": 4,
+        "total_exposure_inr": 1525.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_DHIPL_PROJECTS_PVT__LTD__ALTINHO",
+        "customer_name": "DHIPL PROJECTS PVT. LTD. ALTINHO",
+        "delivered_trips": 3,
+        "total_exposure_inr": 1520.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_ROHIT_EQUIPMENT_PARCEM",
+        "customer_name": "ROHIT EQUIPMENT PARCEM",
+        "delivered_trips": 3,
+        "total_exposure_inr": 1505.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_RBS_SANQULIM",
+        "customer_name": "RBS SANQULIM",
+        "delivered_trips": 2,
+        "total_exposure_inr": 1440.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_MVR",
+        "customer_name": "MVR",
+        "delivered_trips": 1,
+        "total_exposure_inr": 1400.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_RAJ_CONST_TALIGAO",
+        "customer_name": "RAJ CONST TALIGAO",
+        "delivered_trips": 1,
+        "total_exposure_inr": 1395.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_S_M_REALTORS_DAMODAR",
+        "customer_name": "S M REALTORS DAMODAR",
+        "delivered_trips": 5,
+        "total_exposure_inr": 1385.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_VASCO_PLANT_VASCO_PLANT",
+        "customer_name": "VASCO PLANT VASCO PLANT",
+        "delivered_trips": 7,
+        "total_exposure_inr": 1285.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_KESHVA_KIYAAN_MOIRA",
+        "customer_name": "KESHVA KIYAAN MOIRA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 1100.0,
+        "exposure_percentage": 0.1
+      },
+      {
+        "customer_code": "CUST_BHANDARE_CNST",
+        "customer_name": "BHANDARE CNST",
+        "delivered_trips": 1,
+        "total_exposure_inr": 920.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_MANAS_DEVELOPERS_BAMBOLOIM",
+        "customer_name": "MANAS DEVELOPERS BAMBOLOIM",
+        "delivered_trips": 8,
+        "total_exposure_inr": 885.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_ASSMASS_CONSTRUCTION_PVT_LTD",
+        "customer_name": "ASSMASS CONSTRUCTION PVT LTD",
+        "delivered_trips": 1,
+        "total_exposure_inr": 880.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_SMC_INFRA_PILERN",
+        "customer_name": "SMC INFRA PILERN",
+        "delivered_trips": 3,
+        "total_exposure_inr": 840.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_RACE_CONSTRUCTIONS",
+        "customer_name": "RACE CONSTRUCTIONS",
+        "delivered_trips": 2,
+        "total_exposure_inr": 740.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_AJAY_KANJIA_ANJUNA",
+        "customer_name": "AJAY KANJIA ANJUNA",
+        "delivered_trips": 2,
+        "total_exposure_inr": 640.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_COMMONWEALTH_DEVELOPER_PVT_LTD_CRESCENT",
+        "customer_name": "COMMONWEALTH DEVELOPER PVT LTD CRESCENT",
+        "delivered_trips": 1,
+        "total_exposure_inr": 630.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_HALARNKAR_EDUCATION",
+        "customer_name": "HALARNKAR EDUCATION",
+        "delivered_trips": 4,
+        "total_exposure_inr": 580.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_SRE_ESTATE_DEVELOPER_BORDA",
+        "customer_name": "SRE ESTATE DEVELOPER BORDA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 550.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_ABDUL_KHALID_KARASWADA",
+        "customer_name": "ABDUL KHALID KARASWADA",
+        "delivered_trips": 3,
+        "total_exposure_inr": 520.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_ALTAF_SHAIKH",
+        "customer_name": "ALTAF SHAIKH",
+        "delivered_trips": 5,
+        "total_exposure_inr": 510.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_KHILAARI_INFRA_PVT_LTD_PONDA",
+        "customer_name": "KHILAARI INFRA PVT LTD PONDA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 385.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_RAKESH_BANDEKAR",
+        "customer_name": "RAKESH BANDEKAR",
+        "delivered_trips": 1,
+        "total_exposure_inr": 315.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_AKHIL_PALACE",
+        "customer_name": "AKHIL PALACE",
+        "delivered_trips": 1,
+        "total_exposure_inr": 280.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_DEV_ELECTRICALS_ALTHINHO",
+        "customer_name": "DEV ELECTRICALS ALTHINHO",
+        "delivered_trips": 2,
+        "total_exposure_inr": 245.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_DNYANESHWAR_SALGAONKAR_PARCEM",
+        "customer_name": "DNYANESHWAR SALGAONKAR PARCEM",
+        "delivered_trips": 2,
+        "total_exposure_inr": 245.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_TIRUPATI_SARJAN",
+        "customer_name": "TIRUPATI SARJAN",
+        "delivered_trips": 2,
+        "total_exposure_inr": 245.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_SAN_DEVELOPER_SANGOLDA",
+        "customer_name": "SAN DEVELOPER SANGOLDA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 240.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_ST_JOAQUIM_ROAD",
+        "customer_name": "ST.JOAQUIM ROAD",
+        "delivered_trips": 1,
+        "total_exposure_inr": 200.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_SHERATON_CONSTRUCTION",
+        "customer_name": "SHERATON CONSTRUCTION",
+        "delivered_trips": 1,
+        "total_exposure_inr": 160.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_TARUN_GUPTA",
+        "customer_name": "TARUN GUPTA",
+        "delivered_trips": 3,
+        "total_exposure_inr": 150.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_ARVINDA_ELECTRICALS",
+        "customer_name": "ARVINDA ELECTRICALS",
+        "delivered_trips": 3,
+        "total_exposure_inr": 120.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_MODEL_CONST_PILRENE",
+        "customer_name": "MODEL CONST PILRENE",
+        "delivered_trips": 1,
+        "total_exposure_inr": 115.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_PRESIDENT_BUILDER",
+        "customer_name": "PRESIDENT BUILDER",
+        "delivered_trips": 1,
+        "total_exposure_inr": 105.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_SHARAU_GLOBAL",
+        "customer_name": "SHARAU GLOBAL",
+        "delivered_trips": 2,
+        "total_exposure_inr": 105.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_TULIP_DWELLINGS_PVT_LTD",
+        "customer_name": "TULIP DWELLINGS PVT LTD",
+        "delivered_trips": 1,
+        "total_exposure_inr": 105.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_WIBRO_CONSTRUCTION_OCOQUEIRO",
+        "customer_name": "WIBRO CONSTRUCTION OCOQUEIRO",
+        "delivered_trips": 2,
+        "total_exposure_inr": 105.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_AMOL_R_ZAGADE",
+        "customer_name": "AMOL R ZAGADE",
+        "delivered_trips": 2,
+        "total_exposure_inr": 70.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_GEETHA_ENGG",
+        "customer_name": "GEETHA ENGG",
+        "delivered_trips": 2,
+        "total_exposure_inr": 40.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_KESHAVKIYAN_CONSTRUCTION_KIA_MOTORS_",
+        "customer_name": "KESHAVKIYAN CONSTRUCTION(KIA MOTORS)",
+        "delivered_trips": 2,
+        "total_exposure_inr": 35.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_MENEZES_FISHNET_LIMITED_MERCEM",
+        "customer_name": "MENEZES FISHNET LIMITED MERCEM",
+        "delivered_trips": 2,
+        "total_exposure_inr": 35.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_AA_RA_HOTELS_PRIVATE_LIMITED",
+        "customer_name": "AA.RA HOTELS PRIVATE LIMITED",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_ACC",
+        "customer_name": "ACC",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_ACC_CONCRETE",
+        "customer_name": "ACC CONCRETE",
+        "delivered_trips": 5,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_ADWALPALKAR_CONSTRUCTIONS_AND_RESORTS_PVT_LTD",
+        "customer_name": "ADWALPALKAR CONSTRUCTIONS AND RESORTS PVT LTD",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_ALCON_CONST_PILLING",
+        "customer_name": "ALCON CONST PILLING",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_AMIN_CONST_KARASWADA",
+        "customer_name": "AMIN CONST KARASWADA",
+        "delivered_trips": 4,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_ANAND_LAXMI_SAWANT_SANGOLDA",
+        "customer_name": "ANAND LAXMI SAWANT SANGOLDA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_ANILKUMAR_SARDESHPANDE",
+        "customer_name": "ANILKUMAR SARDESHPANDE",
+        "delivered_trips": 4,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_AQUATECH_SOLUTIONS_PVT__LTD_",
+        "customer_name": "AQUATECH SOLUTIONS PVT. LTD.",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_ARUNDOYA_DEVELOPERS",
+        "customer_name": "ARUNDOYA DEVELOPERS",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_ARWADE_INFRA",
+        "customer_name": "ARWADE INFRA",
+        "delivered_trips": 2,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_ARYAVAAN_PHARMACEUTICALS_PVT_LTD",
+        "customer_name": "ARYAVAAN PHARMACEUTICALS PVT LTD",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_BHARAT_DEVELOPERS_N_REALTORS_PVT_LTD_CANACONA",
+        "customer_name": "BHARAT DEVELOPERS N REALTORS PVT LTD CANACONA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_CONCRETE_CONCEPT",
+        "customer_name": "CONCRETE CONCEPT",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_CORLIM_MEADOWS_CORLIM",
+        "customer_name": "CORLIM MEADOWS CORLIM",
+        "delivered_trips": 2,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_DHARGAL_PLANT",
+        "customer_name": "DHARGAL PLANT",
+        "delivered_trips": 2,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_DHARGAL_PLANT_DHRGAL",
+        "customer_name": "DHARGAL PLANT DHRGAL",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_DREAM_HOUSE_BUILDERS_NAVELIM",
+        "customer_name": "DREAM HOUSE BUILDERS NAVELIM",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_D_S_CONTRATOR_BETHORA",
+        "customer_name": "D.S.CONTRATOR BETHORA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_GANESH_S_HALARNKAR",
+        "customer_name": "GANESH S HALARNKAR",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_GEMINI_MOTORS",
+        "customer_name": "GEMINI MOTORS",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_HALDER_FABRICATION",
+        "customer_name": "HALDER FABRICATION",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_INACIO_SALVADOR_GUDINHNO",
+        "customer_name": "INACIO SALVADOR GUDINHNO",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_KALOJI_WORKSHOP_2KHAMBA",
+        "customer_name": "KALOJI WORKSHOP 2KHAMBA",
+        "delivered_trips": 20,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_KESHVAKIYAAN_CONSTRUCTIONS",
+        "customer_name": "KESHVAKIYAAN CONSTRUCTIONS",
+        "delivered_trips": 2,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_KESHVA_KIYAAN_PARRA",
+        "customer_name": "KESHVA KIYAAN PARRA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_KUNAIM_PLANT_KUNDAIM",
+        "customer_name": "KUNAIM PLANT KUNDAIM",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_LAXMAN_BABU_KHARAVT",
+        "customer_name": "LAXMAN BABU KHARAVT",
+        "delivered_trips": 2,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_MAGNUM_CONSTRUCTION",
+        "customer_name": "MAGNUM CONSTRUCTION",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_MANAS_DEVELOPERS_MORJIM",
+        "customer_name": "MANAS DEVELOPERS MORJIM",
+        "delivered_trips": 2,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_MARGAO_CITY",
+        "customer_name": "MARGAO CITY",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_MEGAWIDE_INFRA",
+        "customer_name": "MEGAWIDE INFRA",
+        "delivered_trips": 2,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_MODELS_LEISURE",
+        "customer_name": "MODELS LEISURE",
+        "delivered_trips": 2,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_MSK_BUILDING_SYSTEM",
+        "customer_name": "MSK BUILDING SYSTEM",
+        "delivered_trips": 2,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_MVR_KAKODA_SANVORDEM",
+        "customer_name": "MVR KAKODA SANVORDEM",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_M_VENKETRAO_RAJBAVAN",
+        "customer_name": "M VENKETRAO RAJBAVAN",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_M_V_R",
+        "customer_name": "M V R",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_NYRILA_ENTERPRISES_NAVELIM",
+        "customer_name": "NYRILA ENTERPRISES NAVELIM",
+        "delivered_trips": 2,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_OM_SAI_HOTEL_KARASWADA",
+        "customer_name": "OM SAI HOTEL KARASWADA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_ONE_STOP_NAGOA",
+        "customer_name": "ONE STOP NAGOA",
+        "delivered_trips": 2,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_PRASHANT_G_KARAPUKAR",
+        "customer_name": "PRASHANT G KARAPUKAR",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_PREMIER_BUILDER_KARASWADA",
+        "customer_name": "PREMIER BUILDER KARASWADA",
+        "delivered_trips": 3,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_PS_REDDY_MO_DABOLIM_",
+        "customer_name": "PS REDDY(MO DABOLIM)",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_P_N_REAL_ESTATE_CANCA",
+        "customer_name": "P.N.REAL ESTATE CANCA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_RAJESH_CONSTRUCTION_KADAMBA",
+        "customer_name": "RAJESH CONSTRUCTION KADAMBA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_RAVIRANJAN_DAS_ANJUNA",
+        "customer_name": "RAVIRANJAN DAS ANJUNA",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_REACON_PVT_LTD",
+        "customer_name": "REACON PVT LTD",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_RNA_CONSTRUCTION_MPT_",
+        "customer_name": "RNA CONSTRUCTION(MPT)",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_R_K_TRADING",
+        "customer_name": "R K TRADING",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_SALKAR_CONST",
+        "customer_name": "SALKAR CONST",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_SAMARTH_CONST",
+        "customer_name": "SAMARTH CONST",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_SUPREME_REALTORS",
+        "customer_name": "SUPREME REALTORS",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_S_S_EKBOTE_KUNDAIM",
+        "customer_name": "S S EKBOTE KUNDAIM",
+        "delivered_trips": 2,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      },
+      {
+        "customer_code": "CUST_V3_DEVELOPERS_ASSGAO",
+        "customer_name": "V3 DEVELOPERS ASSGAO",
+        "delivered_trips": 1,
+        "total_exposure_inr": 0.0,
+        "exposure_percentage": 0.0
+      }
+    ],
+    "provenance": {
+      "is_model_configured": true,
+      "prediction_status": "AVAILABLE",
+      "model_name": "delay_regressor",
+      "model_version": "v1.1.0-candidate-ds-fsv1-prom",
+      "prediction_snapshot_id": "SNAP-TELEMETRY-14128",
+      "prediction_timestamp": "2026-08-21T05:07:24.390963+00:00",
+      "confidence_score": 0.94,
+      "notes": "Authoritative Production Inference Engine active (4/4 Promoted Families, 14128 active snapshots)."
+    },
+    "calculation_status": "SUCCESS",
+    "prediction_status": "AVAILABLE",
+    "calculation_notes": "Authoritative Phase 4 financial calculation reused successfully across ₹2,192,830.00 total realized exposure (Plant: ALL, Customer: ALL, Dataset: DS-20260805-001)."
+  },
+  "records": [
+    {
+      "rank": 1,
+      "site_id": "CUST_COUTINHO_N_ASSOCIATES",
+      "site_name": "COUTINHO N ASSOCIATES",
+      "total_trips": 1,
+      "swi_site": 0.0,
+      "dpi_site": 0.0,
+      "fui_site": 4.2,
+      "sri_score": 1.0,
+      "grade": "GRADE_D"
+    },
+    {
+      "rank": 2,
+      "site_id": "CUST_MARCON",
+      "site_name": "MARCON",
+      "total_trips": 1,
+      "swi_site": 0.0,
+      "dpi_site": 0.0,
+      "fui_site": 4.2,
+      "sri_score": 1.0,
+      "grade": "GRADE_D"
+    },
+    {
+      "rank": 3,
+      "site_id": "CUST_PREMIER_BULIDER",
+      "site_name": "PREMIER BULIDER",
+      "total_trips": 1,
+      "swi_site": 0.0,
+      "dpi_site": 0.0,
+      "fui_site": 4.2,
+      "sri_score": 1.0,
+      "grade": "GRADE_D"
+    },
+    {
+      "rank": 4,
+      "site_id": "CUST_RAJESH_CONST",
+      "site_name": "RAJESH CONST",
+      "total_trips": 1,
+      "swi_site": 0.0,
+      "dpi_site": 0.0,
+      "fui_site": 4.2,
+      "sri_score": 1.0,
+      "grade": "GRADE_D"
+    },
+    {
+      "rank": 5,
+      "site_id": "CUST_RAMA_CIVIL",
+      "site_name": "RAMA CIVIL",
+      "total_trips": 1,
+      "swi_site": 0.0,
+      "dpi_site": 0.0,
+      "fui_site": 4.2,
+      "sri_score": 1.0,
+      "grade": "GRADE_D"
+    },
+    {
+      "rank": 6,
+      "site_id": "CUST_ROCK_DRILL_PROJECT_PRIVATE_LIMITED_PONDA",
+      "site_name": "ROCK DRILL PROJECT PRIVATE LIMITED PONDA",
+      "total_trips": 1,
+      "swi_site": 0.0,
+      "dpi_site": 0.0,
+      "fui_site": 4.2,
+      "sri_score": 1.0,
+      "grade": "GRADE_D"
+    },
+    {
+      "rank": 7,
+      "site_id": "CUST_UNIVASTU_INDIA_LTD_MIRAMAR",
+      "site_name": "UNIVASTU INDIA LTD MIRAMAR",
+      "total_trips": 1,
+      "swi_site": 0.0,
+      "dpi_site": 0.0,
+      "fui_site": 4.2,
+      "sri_score": 1.0,
+      "grade": "GRADE_D"
+    },
+    {
+      "rank": 8,
+      "site_id": "CUST_ERACH_VENTURES",
+      "site_name": "ERACH VENTURES",
+      "total_trips": 3,
+      "swi_site": 0.0,
+      "dpi_site": 0.0,
+      "fui_site": 8.3,
+      "sri_score": 2.1,
+      "grade": "GRADE_D"
+    },
+    {
+      "rank": 9,
+      "site_id": "CUST_JFK_MPT",
+      "site_name": "JFK MPT",
+      "total_trips": 5,
+      "swi_site": 11.6,
+      "dpi_site": 0.0,
+      "fui_site": 8.3,
+      "sri_score": 6.7,
+      "grade": "GRADE_D"
+    },
+    {
+      "rank": 10,
+      "site_id": "CUST_KAMAT_REAL_ESTATE_METROPOLICE",
+      "site_name": "KAMAT REAL ESTATE METROPOLICE",
+      "total_trips": 4,
+      "swi_site": 11.5,
+      "dpi_site": 0.0,
+      "fui_site": 12.5,
+      "sri_score": 7.7,
+      "grade": "GRADE_D"
+    }
+  ],
+  "exceptions": []
+}

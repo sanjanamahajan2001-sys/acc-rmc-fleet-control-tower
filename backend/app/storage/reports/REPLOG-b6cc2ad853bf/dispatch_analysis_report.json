@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "execution_id": "REPLOG-b6cc2ad853bf",
+    "report_id": "site_operations",
+    "report_name": "Site Operations Report",
+    "generated_at": "2026-08-20T08:57:34.605665+00:00",
+    "requested_by": "SYSTEM"
+  },
+  "requested_scope": {
+    "plant_id": "ALL",
+    "customer_id": "ALL",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL"
+  },
+  "effective_scope": {
+    "plant_id": "ALL",
+    "customer_id": "ALL",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL",
+    "resolved_dataset_id": "DS-20260805-ALL",
+    "record_count": 3532,
+    "scope_fingerprint": "8dd3cba9040d31a770baaf26ff65afab2ebcb0ceaf7075bd32aee72e983e419a"
+  },
+  "scope_fingerprint": "8dd3cba9040d31a770baaf26ff65afab2ebcb0ceaf7075bd32aee72e983e419a",
+  "status": "COMPLETED",
+  "record_count": 3532,
+  "kpis": {
+    "total_dispatches": 3532,
+    "within_sla_count": 2232,
+    "outside_sla_count": 1300,
+    "compliance_pct": 63.2,
+    "violation_pct": 36.8,
+    "avg_holding_mins": 23.3,
+    "percentile_95_holding_mins": 41.9,
+    "max_holding_mins": 502.0,
+    "avg_retention_mins": 9.1,
+    "max_retention_mins": 247.0,
+    "avg_site_time_mins": 63.8
+  },
+  "delay_distribution": [
+    {
+      "severity": "Low",
+      "count": 1584,
+      "percentage": 44.8
+    },
+    {
+      "severity": "Medium",
+      "count": 648,
+      "percentage": 18.3
+    },
+    {
+      "severity": "High",
+      "count": 674,
+      "percentage": 19.1
+    },
+    {
+      "severity": "Critical",
+      "count": 626,
+      "percentage": 17.7
+    }
+  ],
+  "insights": [
+    {
+      "category": "SLA Compliance Health",
+      "title": "Strong Dispatch On-Time SLA Performance",
+      "impact_level": "Low",
+      "insight_text": "63.2% of dispatches met site holding and retention SLA thresholds."
+    },
+    {
+      "category": "Holding Bottlenecks",
+      "title": "95th Percentile Holding Queue Tail",
+      "impact_level": "Medium",
+      "insight_text": "95% of mixer holding wait times completed within 41.9 minutes."
+    }
+  ],
+  "records": []
+}

@@ -1,0 +1,68 @@
+{
+  "model_name": "delay_regressor",
+  "model_category": "Regression",
+  "candidate_model_version": "v1.0.0-candidate",
+  "promotion_status": "TRAINED_CANDIDATE",
+  "artifact_path": "/home/sanjana/fleet-operational-intelligence-platform/models/ml/delay_regressor/delay_regressor_candidate.joblib",
+  "artifact_size_bytes": 434947,
+  "artifact_sha256": "acba2d749fcbfb5bb05f2ec28b227edc1113404c9e39773d7ca79fa1899b037f",
+  "feature_set_version": "FeatureSetV1",
+  "dataset_id": "DS-TEST-77",
+  "training_timestamp": "2026-08-17T12:12:38.057146+00:00",
+  "target_name": "predicted_delay_mins",
+  "features": [
+    "plant_code",
+    "customer_code",
+    "vehicle_code",
+    "ticket_volume_m3",
+    "plant_queue_avg_30d",
+    "customer_retention_avg_30d",
+    "dispatch_hour",
+    "dispatch_day_of_week"
+  ],
+  "algorithm": "RandomForestRegressor",
+  "hyperparameters": {
+    "n_estimators": 100,
+    "max_depth": 10,
+    "random_state": 42
+  },
+  "random_seed": 42,
+  "row_counts": {
+    "train": 2301,
+    "val": 618,
+    "holdout": 613
+  },
+  "metrics_train": {
+    "r2": 0.364,
+    "mae": 16.2805,
+    "rmse": 25.4411,
+    "roc_auc": null,
+    "f1": null,
+    "precision": null,
+    "recall": null
+  },
+  "metrics_val": {
+    "r2": -0.0573,
+    "mae": 20.3879,
+    "rmse": 33.9877,
+    "roc_auc": null,
+    "f1": null,
+    "precision": null,
+    "recall": null
+  },
+  "metrics_holdout": {
+    "r2": -0.2694,
+    "mae": 22.4065,
+    "rmse": 32.9897,
+    "roc_auc": null,
+    "f1": null,
+    "precision": null,
+    "recall": null
+  },
+  "gate_assessment": {
+    "r2_pass": false,
+    "mae_pass": false,
+    "rmse_pass": false,
+    "overall_pass": false
+  }
+}

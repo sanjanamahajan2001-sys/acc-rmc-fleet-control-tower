@@ -1,0 +1,68 @@
+{
+  "model_name": "turnaround_regressor",
+  "model_category": "Regression",
+  "candidate_model_version": "v1.0.0-candidate",
+  "promotion_status": "TRAINED_CANDIDATE",
+  "artifact_path": "/home/sanjana/fleet-operational-intelligence-platform/models/ml/turnaround_regressor/turnaround_regressor_candidate.joblib",
+  "artifact_size_bytes": 620228,
+  "artifact_sha256": "0a738affa115ee4073dbc30a64ca32e4f256d29cf0658ad986dd78ca9428d3c2",
+  "feature_set_version": "FeatureSetV1",
+  "dataset_id": "DS-TEST-77",
+  "training_timestamp": "2026-08-17T12:12:54.198199+00:00",
+  "target_name": "predicted_avg_turnaround_mins",
+  "features": [
+    "plant_code",
+    "customer_code",
+    "vehicle_code",
+    "ticket_volume_m3",
+    "plant_queue_avg_30d",
+    "customer_retention_avg_30d",
+    "dispatch_hour",
+    "dispatch_day_of_week"
+  ],
+  "algorithm": "RandomForestRegressor",
+  "hyperparameters": {
+    "n_estimators": 100,
+    "max_depth": 10,
+    "random_state": 42
+  },
+  "random_seed": 42,
+  "row_counts": {
+    "train": 2301,
+    "val": 618,
+    "holdout": 613
+  },
+  "metrics_train": {
+    "r2": 0.4964,
+    "mae": 63.0856,
+    "rmse": 88.2717,
+    "roc_auc": null,
+    "f1": null,
+    "precision": null,
+    "recall": null
+  },
+  "metrics_val": {
+    "r2": 0.028,
+    "mae": 85.6763,
+    "rmse": 110.7756,
+    "roc_auc": null,
+    "f1": null,
+    "precision": null,
+    "recall": null
+  },
+  "metrics_holdout": {
+    "r2": 0.0286,
+    "mae": 90.0404,
+    "rmse": 125.5217,
+    "roc_auc": null,
+    "f1": null,
+    "precision": null,
+    "recall": null
+  },
+  "gate_assessment": {
+    "r2_pass": false,
+    "mae_pass": false,
+    "rmse_pass": false,
+    "overall_pass": false
+  }
+}

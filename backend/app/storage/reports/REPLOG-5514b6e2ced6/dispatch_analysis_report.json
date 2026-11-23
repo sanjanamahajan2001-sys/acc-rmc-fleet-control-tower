@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "execution_id": "REPLOG-5514b6e2ced6",
+    "report_id": "erp_import_audit",
+    "report_name": "ERP Import Audit Report",
+    "generated_at": "2026-08-20T12:04:32.669918+00:00",
+    "requested_by": "SYSTEM"
+  },
+  "requested_scope": {
+    "plant_id": "ALL",
+    "customer_id": "ALL",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL"
+  },
+  "effective_scope": {
+    "plant_id": "ALL",
+    "customer_id": "ALL",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL",
+    "resolved_dataset_id": "DS-20260805-ALL",
+    "record_count": 3532,
+    "scope_fingerprint": "8dd3cba9040d31a770baaf26ff65afab2ebcb0ceaf7075bd32aee72e983e419a"
+  },
+  "scope_fingerprint": "8dd3cba9040d31a770baaf26ff65afab2ebcb0ceaf7075bd32aee72e983e419a",
+  "status": "COMPLETED",
+  "record_count": 2,
+  "kpis": {
+    "total_import_jobs": 2,
+    "total_rows_received": 6716,
+    "total_rows_processed": 6716,
+    "total_errors": 0,
+    "successful_jobs_count": 2
+  },
+  "records": [
+    {
+      "job_id": "6d4b6d87-1f75-426e-b673-5dec07f3de77",
+      "job_number": "JOB-TELEMETRY-6D4B6D87",
+      "status": "COMPLETED",
+      "provider": "ExcelERPProvider",
+      "file_name": "01. Trip drum July & Agust 25.xlsx",
+      "file_hash": "1128a0a5e3eb7329ca0e253bd73664a673277855a01bd6f4f89dcbe8faec5157",
+      "total_rows": 3184,
+      "processed_rows": 3184,
+      "error_count": 0,
+      "created_at": "2026-08-19T09:20:22.201007+00:00",
+      "updated_at": "2026-08-19T09:21:13.145978+00:00"
+    },
+    {
+      "job_id": "85276d13-6364-48ab-8d06-ca56940876ca",
+      "job_number": "JOB-20260819-33BC6325",
+      "status": "COMPLETED",
+      "provider": "ExcelERPProvider",
+      "file_name": "1.15-06-2025To15-08-2025.xlsx",
+      "file_hash": "33bc63251a249687d953c539baa0237f1bb95d2076b54f69c1cd7d6ffa5385a3",
+      "total_rows": 3532,
+      "processed_rows": 3532,
+      "error_count": 0,
+      "created_at": "2026-08-19T09:19:18.911923+00:00",
+      "updated_at": "2026-08-19T09:19:18.947680+00:00"
+    }
+  ],
+  "exceptions": []
+}

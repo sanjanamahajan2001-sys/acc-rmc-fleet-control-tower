@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "execution_id": "REPLOG-4d856d803113",
+    "report_id": "timeline_operations",
+    "report_name": "Timeline Operations Report",
+    "generated_at": "2026-08-20T12:14:35.100957+00:00",
+    "requested_by": "SYSTEM"
+  },
+  "requested_scope": {
+    "plant_id": "ALL",
+    "customer_id": "ALL",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL"
+  },
+  "effective_scope": {
+    "plant_id": "ALL",
+    "customer_id": "ALL",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL",
+    "resolved_dataset_id": "DS-20260805-ALL",
+    "record_count": 3532,
+    "scope_fingerprint": "8dd3cba9040d31a770baaf26ff65afab2ebcb0ceaf7075bd32aee72e983e419a"
+  },
+  "scope_fingerprint": "8dd3cba9040d31a770baaf26ff65afab2ebcb0ceaf7075bd32aee72e983e419a",
+  "status": "NO_DATA",
+  "record_count": 0,
+  "kpis": {
+    "total_dispatches": 0,
+    "total_timeline_events": 0,
+    "dispatches_with_telemetry": 0,
+    "complete_duration_count": 0
+  },
+  "records": [],
+  "exceptions": []
+}

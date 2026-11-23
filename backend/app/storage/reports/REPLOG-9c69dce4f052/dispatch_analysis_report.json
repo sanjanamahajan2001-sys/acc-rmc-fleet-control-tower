@@ -1,0 +1,276 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "execution_id": "REPLOG-9c69dce4f052",
+    "report_id": "site_operations",
+    "report_name": "Site Operations Report",
+    "generated_at": "2026-08-21T04:46:39.813068+00:00",
+    "requested_by": "SYSTEM"
+  },
+  "requested_scope": {
+    "plant_id": "ALL",
+    "customer_id": "CUST_AARA_HOTELS",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL"
+  },
+  "effective_scope": {
+    "plant_id": "ALL",
+    "customer_id": "CUST_AARA_HOTELS",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL",
+    "resolved_dataset_id": "DS-20260805-ALL",
+    "record_count": 13,
+    "scope_fingerprint": "b0524dc503c167e1a84645ed5a69e3ded12c7bc7b9794ec813deac1765301c83"
+  },
+  "scope_fingerprint": "b0524dc503c167e1a84645ed5a69e3ded12c7bc7b9794ec813deac1765301c83",
+  "status": "COMPLETED",
+  "record_count": 13,
+  "kpis": {
+    "total_dispatches": 13,
+    "within_sla_count": 5,
+    "outside_sla_count": 8,
+    "compliance_pct": 38.5,
+    "violation_pct": 61.5,
+    "avg_holding_mins": 33.5,
+    "percentile_95_holding_mins": 60.3,
+    "max_holding_mins": 118.0,
+    "avg_retention_mins": 11.8,
+    "max_retention_mins": 45.0,
+    "avg_site_time_mins": 98.1
+  },
+  "delay_distribution": [
+    {
+      "severity": "Low",
+      "count": 5,
+      "percentage": 38.5
+    },
+    {
+      "severity": "Medium",
+      "count": 0,
+      "percentage": 0.0
+    },
+    {
+      "severity": "High",
+      "count": 5,
+      "percentage": 38.5
+    },
+    {
+      "severity": "Critical",
+      "count": 3,
+      "percentage": 23.1
+    }
+  ],
+  "insights": [
+    {
+      "category": "SLA Compliance Health",
+      "title": "Strong Dispatch On-Time SLA Performance",
+      "impact_level": "Low",
+      "insight_text": "38.5% of dispatches met site holding and retention SLA thresholds."
+    },
+    {
+      "category": "Holding Bottlenecks",
+      "title": "95th Percentile Holding Queue Tail",
+      "impact_level": "Medium",
+      "insight_text": "95% of mixer holding wait times completed within 60.3 minutes."
+    }
+  ],
+  "records": [
+    {
+      "dispatch_id": "e11e0a33-cda8-440e-a162-1cfbca485f50",
+      "dispatch_number": "SYNTH-TCK-TRIP-1745",
+      "dispatch_date": "2025-08-10",
+      "plant_id": "ACC DHARGA",
+      "customer_id": "AARA HOTELS",
+      "vehicle_id": "GA11T0830",
+      "interval_mins": 118.0,
+      "variance_mins": 0.0,
+      "holding_mins": 118.0,
+      "retention_mins": 0.0,
+      "sla_status": "WITHIN_SLA",
+      "trip_status": "IN_TRANSIT",
+      "cadence_recommendation": "MAINTAIN"
+    },
+    {
+      "dispatch_id": "cbc1d632-b68a-4b2a-bc39-885c5b018872",
+      "dispatch_number": "SYNTH-TCK-TRIP-2405",
+      "dispatch_date": "2025-07-19",
+      "plant_id": "ACC DHARGA",
+      "customer_id": "AARA HOTELS",
+      "vehicle_id": "GA11T0842",
+      "interval_mins": 76.0,
+      "variance_mins": 0.0,
+      "holding_mins": 76.0,
+      "retention_mins": 45.0,
+      "sla_status": "WITHIN_SLA",
+      "trip_status": "IN_TRANSIT",
+      "cadence_recommendation": "MAINTAIN"
+    },
+    {
+      "dispatch_id": "a42158cc-9225-468b-b5da-94358e83e1f8",
+      "dispatch_number": "SYNTH-TCK-TRIP-2257",
+      "dispatch_date": "2025-07-15",
+      "plant_id": "ACC DHARGA",
+      "customer_id": "AARA HOTELS",
+      "vehicle_id": "GA11T0840",
+      "interval_mins": 32.0,
+      "variance_mins": 0.0,
+      "holding_mins": 32.0,
+      "retention_mins": 15.0,
+      "sla_status": "WITHIN_SLA",
+      "trip_status": "IN_TRANSIT",
+      "cadence_recommendation": "MAINTAIN"
+    },
+    {
+      "dispatch_id": "1e0004ab-0073-485c-8bfb-c9b986f1bfb9",
+      "dispatch_number": "SYNTH-TCK-TRIP-1815",
+      "dispatch_date": "2025-07-13",
+      "plant_id": "ACC DHARGA",
+      "customer_id": "AARA HOTELS",
+      "vehicle_id": "GA11T0835",
+      "interval_mins": 8.0,
+      "variance_mins": 0.0,
+      "holding_mins": 8.0,
+      "retention_mins": 6.0,
+      "sla_status": "WITHIN_SLA",
+      "trip_status": "IN_TRANSIT",
+      "cadence_recommendation": "MAINTAIN"
+    },
+    {
+      "dispatch_id": "898c508a-46e3-418d-a8ab-a54b34a5e9b2",
+      "dispatch_number": "SYNTH-TCK-TRIP-2785",
+      "dispatch_date": "2025-07-11",
+      "plant_id": "ACC KUNDAIM",
+      "customer_id": "AARA HOTELS",
+      "vehicle_id": "GA07F7626",
+      "interval_mins": 2.0,
+      "variance_mins": 0.0,
+      "holding_mins": 2.0,
+      "retention_mins": 2.0,
+      "sla_status": "WITHIN_SLA",
+      "trip_status": "IN_TRANSIT",
+      "cadence_recommendation": "MAINTAIN"
+    },
+    {
+      "dispatch_id": "5899fe11-ee09-46a1-a8d4-5177cb2d5f40",
+      "dispatch_number": "SYNTH-TCK-TRIP-2391",
+      "dispatch_date": "2025-07-11",
+      "plant_id": "ACC DHARGA",
+      "customer_id": "AARA HOTELS",
+      "vehicle_id": "GA11T0842",
+      "interval_mins": 58.0,
+      "variance_mins": 0.0,
+      "holding_mins": 58.0,
+      "retention_mins": 8.0,
+      "sla_status": "WITHIN_SLA",
+      "trip_status": "IN_TRANSIT",
+      "cadence_recommendation": "MAINTAIN"
+    },
+    {
+      "dispatch_id": "c8984848-14dd-406f-b356-8caa1eb2901a",
+      "dispatch_number": "SYNTH-TCK-TRIP-2786",
+      "dispatch_date": "2025-07-11",
+      "plant_id": "ACC KUNDAIM",
+      "customer_id": "AARA HOTELS",
+      "vehicle_id": "GA07F7626",
+      "interval_mins": 8.0,
+      "variance_mins": 0.0,
+      "holding_mins": 8.0,
+      "retention_mins": 8.0,
+      "sla_status": "WITHIN_SLA",
+      "trip_status": "IN_TRANSIT",
+      "cadence_recommendation": "MAINTAIN"
+    },
+    {
+      "dispatch_id": "021cf2c4-2a3d-48bd-831f-83df13d50320",
+      "dispatch_number": "SYNTH-TCK-TRIP-2356",
+      "dispatch_date": "2025-06-23",
+      "plant_id": "ACC DHARGA",
+      "customer_id": "AARA HOTELS",
+      "vehicle_id": "GA11T0842",
+      "interval_mins": 10.0,
+      "variance_mins": 0.0,
+      "holding_mins": 10.0,
+      "retention_mins": 26.0,
+      "sla_status": "WITHIN_SLA",
+      "trip_status": "IN_TRANSIT",
+      "cadence_recommendation": "MAINTAIN"
+    },
+    {
+      "dispatch_id": "1af4da29-287f-44c9-b943-9126017cbd27",
+      "dispatch_number": "SYNTH-TCK-TRIP-2754",
+      "dispatch_date": "2025-06-20",
+      "plant_id": "ACC KUNDAIM",
+      "customer_id": "AARA HOTELS",
+      "vehicle_id": "GA07F7626",
+      "interval_mins": 31.0,
+      "variance_mins": 0.0,
+      "holding_mins": 31.0,
+      "retention_mins": 9.0,
+      "sla_status": "WITHIN_SLA",
+      "trip_status": "IN_TRANSIT",
+      "cadence_recommendation": "MAINTAIN"
+    },
+    {
+      "dispatch_id": "b0f1453c-5015-4c4d-a619-ceaec590a98a",
+      "dispatch_number": "SYNTH-TCK-TRIP-2208",
+      "dispatch_date": "2025-06-20",
+      "plant_id": "ACC DHARGA",
+      "customer_id": "AARA HOTELS",
+      "vehicle_id": "GA11T0840",
+      "interval_mins": 6.0,
+      "variance_mins": 0.0,
+      "holding_mins": 6.0,
+      "retention_mins": 14.0,
+      "sla_status": "WITHIN_SLA",
+      "trip_status": "IN_TRANSIT",
+      "cadence_recommendation": "MAINTAIN"
+    },
+    {
+      "dispatch_id": "028dfda7-ffdb-434e-99c9-7c4b84104048",
+      "dispatch_number": "SYNTH-TCK-TRIP-2011",
+      "dispatch_date": "2025-06-20",
+      "plant_id": "ACC DHARGA",
+      "customer_id": "AARA HOTELS",
+      "vehicle_id": "GA11T0839",
+      "interval_mins": 30.0,
+      "variance_mins": 0.0,
+      "holding_mins": 30.0,
+      "retention_mins": 6.0,
+      "sla_status": "WITHIN_SLA",
+      "trip_status": "IN_TRANSIT",
+      "cadence_recommendation": "MAINTAIN"
+    },
+    {
+      "dispatch_id": "386c6971-1454-470e-b028-db84bef80e9b",
+      "dispatch_number": "SYNTH-TCK-TRIP-2207",
+      "dispatch_date": "2025-06-20",
+      "plant_id": "ACC DHARGA",
+      "customer_id": "AARA HOTELS",
+      "vehicle_id": "GA11T0840",
+      "interval_mins": 28.0,
+      "variance_mins": 0.0,
+      "holding_mins": 28.0,
+      "retention_mins": 5.0,
+      "sla_status": "WITHIN_SLA",
+      "trip_status": "IN_TRANSIT",
+      "cadence_recommendation": "MAINTAIN"
+    },
+    {
+      "dispatch_id": "d7eb3986-3537-48c2-a427-f56958fb9466",
+      "dispatch_number": "SYNTH-TCK-TRIP-2351",
+      "dispatch_date": "2025-06-20",
+      "plant_id": "ACC DHARGA",
+      "customer_id": "AARA HOTELS",
+      "vehicle_id": "GA11T0842",
+      "interval_mins": 29.0,
+      "variance_mins": 0.0,
+      "holding_mins": 29.0,
+      "retention_mins": 9.0,
+      "sla_status": "WITHIN_SLA",
+      "trip_status": "IN_TRANSIT",
+      "cadence_recommendation": "MAINTAIN"
+    }
+  ]
+}

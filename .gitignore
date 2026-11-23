@@ -1,0 +1,65 @@
+# ==========================================
+# Environment variables and secrets
+# ==========================================
+.env
+.env.*
+!.env.example
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ==========================================
+# Python
+# ==========================================
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+ENV/
+
+# ==========================================
+# Frontend / Node.js
+# ==========================================
+node_modules/
+dist/
+build/
+.vite/
+.npm/
+
+# ==========================================
+# Local databases
+# ==========================================
+*.db
+*.sqlite
+*.sqlite3
+
+# ==========================================
+# Logs and runtime files
+# ==========================================
+*.log
+logs/
+tmp/
+temp/
+
+# ==========================================
+# IDE and operating system
+# ==========================================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# Test and generated artifacts
+# ==========================================
+coverage/
+playwright-report/
+test-results/

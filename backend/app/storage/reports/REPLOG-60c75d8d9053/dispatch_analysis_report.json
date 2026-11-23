@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "execution_id": "REPLOG-60c75d8d9053",
+    "report_id": "fleet_operations",
+    "report_name": "Fleet Operations Report",
+    "generated_at": "2026-10-13T05:48:30.850734+00:00",
+    "requested_by": "SYSTEM"
+  },
+  "requested_scope": {
+    "plant_id": "ALL",
+    "customer_id": "ALL",
+    "operation_date": "2026-03-01",
+    "shift": "ALL",
+    "dataset_type": "ALL"
+  },
+  "effective_scope": {
+    "plant_id": "ALL",
+    "customer_id": "ALL",
+    "operation_date": "2026-03-01",
+    "shift": "ALL",
+    "dataset_type": "ALL",
+    "resolved_dataset_id": "DS-20260301-ALL",
+    "record_count": 6917,
+    "scope_fingerprint": "1f0ea54a985cf785d143510be53894e1561a7cd0bcd0e5065441c3c2a389997b"
+  },
+  "scope_fingerprint": "1f0ea54a985cf785d143510be53894e1561a7cd0bcd0e5065441c3c2a389997b",
+  "status": "COMPLETED",
+  "record_count": 10,
+  "kpis": {
+    "total_active_vehicles": 47,
+    "vehicles_with_dispatches": 10,
+    "idle_vehicles": 37,
+    "fleet_utilization_pct": 21.3,
+    "avg_dispatches_per_vehicle": 691.7,
+    "avg_cycle_time_mins": 68.5
+  },
+  "records": [
+    {
+      "vehicle_plate": "GA06T8587",
+      "dispatch_count": 181,
+      "total_volume_m3": 1357.5,
+      "avg_holding_mins": 20.5,
+      "avg_unloading_mins": 27.3,
+      "avg_retention_mins": 8.0,
+      "utilization_pct": 100.0,
+      "status": "ATTENTION"
+    },
+    {
+      "vehicle_plate": "GA07F7625",
+      "dispatch_count": 180,
+      "total_volume_m3": 1350.0,
+      "avg_holding_mins": 31.8,
+      "avg_unloading_mins": 31.7,
+      "avg_retention_mins": 7.1,
+      "utilization_pct": 100.0,
+      "status": "ATTENTION"
+    },
+    {
+      "vehicle_plate": "GA07F7632",
+      "dispatch_count": 179,
+      "total_volume_m3": 1342.5,
+      "avg_holding_mins": 22.3,
+      "avg_unloading_mins": 18.6,
+      "avg_retention_mins": 6.5,
+      "utilization_pct": 100.0,
+      "status": "ATTENTION"
+    },
+    {
+      "vehicle_plate": "GA06T8576",
+      "dispatch_count": 175,
+      "total_volume_m3": 1312.5,
+      "avg_holding_mins": 13.0,
+      "avg_unloading_mins": 14.2,
+      "avg_retention_mins": 3.8,
+      "utilization_pct": 100.0,
+      "status": "OPTIMAL"
+    },
+    {
+      "vehicle_plate": "GA06T8577",
+      "dispatch_count": 175,
+      "total_volume_m3": 1312.5,
+      "avg_holding_mins": 22.5,
+      "avg_unloading_mins": 26.2,
+      "avg_retention_mins": 6.9,
+      "utilization_pct": 100.0,
+      "status": "ATTENTION"
+    },
+    {
+      "vehicle_plate": "GA06U0028",
+      "dispatch_count": 175,
+      "total_volume_m3": 1312.5,
+      "avg_holding_mins": 19.9,
+      "avg_unloading_mins": 33.8,
+      "avg_retention_mins": 10.3,
+      "utilization_pct": 100.0,
+      "status": "ATTENTION"
+    },
+    {
+      "vehicle_plate": "GA06T8578",
+      "dispatch_count": 174,
+      "total_volume_m3": 1305.0,
+      "avg_holding_mins": 25.6,
+      "avg_unloading_mins": 30.8,
+      "avg_retention_mins": 9.1,
+      "utilization_pct": 100.0,
+      "status": "ATTENTION"
+    },
+    {
+      "vehicle_plate": "GA06U0384",
+      "dispatch_count": 171,
+      "total_volume_m3": 1282.5,
+      "avg_holding_mins": 30.9,
+      "avg_unloading_mins": 42.4,
+      "avg_retention_mins": 11.3,
+      "utilization_pct": 100.0,
+      "status": "ATTENTION"
+    },
+    {
+      "vehicle_plate": "GA07F7628",
+      "dispatch_count": 169,
+      "total_volume_m3": 1267.5,
+      "avg_holding_mins": 26.5,
+      "avg_unloading_mins": 29.3,
+      "avg_retention_mins": 7.3,
+      "utilization_pct": 100.0,
+      "status": "ATTENTION"
+    },
+    {
+      "vehicle_plate": "GA03AV1384",
+      "dispatch_count": 167,
+      "total_volume_m3": 1252.5,
+      "avg_holding_mins": 25.5,
+      "avg_unloading_mins": 30.9,
+      "avg_retention_mins": 8.9,
+      "utilization_pct": 100.0,
+      "status": "ATTENTION"
+    }
+  ],
+  "alerts": [
+    {
+      "vehicle_plate": "GA06T8587",
+      "alert_type": "Excessive Holding Queue Delay",
+      "severity": "HIGH",
+      "message": "Vehicle averaged 20.5 min site holding delay."
+    },
+    {
+      "vehicle_plate": "GA07F7625",
+      "alert_type": "Excessive Holding Queue Delay",
+      "severity": "HIGH",
+      "message": "Vehicle averaged 31.8 min site holding delay."
+    },
+    {
+      "vehicle_plate": "GA07F7632",
+      "alert_type": "Excessive Holding Queue Delay",
+      "severity": "HIGH",
+      "message": "Vehicle averaged 22.3 min site holding delay."
+    },
+    {
+      "vehicle_plate": "GA06T8577",
+      "alert_type": "Excessive Holding Queue Delay",
+      "severity": "HIGH",
+      "message": "Vehicle averaged 22.5 min site holding delay."
+    },
+    {
+      "vehicle_plate": "GA06T8578",
+      "alert_type": "Excessive Holding Queue Delay",
+      "severity": "HIGH",
+      "message": "Vehicle averaged 25.6 min site holding delay."
+    },
+    {
+      "vehicle_plate": "GA06U0384",
+      "alert_type": "Excessive Holding Queue Delay",
+      "severity": "HIGH",
+      "message": "Vehicle averaged 30.9 min site holding delay."
+    },
+    {
+      "vehicle_plate": "GA07F7628",
+      "alert_type": "Excessive Holding Queue Delay",
+      "severity": "HIGH",
+      "message": "Vehicle averaged 26.5 min site holding delay."
+    },
+    {
+      "vehicle_plate": "GA03AV1384",
+      "alert_type": "Excessive Holding Queue Delay",
+      "severity": "HIGH",
+      "message": "Vehicle averaged 25.5 min site holding delay."
+    }
+  ],
+  "exceptions": []
+}

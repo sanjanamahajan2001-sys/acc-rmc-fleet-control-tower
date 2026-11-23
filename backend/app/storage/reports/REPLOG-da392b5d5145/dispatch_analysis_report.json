@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "execution_id": "REPLOG-da392b5d5145",
+    "report_id": "site_comparison",
+    "report_name": "Site Comparison Report",
+    "generated_at": "2026-08-21T04:46:07.308748+00:00",
+    "requested_by": "SYSTEM"
+  },
+  "requested_scope": {
+    "plant_id": "ACC_DHARGA",
+    "customer_id": "CUST_AARA_HOTELS",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL"
+  },
+  "effective_scope": {
+    "plant_id": "ACC_DHARGA",
+    "customer_id": "CUST_AARA_HOTELS",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL",
+    "resolved_dataset_id": "DS-20260805-ACC_DHARGA",
+    "record_count": 10,
+    "scope_fingerprint": "74282356bba75c088ab85e12ac2acb1b4d6e55a3f8ca3bd2b1ce0042e6173002"
+  },
+  "scope_fingerprint": "74282356bba75c088ab85e12ac2acb1b4d6e55a3f8ca3bd2b1ce0042e6173002",
+  "status": "COMPLETED",
+  "record_count": 1,
+  "kpis": {
+    "total_sites_evaluated": 1,
+    "total_dispatches": 10,
+    "total_volume_cum": 912.0,
+    "avg_holding_mins": 39.5,
+    "avg_retention_mins": 13.4,
+    "avg_dispatch_accuracy": 30.0,
+    "optimal_sites_count": 0
+  },
+  "records": [
+    {
+      "rank": 1,
+      "site_code": "ACC_DHARGA",
+      "site_name": "ACC DHARGA",
+      "dispatches": 10,
+      "volume_cum": 912.0,
+      "avg_holding_mins": 39.5,
+      "avg_retention_mins": 13.4,
+      "max_queue_tms": 2,
+      "dispatch_accuracy": 30.0,
+      "status": "Critical"
+    }
+  ],
+  "exceptions": []
+}

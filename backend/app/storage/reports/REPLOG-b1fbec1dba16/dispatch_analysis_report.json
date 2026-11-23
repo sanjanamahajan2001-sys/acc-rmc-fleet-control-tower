@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "execution_id": "REPLOG-b1fbec1dba16",
+    "report_id": "alerts_incidents",
+    "report_name": "Alerts & Incidents Report",
+    "generated_at": "2026-08-20T11:45:01.505619+00:00",
+    "requested_by": "SYSTEM"
+  },
+  "requested_scope": {
+    "plant_id": "ALL",
+    "customer_id": "ALL",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL"
+  },
+  "effective_scope": {
+    "plant_id": "ALL",
+    "customer_id": "ALL",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL",
+    "resolved_dataset_id": "DS-20260805-ALL",
+    "record_count": 3532,
+    "scope_fingerprint": "8dd3cba9040d31a770baaf26ff65afab2ebcb0ceaf7075bd32aee72e983e419a"
+  },
+  "scope_fingerprint": "8dd3cba9040d31a770baaf26ff65afab2ebcb0ceaf7075bd32aee72e983e419a",
+  "status": "NO_DATA",
+  "record_count": 0,
+  "kpis": {
+    "total_active_alerts": 0,
+    "critical_count": 0,
+    "warning_count": 0,
+    "info_count": 0,
+    "acknowledged_count": 0
+  },
+  "records": [],
+  "exceptions": []
+}

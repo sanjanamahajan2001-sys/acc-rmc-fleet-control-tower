@@ -1,0 +1,583 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "execution_id": "REPLOG-180be829f663",
+    "report_id": "operational_intelligence",
+    "report_name": "Operational Intelligence Report",
+    "generated_at": "2026-08-21T04:19:20.242266+00:00",
+    "requested_by": "SYSTEM"
+  },
+  "requested_scope": {
+    "plant_id": "ACC_DHARGA",
+    "customer_id": "CUST_AARA_HOTELS",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL"
+  },
+  "effective_scope": {
+    "plant_id": "ACC_DHARGA",
+    "customer_id": "CUST_AARA_HOTELS",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL",
+    "resolved_dataset_id": "DS-20260805-ACC_DHARGA",
+    "record_count": 10,
+    "scope_fingerprint": "74282356bba75c088ab85e12ac2acb1b4d6e55a3f8ca3bd2b1ce0042e6173002"
+  },
+  "scope_fingerprint": "74282356bba75c088ab85e12ac2acb1b4d6e55a3f8ca3bd2b1ce0042e6173002",
+  "status": "COMPLETED",
+  "record_count": 1,
+  "kpis": {
+    "total_sites_evaluated": 1,
+    "total_trips": 10,
+    "avg_sri_score": 39.4,
+    "avg_swi_site": 53.8,
+    "avg_dpi_site": 0.0,
+    "avg_fui_site": 71.4,
+    "grade_a_sites_count": 0
+  },
+  "health": {
+    "overall_health_score": 30.0,
+    "health_status": "CRITICAL",
+    "freshness": {
+      "dataset_id": "DS-20260805-001",
+      "operational_date": "2026-08-05",
+      "import_timestamp": "2026-08-21T04:19:20.261584+00:00",
+      "dataset_status": "ACTIVE_PRODUCTION",
+      "total_dispatches": 10,
+      "total_trips": 10
+    },
+    "metrics": [
+      {
+        "key": "dispatch_accuracy",
+        "label": "Dispatch Accuracy Score (DAS)",
+        "current_value": 30.0,
+        "unit": "%",
+        "status": "CRITICAL",
+        "target": 90.0,
+        "threshold": null,
+        "variance": -60.0,
+        "provenance_table": "dispatches",
+        "provenance_formula": "count(on_time_dispatches) / count(total_dispatches) * 100"
+      },
+      {
+        "key": "site_waiting_index",
+        "label": "Site Waiting Index (SWI)",
+        "current_value": 3.0,
+        "unit": "hrs",
+        "status": "CRITICAL",
+        "target": 75.0,
+        "threshold": null,
+        "variance": -72.0,
+        "provenance_table": "dispatches",
+        "provenance_formula": "sum(holding_time > 20min) / count(dispatches)"
+      },
+      {
+        "key": "delay_penalty_index",
+        "label": "Delay Penalty Index (DPI)",
+        "current_value": 11.1,
+        "unit": "hrs",
+        "status": "CRITICAL",
+        "target": 85.0,
+        "threshold": null,
+        "variance": -73.9,
+        "provenance_table": "dispatches",
+        "provenance_formula": "sum(retention_time > 10min) / count(dispatches)"
+      },
+      {
+        "key": "fleet_utilization_index",
+        "label": "Fleet Utilization Index (FUI)",
+        "current_value": 71.4,
+        "unit": "%",
+        "status": "OPTIMAL",
+        "target": 70.0,
+        "threshold": null,
+        "variance": 1.4,
+        "provenance_table": "trips / vehicles",
+        "provenance_formula": "count(active_vehicles_with_trips) / count(total_fleet) * 100"
+      },
+      {
+        "key": "active_critical_alerts",
+        "label": "Active Critical Alerts",
+        "current_value": 7.0,
+        "unit": "alerts",
+        "status": "CRITICAL",
+        "target": null,
+        "threshold": 0.0,
+        "variance": null,
+        "provenance_table": "operational_alerts",
+        "provenance_formula": "count(id) where status='OPEN' and severity='CRITICAL'"
+      }
+    ],
+    "calculation_status": "SUCCESS",
+    "calculation_notes": "Authoritative PostgreSQL calculation successful across 10 dispatches."
+  },
+  "alerts": {
+    "summary": {
+      "total_active": 15,
+      "open_count": 15,
+      "acknowledged_count": 0,
+      "critical_count": 7,
+      "warning_count": 8,
+      "info_count": 0
+    },
+    "severity_distribution": [
+      {
+        "severity": "CRITICAL",
+        "count": 7,
+        "percentage": 46.7
+      },
+      {
+        "severity": "WARNING",
+        "count": 8,
+        "percentage": 53.3
+      },
+      {
+        "severity": "INFO",
+        "count": 0,
+        "percentage": 0.0
+      }
+    ],
+    "top_categories": [
+      {
+        "alert_type": "PLANT_HOLDING_BOTTLENECK",
+        "label": "Plant Holding Bottleneck",
+        "severity": "CRITICAL",
+        "count": 7,
+        "percentage": 46.7
+      },
+      {
+        "alert_type": "TRANSIT_DELAY_EXCESSIVE",
+        "label": "Transit Delay Excessive",
+        "severity": "WARNING",
+        "count": 6,
+        "percentage": 40.0
+      },
+      {
+        "alert_type": "SITE_RETENTION_EXCESSIVE",
+        "label": "Site Retention Excessive",
+        "severity": "WARNING",
+        "count": 2,
+        "percentage": 13.3
+      }
+    ],
+    "plant_concentration": [
+      {
+        "group_type": "PLANT",
+        "group_code": "ACC_DHARGA",
+        "group_name": "ACC_DHARGA",
+        "critical_count": 7,
+        "warning_count": 8,
+        "total_count": 15
+      }
+    ],
+    "customer_concentration": [
+      {
+        "group_type": "CUSTOMER",
+        "group_code": "CUST_AARA_HOTELS",
+        "group_name": "CUST_AARA_HOTELS",
+        "critical_count": 7,
+        "warning_count": 8,
+        "total_count": 15
+      }
+    ],
+    "priority_alerts": [
+      {
+        "id": "3d42cfb4-134d-4385-b682-2549855c7451",
+        "alert_type": "PLANT_HOLDING_BOTTLENECK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "plant_id": "ACC_DHARGA",
+        "customer_id": "CUST_AARA_HOTELS",
+        "metric_name": "t2a_holding_mins",
+        "actual_value": 58.0,
+        "threshold_value": 20.0,
+        "unit": "mins",
+        "business_impact": "Plant departure queue bottleneck",
+        "detected_at": "2026-08-14T05:02:14.067138+00:00"
+      },
+      {
+        "id": "40aa2eec-6962-4081-ac92-b4a999117eee",
+        "alert_type": "PLANT_HOLDING_BOTTLENECK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "plant_id": "ACC_DHARGA",
+        "customer_id": "CUST_AARA_HOTELS",
+        "metric_name": "t2a_holding_mins",
+        "actual_value": 118.0,
+        "threshold_value": 20.0,
+        "unit": "mins",
+        "business_impact": "Plant departure queue bottleneck",
+        "detected_at": "2026-08-14T05:02:14.067138+00:00"
+      },
+      {
+        "id": "56cdd778-01af-416c-aa8c-ff5a2953bf1b",
+        "alert_type": "PLANT_HOLDING_BOTTLENECK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "plant_id": "ACC_DHARGA",
+        "customer_id": "CUST_AARA_HOTELS",
+        "metric_name": "t2a_holding_mins",
+        "actual_value": 76.0,
+        "threshold_value": 20.0,
+        "unit": "mins",
+        "business_impact": "Plant departure queue bottleneck",
+        "detected_at": "2026-08-14T05:02:14.067138+00:00"
+      },
+      {
+        "id": "5df6b92a-c0d6-4227-a6dd-95f043c38ef0",
+        "alert_type": "PLANT_HOLDING_BOTTLENECK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "plant_id": "ACC_DHARGA",
+        "customer_id": "CUST_AARA_HOTELS",
+        "metric_name": "t2a_holding_mins",
+        "actual_value": 28.0,
+        "threshold_value": 20.0,
+        "unit": "mins",
+        "business_impact": "Plant departure queue bottleneck",
+        "detected_at": "2026-08-14T05:02:14.067138+00:00"
+      },
+      {
+        "id": "bd8718fa-5af3-4238-9c60-15e49ec3c28b",
+        "alert_type": "PLANT_HOLDING_BOTTLENECK",
+        "severity": "CRITICAL",
+        "status": "OPEN",
+        "plant_id": "ACC_DHARGA",
+        "customer_id": "CUST_AARA_HOTELS",
+        "metric_name": "t2a_holding_mins",
+        "actual_value": 29.0,
+        "threshold_value": 20.0,
+        "unit": "mins",
+        "business_impact": "Plant departure queue bottleneck",
+        "detected_at": "2026-08-14T05:02:14.067138+00:00"
+      }
+    ],
+    "calculation_status": "SUCCESS",
+    "calculation_notes": "Authoritative WS-07 alert intelligence calculation successful across 15 active alerts (Plant: ACC_DHARGA, Customer: CUST_AARA_HOTELS, Dataset: DS-20260805-001)."
+  },
+  "recommendations": {
+    "summary": {
+      "active_recommendations": 4,
+      "high_priority_issues": 11,
+      "estimated_delay_reduction_mins": 59.2,
+      "estimated_sla_recovery_pct": 45.0,
+      "fleet_efficiency_opportunity_pct": 34.4
+    },
+    "recommendations": [
+      {
+        "recommendation_id": "REC-CRIT-01",
+        "priority": "CRITICAL",
+        "recommendation_text": "Re-route 2 idle mixer trucks to ACC_DHARGA for peak unloading",
+        "underlying_reason": "Severe queue spillover (7 holding SLA breaches detected)",
+        "affected_plant": "ACC_DHARGA",
+        "affected_vehicle": "GA11T0839",
+        "expected_impact": "Queue -35%",
+        "confidence_pct": 99.0,
+        "status": "Pending"
+      },
+      {
+        "recommendation_id": "REC-HIGH-01",
+        "priority": "HIGH",
+        "recommendation_text": "Increase dispatch spacing between 10:00–12:00 by 8 mins for ACC_DHARGA",
+        "underlying_reason": "Current site unloading capacity exceeded (avg holding 39.5m)",
+        "affected_plant": "ACC_DHARGA",
+        "affected_vehicle": "GA11T0842",
+        "expected_impact": "Holding -18%",
+        "confidence_pct": 98.0,
+        "status": "Pending"
+      },
+      {
+        "recommendation_id": "REC-MED-01",
+        "priority": "MEDIUM",
+        "recommendation_text": "Prioritize unloading bay 2 for high-slump mix dispatches at ACC_DHARGA",
+        "underlying_reason": "Unloader bottleneck causing site retention delay (4 breaches)",
+        "affected_plant": "ACC_DHARGA",
+        "affected_vehicle": "GA11T0840",
+        "expected_impact": "Retention -12%",
+        "confidence_pct": 83.0,
+        "status": "Pending"
+      },
+      {
+        "recommendation_id": "REC-LOW-01",
+        "priority": "LOW",
+        "recommendation_text": "Stagger afternoon dispatch departures starting 14:00 at ACC_DHARGA",
+        "underlying_reason": "Overlapping customer site delivery windows across plant cluster",
+        "affected_plant": "ACC_DHARGA",
+        "affected_vehicle": "GA11T0835",
+        "expected_impact": "Overlap -22%",
+        "confidence_pct": 92.0,
+        "status": "Pending"
+      }
+    ],
+    "insights": [
+      {
+        "title": "Queue Bottleneck Spillover Prevention",
+        "category": "Queue Management",
+        "action_type": "Immediate Dispatch Spacing",
+        "description": "Active holding queue spillover at ACC_DHARGA. Re-route TMs immediately.",
+        "urgency": "Immediate"
+      },
+      {
+        "title": "Fleet Asset Capacity Rebalancing",
+        "category": "Vehicle Redistribution",
+        "action_type": "Asset Re-allocation",
+        "description": "Move idle mixer trucks to ACC_DHARGA to absorb peak customer unloading rates.",
+        "urgency": "Proactive"
+      }
+    ],
+    "calculation_status": "SUCCESS",
+    "calculation_notes": "Authoritative RecommendationEngine calculation successful across 4 active recommendations (Plant: ACC_DHARGA, Customer: CUST_AARA_HOTELS, Dataset: DS-20260805-001)."
+  },
+  "financial_exposure": {
+    "summary": {
+      "total_financial_exposure_inr": 11340.0,
+      "holding_delay_cost_inr": 5775.0,
+      "retention_sla_penalty_inr": 2100.0,
+      "idle_fuel_waste_inr": 3465.0,
+      "total_penalty_mins": 291.0
+    },
+    "breakdown": [
+      {
+        "category": "PLANT_HOLDING",
+        "label": "Plant Holding Queue Financial Loss",
+        "penalty_mins": 231.0,
+        "cost_rate_per_min": 25.0,
+        "total_cost_inr": 5775.0,
+        "percentage": 50.9
+      },
+      {
+        "category": "CUSTOMER_RETENTION",
+        "label": "Customer Site SLA Penalty Exposure",
+        "penalty_mins": 60.0,
+        "cost_rate_per_min": 35.0,
+        "total_cost_inr": 2100.0,
+        "percentage": 18.5
+      },
+      {
+        "category": "IDLE_FUEL",
+        "label": "Idle Fuel Waste Exposure",
+        "penalty_mins": 231.0,
+        "cost_rate_per_min": 15.0,
+        "total_cost_inr": 3465.0,
+        "percentage": 30.6
+      }
+    ],
+    "top_plant_risk": [
+      {
+        "entity_type": "PLANT",
+        "entity_code": "ACC_DHARGA",
+        "entity_name": "ACC_DHARGA",
+        "penalty_mins": 291.0,
+        "financial_exposure_inr": 11340.0
+      }
+    ],
+    "top_customer_risk": [
+      {
+        "entity_type": "CUSTOMER",
+        "entity_code": "CUST_AARA_HOTELS",
+        "entity_name": "CUST_AARA_HOTELS",
+        "penalty_mins": 291.0,
+        "financial_exposure_inr": 11340.0
+      }
+    ],
+    "calculation_status": "SUCCESS",
+    "calculation_notes": "Authoritative financial exposure calculation successful across ₹11,340.00 total risk (Plant: ACC_DHARGA, Customer: CUST_AARA_HOTELS, Dataset: DS-20260805-001)."
+  },
+  "efficiency": {
+    "summary": {
+      "overall_efficiency_index": 8.3,
+      "fleet_utilization_pct": 20.8,
+      "avg_turnaround_time_mins": 265.9,
+      "avg_holding_time_mins": 39.5,
+      "avg_retention_time_mins": 13.4,
+      "turnaround_efficiency_pct": 0.0,
+      "site_unloading_efficiency_pct": 0.0
+    },
+    "plant_efficiency": [
+      {
+        "plant_code": "ACC_DHARGA",
+        "plant_name": "ACC DHARGA",
+        "active_vehicles": 5,
+        "total_dispatches": 10,
+        "avg_holding_mins": 39.5,
+        "turnaround_efficiency_pct": 0.0,
+        "efficiency_grade": "Critical"
+      }
+    ],
+    "customer_efficiency": [
+      {
+        "customer_code": "CUST_AARA_HOTELS",
+        "customer_name": "AARA HOTELS",
+        "total_trips": 10,
+        "avg_retention_mins": 6.0,
+        "cei_score": 3.0,
+        "efficiency_grade": "Critical"
+      }
+    ],
+    "calculation_status": "SUCCESS",
+    "calculation_notes": "Authoritative fleet efficiency calculation successful across 20.8% utilization (Plant: ACC_DHARGA, Customer: CUST_AARA_HOTELS, Dataset: DS-20260805-001)."
+  },
+  "cost_exposure": {
+    "summary": {
+      "realized_cost_exposure_inr": 11340.0,
+      "predicted_cost_exposure_inr": 12075.0,
+      "holding_penalty_cost_inr": 5775.0,
+      "retention_sla_penalty_inr": 2100.0,
+      "idle_fuel_waste_inr": 3465.0,
+      "high_cost_operations_count": 9
+    },
+    "high_cost_operations": {
+      "items": [
+        {
+          "dispatch_id": "e11e0a33-cda8-440e-a162-1cfbca485f50",
+          "dispatch_code": "SYNTH-TCK-TRIP-1745",
+          "plant_code": "ACC_DHARGA",
+          "customer_code": "CUST_AARA_HOTELS",
+          "vehicle_code": "GA11T0830",
+          "holding_penalty_mins": 98.0,
+          "retention_penalty_mins": 0.0,
+          "total_exposure_inr": 3920.0,
+          "risk_level": "Critical"
+        },
+        {
+          "dispatch_id": "cbc1d632-b68a-4b2a-bc39-885c5b018872",
+          "dispatch_code": "SYNTH-TCK-TRIP-2405",
+          "plant_code": "ACC_DHARGA",
+          "customer_code": "CUST_AARA_HOTELS",
+          "vehicle_code": "GA11T0842",
+          "holding_penalty_mins": 56.0,
+          "retention_penalty_mins": 35.0,
+          "total_exposure_inr": 3465.0,
+          "risk_level": "Critical"
+        },
+        {
+          "dispatch_id": "5899fe11-ee09-46a1-a8d4-5177cb2d5f40",
+          "dispatch_code": "SYNTH-TCK-TRIP-2391",
+          "plant_code": "ACC_DHARGA",
+          "customer_code": "CUST_AARA_HOTELS",
+          "vehicle_code": "GA11T0842",
+          "holding_penalty_mins": 38.0,
+          "retention_penalty_mins": 0.0,
+          "total_exposure_inr": 1520.0,
+          "risk_level": "Critical"
+        },
+        {
+          "dispatch_id": "a42158cc-9225-468b-b5da-94358e83e1f8",
+          "dispatch_code": "SYNTH-TCK-TRIP-2257",
+          "plant_code": "ACC_DHARGA",
+          "customer_code": "CUST_AARA_HOTELS",
+          "vehicle_code": "GA11T0840",
+          "holding_penalty_mins": 12.0,
+          "retention_penalty_mins": 5.0,
+          "total_exposure_inr": 655.0,
+          "risk_level": "High"
+        },
+        {
+          "dispatch_id": "021cf2c4-2a3d-48bd-831f-83df13d50320",
+          "dispatch_code": "SYNTH-TCK-TRIP-2356",
+          "plant_code": "ACC_DHARGA",
+          "customer_code": "CUST_AARA_HOTELS",
+          "vehicle_code": "GA11T0842",
+          "holding_penalty_mins": 0.0,
+          "retention_penalty_mins": 16.0,
+          "total_exposure_inr": 560.0,
+          "risk_level": "High"
+        },
+        {
+          "dispatch_id": "028dfda7-ffdb-434e-99c9-7c4b84104048",
+          "dispatch_code": "SYNTH-TCK-TRIP-2011",
+          "plant_code": "ACC_DHARGA",
+          "customer_code": "CUST_AARA_HOTELS",
+          "vehicle_code": "GA11T0839",
+          "holding_penalty_mins": 10.0,
+          "retention_penalty_mins": 0.0,
+          "total_exposure_inr": 400.0,
+          "risk_level": "Moderate"
+        },
+        {
+          "dispatch_id": "d7eb3986-3537-48c2-a427-f56958fb9466",
+          "dispatch_code": "SYNTH-TCK-TRIP-2351",
+          "plant_code": "ACC_DHARGA",
+          "customer_code": "CUST_AARA_HOTELS",
+          "vehicle_code": "GA11T0842",
+          "holding_penalty_mins": 9.0,
+          "retention_penalty_mins": 0.0,
+          "total_exposure_inr": 360.0,
+          "risk_level": "Moderate"
+        },
+        {
+          "dispatch_id": "386c6971-1454-470e-b028-db84bef80e9b",
+          "dispatch_code": "SYNTH-TCK-TRIP-2207",
+          "plant_code": "ACC_DHARGA",
+          "customer_code": "CUST_AARA_HOTELS",
+          "vehicle_code": "GA11T0840",
+          "holding_penalty_mins": 8.0,
+          "retention_penalty_mins": 0.0,
+          "total_exposure_inr": 320.0,
+          "risk_level": "Moderate"
+        },
+        {
+          "dispatch_id": "b0f1453c-5015-4c4d-a619-ceaec590a98a",
+          "dispatch_code": "SYNTH-TCK-TRIP-2208",
+          "plant_code": "ACC_DHARGA",
+          "customer_code": "CUST_AARA_HOTELS",
+          "vehicle_code": "GA11T0840",
+          "holding_penalty_mins": 0.0,
+          "retention_penalty_mins": 4.0,
+          "total_exposure_inr": 140.0,
+          "risk_level": "Moderate"
+        }
+      ],
+      "page": 1,
+      "page_size": 10,
+      "total_items": 9,
+      "total_pages": 1
+    },
+    "plant_cost_risk": [
+      {
+        "plant_code": "ACC_DHARGA",
+        "plant_name": "ACC DHARGA",
+        "dispatches_count": 10,
+        "total_exposure_inr": 11340.0,
+        "exposure_percentage": 100.0
+      }
+    ],
+    "customer_cost_risk": [
+      {
+        "customer_code": "CUST_AARA_HOTELS",
+        "customer_name": "AARA HOTELS",
+        "delivered_trips": 10,
+        "total_exposure_inr": 11340.0,
+        "exposure_percentage": 100.0
+      }
+    ],
+    "provenance": {
+      "is_model_configured": true,
+      "prediction_status": "AVAILABLE",
+      "model_name": "delay_regressor",
+      "model_version": "v1.1.0-candidate-ds-fsv1-prom",
+      "prediction_snapshot_id": "SNAP-TELEMETRY-14128",
+      "prediction_timestamp": "2026-08-21T04:19:20.430297+00:00",
+      "confidence_score": 0.94,
+      "notes": "Authoritative Production Inference Engine active (4/4 Promoted Families, 14128 active snapshots)."
+    },
+    "calculation_status": "SUCCESS",
+    "prediction_status": "AVAILABLE",
+    "calculation_notes": "Authoritative Phase 4 financial calculation reused successfully across ₹11,340.00 total realized exposure (Plant: ACC_DHARGA, Customer: CUST_AARA_HOTELS, Dataset: DS-20260805-001)."
+  },
+  "records": [
+    {
+      "rank": 1,
+      "site_id": "CUST_AARA_HOTELS",
+      "site_name": "AARA HOTELS",
+      "total_trips": 10,
+      "swi_site": 53.8,
+      "dpi_site": 0.0,
+      "fui_site": 71.4,
+      "sri_score": 39.4,
+      "grade": "GRADE_D"
+    }
+  ],
+  "exceptions": []
+}

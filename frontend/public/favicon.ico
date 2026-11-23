@@ -1,0 +1,60 @@
+import React from 'react';
+import { Bell } from 'lucide-react';
+import { DashboardSyncProvider } from '../../site_dashboard/orchestration/DashboardSyncProvider';
+import { DashboardFilterProvider } from '../../site_dashboard/orchestration/DashboardFilterProvider';
+import { GlobalDashboardFilterBar } from '../../site_dashboard/components/GlobalDashboardFilterBar';
+import { SyncStatusHeaderBadge } from '../../site_dashboard/components/SyncStatusHeaderBadge';
+import { useOperationalDashboardContext } from '../hooks/useOperationalDashboardContext';
+import { AlertCenterWorkspaceContent } from '../widgets/alerts/AlertCenterWorkspaceContent';
+
+const AlertCenterDashboardContent: React.FC = () => {
+  const { refetchContext } = useOperationalDashboardContext();
+
+  return (
+    <DashboardSyncProvider onRefreshNeeded={refetchContext}>
+      <div className="min-h-screen p-4 md:p-5 space-y-6" style={{ backgroundColor: '#F4F6F9', color: '#172033' }}>
+        {/* Top Header Bar for Operational Alert Center */}
+        <div
+          className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 rounded-xl shadow-xs border"
+          style={{ backgroundColor: '#FBFCFE', borderColor: '#DCE2EA' }}
+        >
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl border" style={{ backgroundColor: '#FEF3C7', borderColor: '#FCD34D', color: '#B7791F' }}>
+              <Bell className="w-6 h-6" />
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold tracking-tight" style={{ color: '#172033' }}>
+                Operational Alert Center
+              </h1>
+              <p className="text-xs font-medium" style={{ color: '#64748B' }}>
+                Real-Time Business Rule Exceptions &amp; SLA Management
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-3">
+            <SyncStatusHeaderBadge />
+          </div>
+        </div>
+
+        {/* Global Dashboard Filter Bar (Shared filter provider contract) */}
+        <GlobalDashboardFilterBar />
+
+        {/* Primary Workspace Content Area: Alert Center Content ONLY */}
+        <div className="w-full">
+          <AlertCenterWorkspaceContent />
+        </div>
+      </div>
+    </DashboardSyncProvider>
+  );
+};
+
+export const AlertCenterDashboardPage: React.FC = () => {
+  return (
+    <DashboardFilterProvider>
+      <AlertCenterDashboardContent />
+    </DashboardFilterProvider>
+  );
+};
+
+export default AlertCenterDashboardPage;

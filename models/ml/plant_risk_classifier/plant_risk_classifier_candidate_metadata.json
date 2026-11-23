@@ -1,0 +1,70 @@
+{
+  "model_name": "plant_risk_classifier",
+  "model_category": "Classification",
+  "candidate_model_version": "v1.0.0-candidate",
+  "promotion_status": "TRAINED_CANDIDATE",
+  "artifact_path": "/home/sanjana/fleet-operational-intelligence-platform/models/ml/plant_risk_classifier/plant_risk_classifier_candidate.joblib",
+  "artifact_size_bytes": 108181,
+  "artifact_sha256": "7cc9fad5bd2e22201b5ffbe5b6107ef9adb2c659e77db98111e6e1b6c087b5c9",
+  "feature_set_version": "FeatureSetV1",
+  "dataset_id": "DS-TEST-77",
+  "training_timestamp": "2026-08-17T12:13:23.340062+00:00",
+  "target_name": "predicted_plant_congestion_target",
+  "features": [
+    "plant_code",
+    "customer_code",
+    "vehicle_code",
+    "ticket_volume_m3",
+    "plant_queue_avg_30d",
+    "customer_retention_avg_30d",
+    "dispatch_hour",
+    "dispatch_day_of_week"
+  ],
+  "algorithm": "RandomForestClassifier",
+  "hyperparameters": {
+    "n_estimators": 120,
+    "max_depth": 6,
+    "min_samples_leaf": 2,
+    "random_state": 42
+  },
+  "random_seed": 42,
+  "row_counts": {
+    "train": 2301,
+    "val": 618,
+    "holdout": 613
+  },
+  "metrics_train": {
+    "r2": null,
+    "mae": null,
+    "rmse": null,
+    "roc_auc": 0.7544,
+    "f1": 0.2659,
+    "precision": 0.8344,
+    "recall": 0.1581
+  },
+  "metrics_val": {
+    "r2": null,
+    "mae": null,
+    "rmse": null,
+    "roc_auc": 0.6761,
+    "f1": 0.2313,
+    "precision": 0.5254,
+    "recall": 0.1483
+  },
+  "metrics_holdout": {
+    "r2": null,
+    "mae": null,
+    "rmse": null,
+    "roc_auc": 0.612,
+    "f1": 0.1418,
+    "precision": 0.5135,
+    "recall": 0.0823
+  },
+  "gate_assessment": {
+    "roc_auc_pass": false,
+    "f1_pass": false,
+    "recall_pass": true,
+    "precision_pass": false,
+    "overall_pass": false
+  }
+}

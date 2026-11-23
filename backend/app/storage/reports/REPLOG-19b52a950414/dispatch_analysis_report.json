@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "execution_id": "REPLOG-19b52a950414",
+    "report_id": "erp_data_explorer",
+    "report_name": "ERP Data Report",
+    "generated_at": "2026-08-20T12:05:18.411282+00:00",
+    "requested_by": "SYSTEM"
+  },
+  "requested_scope": {
+    "plant_id": "ALL",
+    "customer_id": "ALL",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL"
+  },
+  "effective_scope": {
+    "plant_id": "ALL",
+    "customer_id": "ALL",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL",
+    "resolved_dataset_id": "DS-20260805-ALL",
+    "record_count": 3532,
+    "scope_fingerprint": "8dd3cba9040d31a770baaf26ff65afab2ebcb0ceaf7075bd32aee72e983e419a"
+  },
+  "scope_fingerprint": "8dd3cba9040d31a770baaf26ff65afab2ebcb0ceaf7075bd32aee72e983e419a",
+  "status": "NO_DATA",
+  "record_count": 0,
+  "kpis": {
+    "total_plants": 0,
+    "total_customers": 0,
+    "total_dispatches": 0,
+    "correlated_dispatches_count": 0
+  },
+  "records": [],
+  "exceptions": []
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "execution_id": "exec-sec-gen-1",
+    "report_id": "site_operations",
+    "report_name": "Site Operations Report",
+    "generated_at": "2026-08-21T09:46:58.675196+00:00",
+    "requested_by": "rate_user"
+  },
+  "requested_scope": {
+    "plant_id": "ALL",
+    "customer_id": "ALL",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL"
+  },
+  "effective_scope": {},
+  "scope_fingerprint": "",
+  "status": "NO_DATA",
+  "record_count": 0,
+  "kpis": {
+    "total_dispatches": 0,
+    "within_sla_count": 0,
+    "outside_sla_count": 0,
+    "compliance_pct": 0.0,
+    "violation_pct": 0.0,
+    "avg_holding_mins": 0.0,
+    "percentile_95_holding_mins": 0.0,
+    "max_holding_mins": 0.0,
+    "avg_retention_mins": 0.0,
+    "max_retention_mins": 0.0,
+    "avg_site_time_mins": 0.0
+  },
+  "delay_distribution": [],
+  "insights": [],
+  "records": []
+}

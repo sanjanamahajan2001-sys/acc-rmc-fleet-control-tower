@@ -1,0 +1,69 @@
+{
+  "model_name": "sla_breach_classifier",
+  "model_category": "Classification",
+  "candidate_model_version": "v1.0.0-candidate",
+  "promotion_status": "TRAINED_CANDIDATE",
+  "artifact_path": "/home/sanjana/fleet-operational-intelligence-platform/models/ml/sla_breach_classifier/sla_breach_classifier_candidate.joblib",
+  "artifact_size_bytes": 206554,
+  "artifact_sha256": "5c13ad9b4c01f435d0f216da7f8033c6405be80e9a84aad4d6784fe852ebcd17",
+  "feature_set_version": "FeatureSetV1",
+  "dataset_id": "DS-TEST-77",
+  "training_timestamp": "2026-08-17T12:13:06.755074+00:00",
+  "target_name": "predicted_sla_breach_target",
+  "features": [
+    "plant_code",
+    "customer_code",
+    "vehicle_code",
+    "ticket_volume_m3",
+    "plant_queue_avg_30d",
+    "customer_retention_avg_30d",
+    "dispatch_hour",
+    "dispatch_day_of_week"
+  ],
+  "algorithm": "RandomForestClassifier",
+  "hyperparameters": {
+    "n_estimators": 100,
+    "max_depth": 8,
+    "random_state": 42
+  },
+  "random_seed": 42,
+  "row_counts": {
+    "train": 2301,
+    "val": 618,
+    "holdout": 613
+  },
+  "metrics_train": {
+    "r2": null,
+    "mae": null,
+    "rmse": null,
+    "roc_auc": 0.8133,
+    "f1": 0.6884,
+    "precision": 0.7295,
+    "recall": 0.6517
+  },
+  "metrics_val": {
+    "r2": null,
+    "mae": null,
+    "rmse": null,
+    "roc_auc": 0.6911,
+    "f1": 0.6274,
+    "precision": 0.6263,
+    "recall": 0.6285
+  },
+  "metrics_holdout": {
+    "r2": null,
+    "mae": null,
+    "rmse": null,
+    "roc_auc": 0.6398,
+    "f1": 0.6106,
+    "precision": 0.5868,
+    "recall": 0.6364
+  },
+  "gate_assessment": {
+    "roc_auc_pass": false,
+    "f1_pass": false,
+    "recall_pass": false,
+    "precision_pass": true,
+    "overall_pass": false
+  }
+}

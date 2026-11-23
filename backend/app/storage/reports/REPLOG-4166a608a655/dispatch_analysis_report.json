@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "execution_id": "REPLOG-4166a608a655",
+    "report_id": "operational_intelligence",
+    "report_name": "Operational Intelligence Report",
+    "generated_at": "2026-08-20T09:44:51.341288+00:00",
+    "requested_by": "SYSTEM"
+  },
+  "requested_scope": {
+    "plant_id": "ACC_DHARGA",
+    "customer_id": "CUST_AARA_HOTELS",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL"
+  },
+  "effective_scope": {
+    "plant_id": "ACC_DHARGA",
+    "customer_id": "CUST_AARA_HOTELS",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL",
+    "resolved_dataset_id": "DS-20260805-ACC_DHARGA",
+    "record_count": 0,
+    "scope_fingerprint": "74282356bba75c088ab85e12ac2acb1b4d6e55a3f8ca3bd2b1ce0042e6173002"
+  },
+  "scope_fingerprint": "74282356bba75c088ab85e12ac2acb1b4d6e55a3f8ca3bd2b1ce0042e6173002",
+  "status": "COMPLETED",
+  "record_count": 1,
+  "kpis": {
+    "total_sites_evaluated": 1,
+    "total_trips": 10,
+    "avg_sri_score": 39.4,
+    "avg_swi_site": 53.8,
+    "avg_dpi_site": 0.0,
+    "avg_fui_site": 71.4,
+    "grade_a_sites_count": 0
+  },
+  "records": [
+    {
+      "rank": 1,
+      "site_id": "CUST_AARA_HOTELS",
+      "site_name": "AARA HOTELS",
+      "total_trips": 10,
+      "swi_site": 53.8,
+      "dpi_site": 0.0,
+      "fui_site": 71.4,
+      "sri_score": 39.4,
+      "grade": "GRADE_D"
+    }
+  ],
+  "exceptions": []
+}

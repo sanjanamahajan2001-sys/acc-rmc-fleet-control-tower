@@ -1,0 +1,124 @@
+import React from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { useAppStore } from '../store/app';
+import { usePermissions } from '../hooks/usePermissions';
+import { PlatformSectionKey } from '../types/auth';
+import {
+  Home,
+  Layers,
+  FileSearch,
+  Settings,
+  LayoutDashboard,
+  BarChart3,
+  Clock,
+  Zap,
+  Bell,
+  PlaySquare,
+  Activity,
+  Brain,
+  FileSpreadsheet,
+  Users,
+} from 'lucide-react';
+import { FleetCapacityLostBanner } from '../modules/operational_dashboard/components/FleetCapacityLostBanner';
+import { SiteQuickSummarySidebarPanel } from '../modules/site_dashboard/components/summary/SiteQuickSummarySidebarPanel';
+
+interface NavItem {
+  label: string;
+  to: string;
+  icon: React.ReactNode;
+  hidden?: boolean;
+  section?: PlatformSectionKey;
+}
+
+const navItems: NavItem[] = [
+  { label: 'Platform Home', to: '/', icon: <Home size={16} />, section: 'platform_home' },
+  { label: 'Site Dashboard', to: '/site-dashboard', icon: <LayoutDashboard size={16} />, section: 'site_dashboard' },
+  { label: 'Overall Dashboard', to: '/overall-dashboard', icon: <BarChart3 size={16} />, section: 'overall_dashboard' },
+  { label: 'Site Comparison', to: '/site-comparison', icon: <BarChart3 size={16} />, hidden: true },
+  { label: 'Dispatch Analysis', to: '/dispatch-analysis', icon: <Clock size={16} />, section: 'dispatch_analysis' },
+  { label: 'Dispatch Optimization', to: '/dispatch-optimization', icon: <Zap size={16} />, section: 'dispatch_optimization' },
+  { label: 'Operational Intelligence', to: '/operational-intelligence', icon: <Activity size={16} />, section: 'operational_intelligence' },
+  { label: 'Predictive Intelligence', to: '/predictive-intelligence', icon: <Brain size={16} />, section: 'predictive_intelligence' },
+  { label: 'Control Tower Actions', to: '/control-tower-actions', icon: <Zap size={16} />, section: 'control_tower_actions' },
+  { label: 'Alert Center', to: '/alerts', icon: <Bell size={16} />, section: 'alerts' },
+  { label: 'Timeline Replay', to: '/timeline-replay', icon: <PlaySquare size={16} />, hidden: true },
+  { label: 'Reports & Exports', to: '/reports', icon: <FileSpreadsheet size={16} />, section: 'reports' },
+  { label: /* 'ERP Import' */ 'Data Ingestion Hub', to: '/erp/import', icon: <Layers size={16} />, section: 'erp_import' },
+  { label: /* 'ERP Data Explorer' */ 'Data Explorer', to: '/erp/explorer', icon: <FileSearch size={16} />, section: 'erp_explorer' },
+  { label: 'Settings Center', to: '/settings', icon: <Settings size={16} />, section: 'settings' },
+  { label: 'User Management', to: '/settings/users', icon: <Users size={16} />, section: 'user_management' },
+];
+
+interface SidebarProps {
+  onNavigate?: () => void;
+}
+
+export const Sidebar: React.FC<SidebarProps> = ({ onNavigate }) => {
+  const { isSidebarCollapsed, toggleSidebar } = useAppStore();
+  const { canView } = usePermissions();
+  const location = useLocation();
+
+  const isOverallDashboard = location.pathname.includes('overall-dashboard');
+  const isSiteDashboard = location.pathname.includes('site-dashboard') || location.pathname === '/';
+
+  const visibleNavItems = navItems.filter(
+    (item) => !item.hidden && (!item.section || canView(item.section))
+  );
+
+  return (
+    <aside
+      className={`h-full border-r flex flex-col transition-all duration-200 ${isSidebarCollapsed ? 'w-16' : 'w-56'} w-full md:w-auto overflow-y-auto shrink-0 shadow-xs`}
+      style={{ backgroundColor: '#F4F6F9', borderColor: '#DCE2EA' }}
+    >
+      <div className="p-3 border-b flex items-center justify-between shrink-0" style={{ borderColor: '#DCE2EA' }}>
+        {!isSidebarCollapsed && (
+          <span className="text-[11px] font-bold tracking-wider text-slate-700 uppercase">
+            CONTROL TOWER
+          </span>
+        )}
+        <button
+          type="button"
+          onClick={toggleSidebar}
+          className="p-1 rounded hidden md:block transition hover:bg-slate-200 text-slate-500 hover:text-slate-800"
+        >
+          {isSidebarCollapsed ? '▶' : '◀'}
+        </button>
+      </div>
+      <nav className="flex flex-col gap-0.5 p-2 flex-1">
+        {visibleNavItems.map((item) => (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            end={item.to === '/'}
+            onClick={onNavigate}
+            className={({ isActive }) =>
+              `flex items-center gap-2.5 px-3 py-2 rounded-md text-xs transition-colors ${
+                isActive
+                  ? 'bg-blue-50/90 text-blue-950 border-l-[3px] border-l-blue-700 border border-blue-200/60 font-bold shadow-2xs'
+                  : 'text-slate-600 hover:bg-slate-200/70 hover:text-slate-900 font-medium border border-transparent'
+              }`
+            }
+          >
+            {({ isActive }) => (
+              <>
+                <span className={`shrink-0 ${isActive ? 'text-blue-700' : 'text-slate-500'}`}>{item.icon}</span>
+                {!isSidebarCollapsed && <span className="truncate">{item.label}</span>}
+              </>
+            )}
+          </NavLink>
+        ))}
+      </nav>
+
+      {/* Embedded Context Panel */}
+      {!isSidebarCollapsed && (
+        <div className="p-2 border-t border-slate-300 bg-slate-200/40">
+          {isOverallDashboard ? (
+            <FleetCapacityLostBanner />
+          ) : isSiteDashboard ? (
+            <SiteQuickSummarySidebarPanel />
+          ) : null}
+        </div>
+      )}
+    </aside>
+  );
+};

@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "execution_id": "REPLOG-607aba287378",
+    "report_id": "dispatch_analysis",
+    "report_name": "Dispatch Analysis Report",
+    "generated_at": "2026-08-21T12:24:11.104099+00:00",
+    "requested_by": "SYSTEM"
+  },
+  "requested_scope": {
+    "plant_id": "ALL",
+    "customer_id": "CUST_A_K_MEHTA",
+    "operation_date": "2025-08-15",
+    "shift": "ALL",
+    "dataset_type": "ALL"
+  },
+  "effective_scope": {
+    "plant_id": "ALL",
+    "customer_id": "CUST_A_K_MEHTA",
+    "operation_date": "2025-08-15",
+    "shift": "ALL",
+    "dataset_type": "ALL",
+    "resolved_dataset_id": "DS-20250815-ALL",
+    "record_count": 4,
+    "scope_fingerprint": "e10bb6b90d66b1511183abb1e517e59d939955e8751aeb4d16b22a830be5820b"
+  },
+  "scope_fingerprint": "e10bb6b90d66b1511183abb1e517e59d939955e8751aeb4d16b22a830be5820b",
+  "status": "COMPLETED",
+  "record_count": 4,
+  "kpis": {
+    "total_dispatches": 4,
+    "on_schedule_dispatches": 0,
+    "sla_compliance_pct": 0.0,
+    "avg_interval_mins": 124.1,
+    "interval_variance_mins": 0.0,
+    "das_score_pct": 25.0,
+    "completed_dispatches": 4,
+    "avg_loading_mins": 46.5,
+    "avg_transit_mins": 42.8,
+    "recommended_interval_mins": 105.5,
+    "cadence_status": "Critical",
+    "potential_delay_reduction_hrs": 0.6
+  },
+  "records": [
+    {
+      "dispatch_id": "869ed2c8-45fe-49b7-af47-9efd99e5ec66",
+      "dispatch_number": "SYNTH-TCK-TRIP-1561",
+      "dispatch_date": "2025-07-17",
+      "time_out": "11:38:29",
+      "time_in": "17:40:37",
+      "plant_code": "ACC_DHARGA",
+      "customer_code": "CUST_A_K_MEHTA",
+      "customer_name": "A K MEHTA - v2",
+      "vehicle_id": "GA11T0829",
+      "driver_name": "DEFAULT_DRIVER",
+      "interval_mins": 0.0,
+      "variance_mins": 0.0,
+      "holding_mins": 40.0,
+      "retention_mins": 2.0,
+      "sla_status": "DELAYED",
+      "trip_status": "COMPLETED",
+      "cadence_recommendation": "Adjust Departure Pacing"
+    },
+    {
+      "dispatch_id": "f7b5ff7d-40c7-4a08-b882-906338a5f627",
+      "dispatch_number": "SYNTH-TCK-TRIP-3186",
+      "dispatch_date": "2025-07-20",
+      "time_out": "14:37:23",
+      "time_in": "20:03:31",
+      "plant_code": "ACC_KUNDAIM",
+      "customer_code": "CUST_A_K_MEHTA",
+      "customer_name": "A K MEHTA - v2",
+      "vehicle_id": "GA07F7631",
+      "driver_name": "DEFAULT_DRIVER",
+      "interval_mins": 4498.9,
+      "variance_mins": 4483.9,
+      "holding_mins": 81.0,
+      "retention_mins": 4.0,
+      "sla_status": "DELAYED",
+      "trip_status": "COMPLETED",
+      "cadence_recommendation": "Adjust Departure Pacing"
+    },
+    {
+      "dispatch_id": "e5c59496-123b-4046-a3b1-c789421fd711",
+      "dispatch_number": "SYNTH-TCK-TRIP-1628",
+      "dispatch_date": "2025-08-12",
+      "time_out": "09:12:42",
+      "time_in": "13:03:44",
+      "plant_code": "ACC_DHARGA",
+      "customer_code": "CUST_A_K_MEHTA",
+      "customer_name": "A K MEHTA - v2",
+      "vehicle_id": "GA11T0829",
+      "driver_name": "DEFAULT_DRIVER",
+      "interval_mins": 32795.3,
+      "variance_mins": 32780.3,
+      "holding_mins": 16.0,
+      "retention_mins": 42.0,
+      "sla_status": "DELAYED",
+      "trip_status": "COMPLETED",
+      "cadence_recommendation": "Adjust Departure Pacing"
+    },
+    {
+      "dispatch_id": "5622f7de-947d-4a87-abb6-8519569a7238",
+      "dispatch_number": "SYNTH-TCK-TRIP-2188",
+      "dispatch_date": "2025-08-12",
+      "time_out": "11:16:50",
+      "time_in": "14:22:28",
+      "plant_code": "ACC_DHARGA",
+      "customer_code": "CUST_A_K_MEHTA",
+      "customer_name": "A K MEHTA - v2",
+      "vehicle_id": "GA11T0839",
+      "driver_name": "DEFAULT_DRIVER",
+      "interval_mins": 124.1,
+      "variance_mins": 109.1,
+      "holding_mins": 49.0,
+      "retention_mins": 10.0,
+      "sla_status": "DELAYED",
+      "trip_status": "COMPLETED",
+      "cadence_recommendation": "Adjust Departure Pacing"
+    }
+  ],
+  "delay_categories": [
+    {
+      "category_name": "Site Queue Buildup",
+      "delay_hours": 1.8,
+      "percentage_contribution": 0.3,
+      "affected_trips_count": 3,
+      "severity": "MEDIUM",
+      "recommendation": "Stagger plant batching departure intervals"
+    },
+    {
+      "category_name": "Unload Sign-off Delay",
+      "delay_hours": 0.5,
+      "percentage_contribution": 0.1,
+      "affected_trips_count": 1,
+      "severity": "MEDIUM",
+      "recommendation": "Enforce 10-minute customer retention SLA"
+    },
+    {
+      "category_name": "Sequence Variance Delay",
+      "delay_hours": 622.9,
+      "percentage_contribution": 99.6,
+      "affected_trips_count": 3,
+      "severity": "MEDIUM",
+      "recommendation": "Standardize departure gap to 12–15 minutes"
+    }
+  ],
+  "insights": []
+}

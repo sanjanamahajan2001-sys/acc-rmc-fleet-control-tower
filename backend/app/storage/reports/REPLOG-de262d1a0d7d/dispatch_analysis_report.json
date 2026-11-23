@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "execution_id": "REPLOG-de262d1a0d7d",
+    "report_id": "fleet_operations",
+    "report_name": "Fleet Operations Report",
+    "generated_at": "2026-08-20T09:06:11.603943+00:00",
+    "requested_by": "SYSTEM"
+  },
+  "requested_scope": {
+    "plant_id": "ACC_VASCO",
+    "customer_id": "CUST_ARVINDA_ELECTRICALS",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL"
+  },
+  "effective_scope": {
+    "plant_id": "ACC_VASCO",
+    "customer_id": "CUST_ARVINDA_ELECTRICALS",
+    "operation_date": "2026-08-05",
+    "shift": "ALL",
+    "dataset_type": "ALL",
+    "resolved_dataset_id": "DS-20260805-ACC_VASCO",
+    "record_count": 0,
+    "scope_fingerprint": "9ee2db2078140088f750a1a0e1b1e27ee4888d3f0fa2f2db4901c3dc4ea94504"
+  },
+  "scope_fingerprint": "9ee2db2078140088f750a1a0e1b1e27ee4888d3f0fa2f2db4901c3dc4ea94504",
+  "status": "COMPLETED",
+  "record_count": 2,
+  "kpis": {
+    "total_active_vehicles": 24,
+    "vehicles_with_dispatches": 2,
+    "idle_vehicles": 22,
+    "fleet_utilization_pct": 8.3,
+    "avg_dispatches_per_vehicle": 1.0,
+    "avg_cycle_time_mins": 68.5
+  },
+  "records": [
+    {
+      "vehicle_plate": "GA11T0832",
+      "dispatch_count": 1,
+      "total_volume_m3": 7.5,
+      "avg_holding_mins": 23.0,
+      "avg_unloading_mins": 21.0,
+      "avg_retention_mins": 1.0,
+      "utilization_pct": 8.3,
+      "status": "ATTENTION"
+    },
+    {
+      "vehicle_plate": "GA11T0833",
+      "dispatch_count": 1,
+      "total_volume_m3": 7.5,
+      "avg_holding_mins": 19.0,
+      "avg_unloading_mins": 20.0,
+      "avg_retention_mins": 2.0,
+      "utilization_pct": 8.3,
+      "status": "OPTIMAL"
+    }
+  ],
+  "alerts": [
+    {
+      "vehicle_plate": "GA11T0832",
+      "alert_type": "Excessive Holding Queue Delay",
+      "severity": "HIGH",
+      "message": "Vehicle averaged 23.0 min site holding delay."
+    }
+  ],
+  "exceptions": []
+}
