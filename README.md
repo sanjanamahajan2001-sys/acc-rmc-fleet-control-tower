@@ -1,4 +1,4 @@
-# Fleet Control Tower — Ready-Mix Concrete Logistics & Operational Intelligence Platform
+<img width="1916" height="870" alt="image" src="https://github.com/user-attachments/assets/abe95cc7-3e1c-472f-8f19-98888cee9362" /><img width="1917" height="870" alt="image" src="https://github.com/user-attachments/assets/0b21fc36-6e75-4d01-92ff-7ce6d5d5ffd3" /><img width="1917" height="865" alt="image" src="https://github.com/user-attachments/assets/bb332a6a-121e-4e9a-8ecd-3415ce7bbcf7" /># Fleet Control Tower — Ready-Mix Concrete Logistics & Operational Intelligence Platform
 
 [![Platform Version](https://img.shields.io/badge/version-1.2.1-blue.svg)](https://192.46.210.48/demo-fleet)
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB.svg?logo=python&logoColor=white)](https://python.org)
@@ -127,6 +127,21 @@ sequenceDiagram
     App-->>Dispatcher: Displays ranked plant matrix & shortest road ETA corridor
     Dispatcher->>Plant: Dispatches relief batch from nearest accessible sister plant
 ```
+
+<img width="1917" height="870" alt="image" src="https://github.com/user-attachments/assets/2360ecf9-bb9c-4afe-9d21-b231d9f994a8" />
+<img width="1917" height="865" alt="image" src="https://github.com/user-attachments/assets/31e80ddc-63aa-4b9d-92f5-2e2b69a28341" />
+<img width="1917" height="866" alt="image" src="https://github.com/user-attachments/assets/febdc59e-f05f-44ad-b2e7-f807d4788c51" />
+<img width="1917" height="870" alt="image" src="https://github.com/user-attachments/assets/4031256e-87b0-464b-ba8e-1ac01cc1be6c" />
+<img width="1917" height="865" alt="image" src="https://github.com/user-attachments/assets/170f5ebc-5a84-4c8b-a99d-34ddce912e83" />
+<img width="1915" height="867" alt="image" src="https://github.com/user-attachments/assets/19cdc49c-136e-46fa-8b97-50b2326dbd31" />
+<img width="1917" height="867" alt="image" src="https://github.com/user-attachments/assets/b08d8959-f7c6-4581-9c84-a6927d76c754" />
+<img width="1916" height="870" alt="image" src="https://github.com/user-attachments/assets/63a643e2-c38d-4aad-bb35-6c2fff518742" />
+<img width="1917" height="966" alt="image" src="https://github.com/user-attachments/assets/81a6aad0-11cb-4f4e-a6de-e875f80ce3de" />
+<img width="1917" height="867" alt="image" src="https://github.com/user-attachments/assets/78009c73-7b82-4a0e-886e-33371a84c5a7" />
+<img width="1917" height="865" alt="image" src="https://github.com/user-attachments/assets/5b04f98b-8d15-49fa-9fe4-e0dd4467de85" />
+<img width="1917" height="867" alt="image" src="https://github.com/user-attachments/assets/eb01d128-1770-4de1-9ce0-1ad90148eec8" />
+<img width="1917" height="872" alt="image" src="https://github.com/user-attachments/assets/c205e79e-efd9-4e73-bbb4-d066252b22a4" />
+
 
 ### 5. Closed-Loop Action Workflow & Governed Financial Lineage
 * **State Machine Lifecycle (`action_execution_service.py`):** Governs dispatcher directives through an auditable progression:
