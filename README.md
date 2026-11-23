@@ -1,4 +1,4 @@
-<img width="1916" height="870" alt="image" src="https://github.com/user-attachments/assets/abe95cc7-3e1c-472f-8f19-98888cee9362" /><img width="1917" height="870" alt="image" src="https://github.com/user-attachments/assets/0b21fc36-6e75-4d01-92ff-7ce6d5d5ffd3" /><img width="1917" height="865" alt="image" src="https://github.com/user-attachments/assets/bb332a6a-121e-4e9a-8ecd-3415ce7bbcf7" /># Fleet Control Tower — Ready-Mix Concrete Logistics & Operational Intelligence Platform
+# Fleet Control Tower — Ready-Mix Concrete Logistics & Operational Intelligence Platform
 
 [![Platform Version](https://img.shields.io/badge/version-1.2.1-blue.svg)](https://192.46.210.48/demo-fleet)
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB.svg?logo=python&logoColor=white)](https://python.org)
@@ -141,7 +141,9 @@ sequenceDiagram
 <img width="1917" height="865" alt="image" src="https://github.com/user-attachments/assets/5b04f98b-8d15-49fa-9fe4-e0dd4467de85" />
 <img width="1917" height="867" alt="image" src="https://github.com/user-attachments/assets/eb01d128-1770-4de1-9ce0-1ad90148eec8" />
 <img width="1917" height="872" alt="image" src="https://github.com/user-attachments/assets/c205e79e-efd9-4e73-bbb4-d066252b22a4" />
-
+<img width="1916" height="870" alt="image" src="https://github.com/user-attachments/assets/abe95cc7-3e1c-472f-8f19-98888cee9362" />
+<img width="1917" height="870" alt="image" src="https://github.com/user-attachments/assets/0b21fc36-6e75-4d01-92ff-7ce6d5d5ffd3" />
+<img width="1917" height="865" alt="image" src="https://github.com/user-attachments/assets/bb332a6a-121e-4e9a-8ecd-3415ce7bbcf7" />
 
 ### 5. Closed-Loop Action Workflow & Governed Financial Lineage
 * **State Machine Lifecycle (`action_execution_service.py`):** Governs dispatcher directives through an auditable progression:
